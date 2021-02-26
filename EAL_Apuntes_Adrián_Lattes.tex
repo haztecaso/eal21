@@ -1,0 +1,888 @@
+\documentclass[10pt, spanish]{report}
+\usepackage[none]{hyphenat}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+\usepackage{geometry}
+\def \margin {20mm}
+\geometry{
+    a4paper,
+    left=\margin,
+    right=\margin,
+    top=\margin,
+    bottom=\margin
+}
+
+\usepackage{lmodern}
+\usepackage{xfrac}
+
+\usepackage{enumitem}
+\renewcommand{\labelenumi}{(\theenumi)}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+\usepackage{multicol}
+
+% \setitemize{label=---,leftmargin=0.6cm}
+
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{marginnote}
+
+%For left superscripts
+\usepackage{leftidx}
+
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+\vspace*{50 pt}%
+{\setlength{\parindent}{0pt} \raggedright \normalfont
+\bfseries\huge\thechapter.\ #1
+\par\nobreak\vspace{1em}}}
+\makeatother
+
+% Theorems
+\usepackage{amsthm}
+\usepackage{thmtools}
+\newtheorem*{lema}{Lema}
+\newtheorem*{prop}{Proposición}
+\newtheorem*{tma}{Teorema}
+\newtheorem*{cor}{Corolario}
+\theoremstyle{definition}
+\newtheorem*{defin}{Definición}
+\newtheorem*{notacion}{Notación}
+% \newtheoremstyle{custom}{\topsep}{\topsep}{}{}{}{.}{ }{}
+% \theoremstyle{custom}
+\newtheorem*{ej}{Ejemplo}
+\newtheorem*{ejer}{Ejercicio}
+\newenvironment{sol}{\textit{Solución.}}{\hfill$\square$}
+% \theoremstyle{remark}
+\newtheorem*{obs}{Observación}
+\newtheorem*{nota}{Nota}
+
+% No indentation: \setlength\parindent{0pt}
+\usepackage{parskip}
+
+\let\emptyset\varnothing
+
+% Custom math commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\let\L\undefined
+\newcommand{\L}{\mathbb{L}}
+
+\newcommand{\id}{\text{id}}
+\newcommand{\im}[1]{\operatorname{im}\left(#1\right)}
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01}
+
+\newcommand{\fecha}[1]{\marginpar{\underline{#1}}}
+% \newcommand{\fecha}[1]{{\hfill\large{#1/2021}}\\[-0.8em]\noindent\rule{17cm}{0.1mm}}
+\newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
+\newcommand{\revisar}{\fbox{¡Revisar!}}
+
+\title{Ecuaciones algebraicas}
+\author{Apuntes de Adrián Lattes}
+\date{2021}
+
+\begin{document}
+\maketitle
+
+\chapter{Extensiones de cuerpos}
+\fecha{15/02}
+\section{Raíces de polinomios y extensiones de cuerpos}
+
+\begin{defin}
+    Decimos que un anillo unitario y conmutativo $(\F,+,*)$ es un cuerpo si para
+    todo $a\in \F\setminus\{0\}$ existe $a^{-1}\in \F\setminus\{0\}$ tal que $a*
+    a^{-1}=1$ y $1\neq 0$.
+\end{defin}
+
+\begin{obs}
+    Con la definición anterior, el anillo $\{0\}$ no es un cuerpo.
+\end{obs}
+
+\begin{prop}
+    Si $\F$ es un cuerpo sus únicos ideales son $\left\{ 0 \right\}$ y $\F$.
+\end{prop}
+\begin{proof}
+    Sea $I\subseteq \F$ es un ideal distinto de $\left\{ 0 \right\}$ y $a\in
+    I\setminus\{0\}$. Entonces todo $b\in\F$ se puede escribir como
+    $b=(ba^{-1})a\in I$, de donde $\F\subseteq I$ y por tanto $I=\F$.
+\end{proof}
+
+\begin{defin}
+    Un homomorfismo de anillos unitarios $f:A\to A'$ es una aplicación tal que
+    para todos $a,b\in A$:
+    \begin{enumerate}
+        \item $f(a+a')=f(a)+f(a')$
+        \item $f(a*a')=f(a)*f(a')$
+        \item $f(1_A)=f(1_{A'})$
+    \end{enumerate}
+\end{defin}
+
+\begin{lema}
+    Si $\F$ y $\F'$ son dos cuerpos y $f: \F\to\F'$ es un homomorfismo de
+    anillos (unitarios), entonces $f$ es inyectivo.
+\end{lema}
+\begin{proof}
+    Sabemos por definición que $f(1)=1$, por lo que $1_\F\neq \ker{f}$ y
+    $\ker{f}\neq \F$. Como además $\ker{f}$ es un ideal de $\F$ se tiene que
+    $\ker{f}=\{0\}$ lo que equivale a que $f$ sea inyectivo.
+\end{proof}
+
+\begin{defin}
+    Sean $\K$ y $\L$ cuerpos y $f:\K\to\L$ un homomorfismo de anillos. Decimos
+    que $f$ define una extensión de $\K$ en $\L$.
+\end{defin}
+
+Por el lema tenemos que $\K\approx f(\K)\subseteq \L$, por lo que identificaremos
+$\K$ con $f(\K)$ y escribiremos $\K\subseteq \L$.
+
+\begin{ej}
+    $\Q\subseteq\R$, $\R\subseteq\C$.
+\end{ej}
+
+\fecha{16/02}
+
+\begin{ej}
+    Sea $\F$ un cuerpo, consideramos el anillo de polinomios $\F[x]$ y
+    $K$ el cuerpo de fracciones de $\F[x]$:
+    \[K=\left\{ \frac{p}{q}\mid p,q\in \F[x], q\neq 0 \right\} \]
+    donde $\frac{p}{q} = \frac{p'}{q'}$ si $pq'=p'q$.
+    En $K$ definimos la suma y producto como
+
+    \begin{itemize}
+        \item $\frac{p}{q}+\frac{p'}{q'}=\frac{pq'+p'q}{pq}$
+        \item $\frac{p}{q}*\frac{p'}{q'}=\frac{pp'}{qq'}$
+    \end{itemize}
+
+\end{ej}
+
+\begin{obs}
+    $\frac{p}{q}$ es la clase de equivalencia de $(p,q)$ via la relación
+    $(p,q)\sim(p',q')$ donde $(p,q),(p',q')\in K[x]\times(K[x]\setminus\{0\})$
+\end{obs}
+
+\begin{notacion}
+    Sea $\K$ n cuerpo denotamos su cuerpo de fracciones como $\K(x)$.
+\end{notacion}
+
+\begin{ej}
+    Si $\F=\Q$, $\frac{2+x+x^3}{1+x^2}\in Q(x)$
+\end{ej}
+
+\begin{ejer}
+    Sean dos cuerpos $\K$ y $\F$ la aplicación $j:\F\to\K$ tal que $a\mapsto
+    \frac{a}{1}$ es un homomorfismo que define la extensión $F\subseteq K$.
+\end{ejer}
+
+
+\subsection{Construcción de $\C$ a partir de $\R$}
+
+Sea $\C =\left\{ a+bi\mid a,b\in\R, i^2 = -1 \right\}$ veamos que $\C\cong
+\frac{\R[x]}{I}$ donde $I=\langle x^2 +1\rangle=\left\{(x^2+1)g\mid g\in\R[x]
+\right\}$. La relación de congruencia está definida para $p,q\in\R[x]$ como
+\[p\sim_I q \Leftrightarrow p-q\in I\Leftrightarrow x^2+1\mid p-q.\]
+
+Dado $p\in\R[x]$ se puede escribir como $p=h(x)*(x^2+1)+bx+a$, de donde
+$p\sim_I bx+a=r(x)$ y su clase de equivalencia es $p+I=\left\{ p\mid p-q\in
+I\right\}=(a+bx)I$. Con esto vemos que el conjunto cociente
+\[\frac{\R[x]}{I}=\left\{ p+I\mid p\in\R[x] \right\} \]
+es un anillo con las operaciones
+\begin{itemize}
+    \item $(p+I)+(p'+I) = (p+p')+I$
+    \item $(p+I)*(p'+I) = (p*p')+I$
+\end{itemize}
+
+\begin{obs}
+    La aplicación $j:\R\to\frac{\R[x]}{I}$ tal que $a\mapsto a+I$ es un
+    homomorfismo inyectivo de anillos.
+\end{obs}
+
+En lo siguiente denotamos la clase $a+I$ por $a$, para todo $a\in\R$ y
+escribimos $\alpha = x+I$. Con esto la clase de un elemento $a+bx$ es
+\[a+bx+I=a+I+(b+I)*(\alpha+I)=a+b\alpha\]
+y las operaciones
+\begin{itemize}
+    \item $(a+b\alpha)+(a'+b'\alpha)=a+a'+(b+b')\alpha$
+    \item $(a+b\alpha)*(a'+b'\alpha)=aa'+(ab'+a'b)\alpha+bb'\alpha^2$
+\end{itemize}
+Ahora $\alpha^2=(x+I)^2=x^2+I$ y $x^2=1(x^2+1)=-1$ por lo que $\alpha^2=x^2+I
+=-1+I=-1$
+
+Con esto tenemos que la aplicación $\frac{\R[x]}{I}\to \C$ tal que
+$a+b\alpha\mapsto a+bi$ es un isomorfismo.
+
+\subsection{El anillo cociente $\K[x]/\left<f\right>$}
+
+Sea ahora $\K$ un cuerpo, $f\in\K[x]$ de grado $n\geq 1$ e $I=\langle f\rangle=
+\left\{ g*f\mid g\in\K[x] \right\}$, consideramos la congruencia módulo $I$:
+\[p\sim_I q\Leftrightarrow p-q\in I \Leftrightarrow f\mid(p-q)\]
+donde $p,q\in\K[x]$. La clase de equivalencia de $p\in\K[x]$ es
+\[p+I:=\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}.\]
+
+Se tiene entonces que $\frac{K[x]}{U}=\left\{ p+I\mid p\in\K[x] \right\}$ es un
+anillo unitario y conmutativo con las operaciones definidas entre los
+representantes. Así
+\[\frac{K[x]}{I}=\left\{ a_0+a_1x+\ldots+a_{n-1}x^{n-1}+I\mid a_0,\ldots,a_{n-1}
+\in\K \right\}\]
+donde las $a_i$ son las clases de los restos de dividir por $f$ y $n=\deg{f}$.
+Si denotamos $a+I$ por $a$ para todo $a\in\K$ y $x+I$ por $\alpha$ podemos
+escribir
+\[\frac{K[x]}{I}=\left\{ a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}\mid a_0,\ldots,a_{n-1}
+\in\K \right\}.\]
+
+
+Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$:
+\begin{equation*}
+    \begin{split}
+        f(\alpha) &=c_0+c_1\alpha+\ldots+c_n\alpha^n
+              =c_0+I+(c_1+I)(x+I)+\ldots+(c_n+I)(x+I)^n \\
+                  &=(c_0+c_1x+\ldots+c_n+x^n)+I=f+I=0+I.
+    \end{split}
+\end{equation*}
+
+\fecha{17/02}
+\begin{defin}
+    Un anillo $A$ es íntegro si para todos $a,b\in A$ con $a\neq 0, b\neq 0$
+    entonces $ab\neq 0$.
+\end{defin}
+\begin{prop}
+    Sea $\K$ un cuerpo y $f\in \K$ de grado $n\geq1$. Son equivalentes
+    \begin{enumerate}
+        \item $\frac{\K[t]}{\left< f \right>}$ es un anillo íntegro.
+        \item $\frac{\K[t]}{\left< f\right>}$ es un cuerpo.
+        \item $f$ es irreducible.
+    \end{enumerate}
+\end{prop}
+\begin{proof}\hspace{1em}
+    \begin{itemize}
+        \item[(2)$\implies$(1)] Todo cuerpo es anillo íntegro.
+        \item[(1)$\implies$(3)] Si $f=g*h$ con $\deg{f}>\deg{g},\deg{h}$ y sea
+            $\alpha = x+\left< f \right> $ se tiene
+            $f(\alpha)=0=g(\alpha)h(\alpha)$.
+            Ahora $g+\left< f \right> = g(\alpha) \neq 0$ ya que $f$ divide a
+            $g$ y análogamente $h+\left< f \right> = h(\alpha)\neq 0$.
+
+            Por tanto $A=\frac{\K[t]}{\left< f \right> }$ no es íntegro.
+        \item[(3)$\implies$(2)] Sea $g\in \K[t]$  tal que $g+\left< f \right>
+            =g(\alpha)\neq 0$. Vemos que $\exists(g(\alpha))^{-1}$ en
+            $A=\frac{\K[t]}{\left< f \right> }$. Como $f$ es irreducible y
+            $f\not|g \implies \gcd(f,g)=1$. En $\K[t]$ tenemos la identindad de
+            Bézout (gracias a que $\K$ es cuerpo), por lo que existen $p,q\in
+            \K[t]$ tales que $pf+qg=1$.
+            Ahora, como $f(\alpha)=0$, $q(\alpha)=q+\left< f \right>$  es el
+            inverso de $g(\alpha)=g+\left< f \right>$ ya que $1=q(\alpha)
+            g(\alpha)$.
+    \end{itemize}
+\end{proof}
+\begin{cor}
+    Sean $\K$ un cuerpo y $f\in\K[t]$ irreducible, existe una extensión
+    $\K\subseteq\L$ y $\alpha\in\L$ tales que $f(\alpha)=0$.
+\end{cor}
+\begin{proof}
+    Tomo $\L=\frac{\K[t]}{\left< f \right> }$ y $\alpha=t+\left< f \right> $ y
+    aplico la proposición.
+\end{proof}
+\begin{ej}
+    Sea $f=t^2-2\in \Q[t]$. Si $\alpha=\sqrt{2}$, $f$  tiene una raíz en $\R$ y
+    $f=(t-\sqrt{2})(t+\sqrt{2})$ en $\R[t]$.
+\end{ej}
+\begin{defin}
+    Sea $\K$ un cuerpo y $f\in\K[t]$, se dice que $f$ se escinde sobre $K$ (o se
+    descompone totalmente sobre $\K$) si existen $\alpha_1,\ldots,\alpha_n\in\K$
+    y $a\in\K$ tales que
+    \[f=a(t-\alpha_1)*\ldots*(t-\alpha_n)\]
+\end{defin}
+\begin{obs}
+    La condición de la definición es equivalente a que $f$ tenga todas sus
+    raíces en $\K$. Es decir, todos los factores irreducibles de $f$ en $\K[t]$
+    tienen grado $1$.
+\end{obs}
+\begin{tma}
+    Sea $\K$ un cuerpo y $f\in\K[t]$ de grado $n\geq1$. Entonces existe una
+    extensión $\K\subseteq L$ tal que $f$ se escinde sobre $L$.
+\end{tma}
+\begin{proof}
+    Por inducción sobre $n=\deg{f}$:
+    \begin{itemize}
+        \item Si $n=1$, $f=a+bt$ con $b\neq 0$ y $f=b(\frac{a}{b}+t)$ y
+            $-\frac{a}{b}$ es raíz de $f$.
+        \item Supongamos ahora que el resultado es cierto para polinomios de
+            grado $n-1$. Como $\K[t]$ es D.F.U. puedo expresar $f$
+            como producto de irreducibles: $f=f_1*\ldots*f_s$ con $f_i\in\K[t]$
+            irreducibles. Por el corolario existe una extensión $\K\subseteq\L_1$
+            tal que existe $\alpha_1\in\L_1$ tal que $f_1(\alpha_1)=0$ lo que
+            equivale a que $f_1=(t-\alpha_1)*g$ en $\L_1[t]$.
+
+            Ahora $f=(t-\alpha_1)*g*f_2*\ldots*f_s$ en $\L_1[t]$ donde
+            $h=g*f_2*\ldots f_s\in\L_1[t]$ tiene $\deg{h}=n-1$. Por tanto,
+            aplicando la hipótesis de inducción, se tiene que existe una
+            extensión $\L_1\subseteq\L$ tal que $h$ se escinde sobre $\L$, de
+            donde tenemos que $f$ se escinde sobre $\L$.
+    \end{itemize}
+\end{proof}
+\begin{ej}
+    Sea $f=t^4-2$ entonces
+    \[f=(t-\sqrt[4]{2})(t+\sqrt[4]{2})(t-i\sqrt[4]{2})(t+i\sqrt[4]{2})\]
+    lo que $f$ se escinde sobre $\C$.
+\end{ej}
+\begin{tma}[fundamental del Álgebra]
+    Si $f\in \C[t]$ de grado $n$, entonces $f$ se escinde sobre $\C$.
+\end{tma}
+\begin{defin}
+    Un cuerpo $\K$ es algebraicamente cerrado si todo polinomio $f\in\K[t]$ de
+    grado $\geq1$ se escinde sobre $\K$.
+\end{defin}
+\begin{ej}
+    $\C$ es algebraicamente cerrado.
+\end{ej}
+\begin{ej}
+    Sean $\K=\frac{\Z}{2\Z}=\left\{0,1\right\}$ y $f=t^3+t+1\in\K[t]$. Como
+    $\deg{f}=3$ y no tiene factores de grado 1 (no tiene raíces en $\K$) tenemos
+    que $f$ es irreducible en $\K[t]$. Además
+    \[\L=\frac{\K[t]}{\left< f \right> }=\left\{ a_0+a_1\alpha+a_2\alpha^2\mid
+    \alpha=t+\left< f \right>,\alpha_i\in\K, f(\alpha)=\alpha^3+\alpha+1=0 \right\}\]
+    y como $\K$ tiene característica 2
+    \[0=f(\alpha)^2=(\alpha^3+\alpha+1)^2=(\alpha^3)^2+\alpha^2+1=(\alpha^2)^3+\alpha^2+1=f(\alpha^2)\]
+    y de forma análoga $0=f(\alpha)^4=f(\alpha^4)$, por lo que $f$ se escinde
+    sobre $\L$.
+\end{ej}
+
+\fecha{18/02}
+\subsection{Elementos algebraicos y transcendentes}
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión de cuerpos y $\alpha\in\L$.
+    \begin{itemize}
+        \item $\alpha\in \L$ es algebraico sobre $\K$ si existe $f\in\K[t]$ no
+            nulo tal que $f(\alpha)=0$.
+        \item $\alpha\in \L$ es transcendente sobre $\K$ si $\alpha$ no es
+            algebraico sobre $\K$.
+    \end{itemize}
+    Si $\alpha\in\C$ es algebraico sobre $\Q$ decimos simplemente que $\alpha$
+    es un número algebraico.
+\end{defin}
+
+\begin{ej}\hspace{0pt}
+    \begin{itemize}
+        \item $\sqrt{3}$ es algebraico sobre $\Q$ ya que es raíz de $t^2-3\in\Q[t]$
+        \item $i$ es algebraico sobre $\R$ ya que es raíz de $t^2+1\in \R[t]$
+            (también es algebraico sobre $\Q$).
+    \end{itemize}
+\end{ej}
+
+\begin{tma}
+    Los números $\pi$ y $e\in\R$ son trascendentes sobre $\Q$.
+\end{tma}
+
+\begin{ej}
+    Sea $\K$ un cuerpo y $\L=\K(x)$ el cuerpo de fracciones del anillo de
+    polinomios $\K[x]$. Entonces $x$ es trascendente sobre $\K$.
+\end{ej}
+
+\begin{proof}
+    Supongamos que exista $f=a_0+a_1t+\ldots+a_nt^n\in\K[t]$ con $n\geq1$ tal
+    que $f(x)=a_0+a_1x+\ldots+a_nx^n=0$ en $\L=\K(x)$. Esto pasa si y solo sí el
+    polinomio $f(x)\in\K[x]$ es el polinomio nulo: $a_0=a_1=\ldots=a_n=0$. Por
+    tanto $x$ no es algebraico sobre $\K$.
+\end{proof}
+
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$. El
+    polinomio mínimo de $\alpha$ sobre $\K$ es el polinomio mónico de menor
+    grado en $\K[t]$ que tiene a $\alpha$ como raíz. Lo denotaremos por
+    $m_{\alpha,\K}$
+\end{defin}
+
+\begin{ej}
+    $x^2-3=m_{\sqrt{3},\Q}$ y $x^2+1=m_{i,\Q}$ ya que $\sqrt{3},i\not\in\Q$ y el
+    polinomio mínimo no puede tener grado 1.
+\end{ej}
+
+\begin{prop}\hspace{0pt}
+    \begin{enumerate}
+        \item El polinomio mínimo $m_{\alpha,\K}$ es irreducible en $\K[t]$.
+        \item Si $g\in \K[t]$ es tal que $g(\alpha)=0$ entonces $m_{\alpha,\K}$
+            divide a $g$.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item Sea $n=\deg{m_{\alpha,\K}}$. Supongamos que $m_{\alpha,\K}=f*h$ en
+            $\K[t]$. Evaluando en $\alpha$:
+            \[m_{\alpha,\K(\alpha)}=0=f(\alpha)g(\alpha)\text{ en }\L.\]
+            Por tanto $f(\alpha)=0$ o $h(\alpha)=0$ al ser $\L$
+            íntegro. Supongamos que $f(\alpha)=0$. Por definición de polinomio
+            mínimo $\deg{f}\geq\deg{m_{\alpha,\K}}$ y como $\deg{f}\leq
+            \deg{m_{\alpha,\K}}$ ya que $f\mid m_{\alpha,\K}$ deducimos que
+            $\deg{f}=\deg{m_{\alpha,\K}}$ y $\deg{h}=0$, por lo que
+            $h\in\K\setminus\{0\}$ de donde $m_{\alpha,\K}$ es irreducible.
+        \item Si $g\in\K[t]$ y $g(\alpha)=0$ entonces dividiendo $g$ por
+            $m_{\alpha,\K}$ obtenemos $q,r\in\K[t]$ tales que \[g=q*m_{\alpha,
+            \K}+r\] con $\deg{r}<\deg{m_{\alpha,\K}}$ o $r=0$
+            ($\deg{0}:=-\infty$). Evaluando en $\alpha$:
+            \[0=g(\alpha)=q(\alpha)*m_{\alpha,\K}+r(\alpha)=r(\alpha)\]
+            y por tanto $r(\alpha)=0$. Si $r$ fuera no nulo se tendría que
+            $r\in\K[x]$ y $r\neq 0$ con $\deg{r}<\deg{m_{\alpha,\K}}$ y
+            $r(\alpha) = 0$, lo que contradice la definición de polinomio
+            mínimo.
+    \end{enumerate}
+    \vspace{-1em}
+\end{proof}
+
+
+\begin{cor}
+    Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$. Si
+    $f\in\K[t]$ es mónico e irreducible tal que $f(\alpha)=0$ entonces
+    $f=m_{\alpha,\K}$.
+\end{cor}
+
+\begin{proof}
+    Como $f(\alpha)=0$, por la proposición anterior existe $g\in\K[t]$ tal que
+    $f=g*m_{\alpha,\K}$. Al ser $f$ irreducible uno de los dos factores está en
+    $\K\setminus\{0\}$. No puede ser $m_{\alpha,\K}$ ya que tiene grado
+    $n\geq1$, por lo que $g\in\K\setminus\{0\}$. Como $f$ y $m_{\alpha,\K}$ son
+    mónicos el coeficiente de $t^n$ en ambos es $1$, luego $g=1$ y
+    $f=m_{\alpha,\K}$.
+\end{proof}
+
+\begin{obs}
+    Una consecuencia directa de este corolario es que el polinomio mínimo es
+    único.
+\end{obs}
+
+\begin{ej}
+    ¿Cual es el polinomio mínimo de $\sqrt{2}+\sqrt{3}$ sobre $\Q$?
+
+    Consideramos el polinomio
+    \begin{align*}
+        f&=(t-\sqrt{2}-\sqrt{3})(t-\sqrt{2}+\sqrt{3})(t+\sqrt{2}-\sqrt{3})(t+\sqrt{2}+\sqrt{3})\\
+         &=((t-\sqrt{2})^2-3) ((t+\sqrt{2})^2-3)\\
+         &=(t^2-2\sqrt{2}t+2-3)(t^2+2\sqrt{2}t+2-3)\\
+         &=(t^2-1-2\sqrt{2}t)(t^2-1+2\sqrt{2}t)\\
+         &=(t^2-1)^2-8t^2=t^4-10t^2+1\in\Q[t]
+    \end{align*}
+    Como $\sqrt{2}+\sqrt{3}$ es raíz de $f$, si vemos que $f$ es irreducible en
+    $\Q[t]$, tenemos que $f=m_{\sqrt{2}+\sqrt{3},\Q}$.
+    \begin{itemize}
+        \item $f$ no tiene raíces en $\Q$: Como $f\in\Z[t]$ es mónico sus
+            posibles raíces racionales son enteros que dividen al término
+            independiente. Como $\pm1$ no son raíces de $f$ deducimos que $f$ no
+            tiene raíces racionales, es decir $\pm\sqrt{2}\pm\sqrt{3}\not\in\Q$.
+            Esto implica que $f$ no tiene factores de grado $1$.
+        \item Por el Lema de Gauss si $f$ fuera producto de dos polinomios de
+            grado dos en $\Q[t]$ entonces existen $g,h\in\Z[t]$ tales que
+            $f=g*h$ con $\deg{g}=2$ y $\deg{h}=2$. Como $f$ es mónico podemos
+            suponer que $g$ y $h$ son mónicos:
+            \[f=t^4-10t^2+1=(t^2+at+b)(t^2+ct+d)=t^4+(a+c)t^3+(ac+b+d)t^2+(ad+bc)t+bd\]
+            Igualando coeficientes obtenemos el sistema:
+            \[
+                \begin{cases}
+                    a+c &= 0\\
+                    ac+b+d &= -10\\
+                    ad+bc&=0\\
+                    bd&=1
+                \end{cases}
+                \implies
+                \begin{cases}
+                    a&=c\\
+                    -c^2+b+d&=-10\\
+                    +c(-d+b)&=0\\
+                    bd&=1
+                \end{cases}
+            \]
+            Como $b,d\in \Z$ tenemos dos casos:
+            \begin{itemize}
+                \item Caso 1: $b=d=1$. $-c^2+2=-10\Leftrightarrow c^2=12$ no
+                    tiene solución en $\Z$.
+                \item Caso 2: $b=d=-1$. $-c^2-2=-10\Leftrightarrow c^2=8$ no
+                    tiene solución en $\Z$.
+            \end{itemize}
+            Por tanto no hay soluciones enteras y $f$ es irreducible.
+    \end{itemize}
+\end{ej}
+
+\fecha{22/02}
+\subsection{Extensiones finitamente generadas}
+Recordemos que si $\K$ es un cuerpo, $\K[x_1,\ldots,x_n]$ es el anillo de
+polinomios en las variables $x_1,\ldots,x_n$ que se puede definir de forma
+inductiva como \[\K[x_1,\ldots,x_n]=\K[x_1,\ldots,x_{n-1}][x_n]=\left\{
+\sum_{\substack{I=\left( i_1,\ldots,i_n \right)\\ 0\leq i_j\leq N }}
+a_Ix_1^{i_1}*\ldots*x_n^{i_n}\mid N\in \N,a_I\in\K\right\} \]
+
+\begin{notacion}
+    Si $\K\subseteq\L$ es una extensión y $\alpha_1,\ldots,\alpha_n\in\L$
+    \[K[\alpha_1,\ldots,\alpha_n]=\left\{ p(\alpha_1,\ldots,\alpha_n)\mid p\in\K[x_1,
+     \ldots,x_n]\right\} \subseteq \L\]
+    \[K(\alpha_1,\ldots,\alpha_n)=\left\{\frac{\alpha}{\beta}=\alpha*\beta^{-1}
+     \mid \alpha,\beta\in\K[\alpha_1,\ldots,\alpha_n]\text{ y }\beta\neq0
+     \right\}\]
+\end{notacion}
+
+\begin{prop}
+    $\K(\alpha_1,\ldots,\alpha_n)\subseteq\L$ es el menor subcuerpo de $\L$ que
+    contiene a $\K$ y a $\alpha_1,\ldots,\alpha_n$.
+\end{prop}
+
+\begin{proof}
+    Queda como ejercicio comprobar que $\K(\alpha_1,\ldots,\alpha_n)$ es un
+    subcuerpo de $\L$. Supongamos que $\K\subseteq\F\subseteq\L$ con $\F$
+    subcuerpo de $\L$ y $\alpha_1,\ldots,\alpha_n\in\F$. Si $p\in\K[x_1,\ldots,
+    x_n]\subseteq\F$ se tiene que $p(\alpha_1,\ldots,\alpha_n)\in \F$ porque
+    $\F$ es cerrado con respecto a la suma y multiplicación y los coeficientes
+    de $p$ están en $\F$. Por tanto $\K[\alpha_1,\ldots,\alpha_n]\subseteq\F$.
+    Como $\F$ es cuerpo vemos que $\K(\alpha_1,\ldots,\alpha_n)\subseteq\F$.
+\end{proof}
+
+\begin{defin}
+    Una extensión $\K\subseteq\L$ es finitamente generada si existen
+    $\alpha_1,\ldots,\alpha_n\in\L$ tales que $K(\alpha_1,\ldots,\alpha_n)=L$.
+\end{defin}
+
+\begin{ej}
+    Sea
+    $f=t^4-2=(t-\sqrt[4]{2})(t+\sqrt[4]{2})(t-i\sqrt[4]{2})(t+i\sqrt[4]{2})$,
+    $\Q(\sqrt[4]{2},-\sqrt[4]{2},i\sqrt[4]{2},-i\sqrt[4]{2})=\Q(i,\sqrt[4]{2})$
+\end{ej}
+
+\begin{prop}
+Si $\L=\K(\alpha_1,\ldots,\alpha_n)$ y $1\leq r\leq
+n-1$,\[\L=\K(\alpha_1,\ldots,\alpha_r)(\alpha_{r+1},\ldots,\alpha_n)\]
+\end{prop}
+
+\begin{proof}
+    Ejercicio. Usar que $\K(\alpha_1,\ldots,\alpha_r)$ es el menor subcuerpo de
+    $\L$ que contiene a $\K$ y a $\alpha_1,\ldots,\alpha_r$.
+\end{proof}
+
+Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente, vamos
+a estudiar propiedades de la extensión $\K\subseteq\K(\beta)$
+
+\begin{prop}
+    Si $\beta\in\L$ es trascendente sobre $\K$ el homomorfismo de evaluación en
+    $\beta$ \[\phi:\K[t]\to L \text{ tal que } p(t)\mapsto p(\beta)\] verifica
+    que
+    \begin{enumerate}
+        \item $\ker{\phi}=\{0\}$
+        \item $\im{\phi}=\K[\beta]$
+        \item Se tiene un isomorfismo de $\K(t)\to \K(\beta)$ tal que
+            $\frac{p(t)}{q(t)}\mapsto \frac{p(\beta)}{q(\beta)}$
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item Si $f=a_0+a_1t+\ldots+a_nt^n\in\K[t]$ es no nulo
+            $\phi(f(t))=f(\beta)\neq0$ ya que $\beta$ es trascendente. Por tanto
+            $\ker{\phi}=\{0\}$.
+        \item $\K[\beta]=\left\{ p(\beta)\mid
+            p\in\K[t]\right\}=\phi(\K[t])=\im{\phi}$
+        \item Por el apartado anterior tenemos un isomorfismo
+            $\K[t]\to \K[\beta]$  tal que $p(t)\mapsto p(\beta)$. Este
+            isomorfismo se extiende a un isomorfismo de su cuerpo de fracciones.
+    \end{enumerate}
+\end{proof}
+
+Veamos ahora el caso en el que $\beta$ es algebraico.
+
+\begin{lema}
+    Si $\beta\in\L$ es algebraico sobre $\K$, sea $\phi:\K[t]\to L$ el
+    homomorfismo de evaluación en $\beta$. Entonces
+    \begin{enumerate}
+        \item $\im{\phi}=\K[\beta]$
+        \item $\ker{\phi}=\left<m_{\beta,\K}\right>$
+        \item Se tiene un isomorfismo \[\bar{\phi}:\frac{\K[t]}{\left<
+            m_{\beta,\K} \right> }\to \K[\beta] \text{ tal que } p(t)+\left<
+        m_{\beta,\K} \right> \mapsto p(\beta).\]
+        En particular $\K[\beta]$ es un cuerpo.
+    \end{enumerate}
+\end{lema}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item Como en la proposición anterior.
+        \item $m_{\beta,\K}\in\K[t]$ y $\phi(m_{\beta,\K})=m_{\beta,\K}(\beta)
+            =0$ por lo que $m_{\beta,\K}\in \ker{\phi} \implies \left<
+            m_{\beta,\K} \right> \subseteq \ker{\phi}$. Si $f\in\ker{\phi}
+            \Leftrightarrow f(\beta)=0 \implies m_{\beta,\K}\mid f \implies f\in
+            \left< m_{\beta,\K}\right> $, luego $\ker{\phi}\subseteq\left<
+            m_{\beta,\K} \right> $
+        \item Aplicamos el primer Teorema de isomorfía. Observamos que
+            $\bar{\phi}(t+\left< m_{\beta,\K} \right>)=\beta$ y
+            $\bar{\phi}(a+\left< m_{\beta,\K} \right>)=a$ para $a\in\K$. Como
+            $m_{\beta,\K}$ es irreducible $\frac{\K[t]}{\left< m_{\beta,\K}
+            \right> }$ es cuerpo luego $\K[\beta]$ es cuerpo.
+    \end{enumerate}
+\end{proof}
+
+\begin{cor}
+    Sea $\K\subseteq\L$ una extensión y $\beta\in \L$. Son equivalentes
+    \begin{itemize}
+        \item $\beta$ es algebraico sobre $\K$
+        \item $\K[\beta]$ es cuerpo
+    \end{itemize}
+\end{cor}
+
+\fecha{23/02}
+\begin{proof}\hspace{1em}
+    \begin{itemize}
+        \item[$\implies$]  Si $\alpha$ es algebraico sobre $\K$, por la proposición
+            anterior, sabemos que $\K[\alpha]\subseteq\L$ es un cuerpo. Por
+            tanto $\K(\alpha)\subseteq\K[\alpha]$ ya que $\K(\alpha)$ es el
+            menor subcuerpo de $\L$ que contiene a $\K$ y a $\alpha$. Por tanto
+            $\K(\alpha)=\K[\alpha]$.
+        \item[$\impliedby$]  Si $\alpha$ es trascendente $\K[\alpha]$ es
+            isomorfo al anillo de polinomios $\K[x]$ que no es un cuerpo. Por
+            tanto $\K[\alpha]\subseteq\K(\alpha)$.
+        \item[$\impliedby$] Veamos otra forma de demostrar esta implicación. Si
+            $\K[\alpha]=\K(\alpha)$, entonces $\K[\alpha]$ es un cuerpo. Puedo
+            suponer que $\alpha\neq0$, por lo que existe $\alpha^{-1}\in
+            \K[\alpha]$. Por tanto existen $a_i\in \K$ tales que
+            \[\alpha^{-1}=a_0+a_1\alpha+\ldots+a_n+\alpha^n\] y multiplicando
+            por $\alpha$ \[0=-1+a_0\alpha+a_1\alpha^2+\ldots+a_n\alpha^{n+1}.\]
+            Por tanto $\alpha$ es raíz de un polinomio no nulo en $\K[t]$
+            $\implies$
+            $\alpha$ es algebraico sobre $\K[t]$.
+    \end{itemize}
+\end{proof}
+
+\begin{cor}
+    Si $\K\subseteq\L$ es una extensión y $\alpha_1,\ldots,\alpha_n\in\L$ son
+    algebraicos sobre $\K$ entonces \[\K[\alpha_1,\ldots,\alpha_n]=
+    \K(\alpha_1,\ldots,\alpha_n)\]
+\end{cor}
+
+\begin{proof}\hspace{0pt}
+    \begin{itemize}
+        \item Primero probamos que $\K[\alpha_1,\ldots,\alpha_n]$ es un cuerpo, por
+    inducción sobre $n$.
+    \item $\K(\alpha_1,\ldots,\alpha_n)=\left\{\text{menor subcuerpo que contiene a } \K \text{ y a } \alpha_1,\ldots,\alpha_n\right\}\subseteq\K[\alpha_1,\ldots,\alpha_n]\subseteq
+    \K(\alpha_1,\ldots,\alpha_n)$
+    \end{itemize}
+    \begin{itemize}
+        \item[$n=1$] Ya visto en el corolario anterior.
+        \item[$n>1$] Por hipótesis de inducción
+            $\K[\alpha_1,\ldots,\alpha_{n-1}]$ es un cuerpo al ser
+            $\alpha_1,\ldots,\alpha_{n-1}$ algebraicos sobre $\K$. Ahora, como
+            $\alpha_n$ es algebraico sobre $\K$, es raíz del polinomio mínimo
+            $m_{\alpha,\K}\in \K[t]$. Consideramos la extensión de cuerpos
+            $\K\subseteq\K[\alpha_1,\ldots,\alpha_n]$. $\alpha_n$ es raíz del
+            polinomio mínimo $m_{\alpha,\K}\in
+            \K[\alpha_1,\ldots,\alpha_{n-1}][t]$, es decir $\alpha$ es
+            algebraico sobre $\K[\alpha_1,\ldots,\alpha_{n-1}]$ y por tanto
+            \[\K[\alpha_1,\ldots,\alpha_{n}]=\K[\alpha_1,\ldots,\alpha_{n-1}][\alpha_n]=\K[\alpha_1,\ldots,\alpha_{n-1}](\alpha_n)=\K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)=\K(\alpha_1,\ldots,\alpha_n).\]
+    \end{itemize}\vspace{-1em}
+\end{proof}
+
+\begin{ej}
+    \[\Q(\sqrt{2},\sqrt{3})=\Q[\sqrt{2},\sqrt{3}]=\left\{ \sum_{0\leq
+    i,j\leq n} a_j(\sqrt{2})^i(\sqrt{3})^j\mid a_{ij}\in\Q,n\in\N\right\}\]
+    \[(\sqrt{2})^i(\sqrt{3})^i=\begin{cases}
+        2^k*3^l &\text{si } i=2k, j=2l\\
+        2^k*3^l*\sqrt{2}&\text{si } i=2k+1,j=l\\
+        2^k*3^l*\sqrt{3}&\text{si } i=2k,j=2l+1\\
+        2^k*3^l*\sqrt{6}&\text{si } i=2k+1,j=2l+1\\
+    \end{cases}\]
+    Y por tanto $\Q[\sqrt{2},\sqrt{3}]=\left\{
+    a*1+b\sqrt{2}+c\sqrt{3}+d\sqrt{6}\mid a,b,c,d\in \Q    \right\} $
+\end{ej}
+
+Si $\K\subseteq\L$ es una extensión podemos ver $\L$ como espacio vectorial
+sobre $\K$ con las operaciones $+$ de $\L$ y el producto de elementos de $\K$
+por elementos de $\L$.
+
+\begin{defin}
+    El grado de la extensión $\K\subseteq\L$ es la dimensión de $\L$ visto como
+    espacio vectorial sobre $\K$. Lo denotamos por $\left[\L:\K\right]$.
+\end{defin}
+
+\begin{ej}
+    $[\C:\R]=2$ ya que todo número complejo se escribe de forma única como
+    $a*1+b*i$ con $a,b\in \R$. Es decir $\left\{ 1,i \right\}$ es una base de
+    $\C$ como espacio vectorial sobre $\R$.
+\end{ej}
+
+\begin{obs}
+    $[\L:\K]=1 \Leftrightarrow\K=\L$
+    \completar
+    % ¿hacer dibujito?
+\end{obs}
+
+\begin{prop}
+    Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
+    Entonces
+    \begin{enumerate}
+        \item $[\K[\alpha]:\K]=\deg{m_{\alpha,\K}}=n$
+        \item $\left\{ 1,\alpha,\ldots,\alpha^{n-1} \right\} $ es base de $\K[\alpha]$ como espacio vectorial sobre $\K$.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    Sabemos que $\K[\alpha]\cong \frac{\K[t]}{\left< m_{\alpha,\K} \right> }$ y
+    \[\K[\alpha]=\left\{a_0+a_1\alpha+\ldots+a{n_a}\alpha^{n-1}\mid a_i\in\K\right\}\]
+    por tanto $1,\alpha,\ldots,\alpha^{n-1}$ son generadores de $\K[\alpha]/\K$.
+    Si fueran linealmente dependientes, existirían $a_0,\ldots,a_{n-1}\in\K$ no
+    todos nulos tales que $a_01+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}=0$ lo que
+    equivale a que exista $f=a_0+a_1t+\ldots+a_{n-1}t^{n-1}\in \K[t]$ con
+    $f(\alpha)=0$ y $\deg{f}<\deg{m_{\alpha,\K}}=n$, que es una contradicción.
+\end{proof}
+
+\fecha{24/02}
+\begin{ej}\hspace{0pt}
+    \begin{itemize}
+        \item Consideramos la extensión $\Q\subseteq\Q(\sqrt{2})$. El grado de
+            la extensión es $[\Q(\sqrt{2}):\Q]=2$ ya que $m_{\sqrt{2},\Q}=t^2
+            -2$. Por tanto $1,\sqrt{2}$ son base de $\Q(\sqrt{2})$ sobre $\Q$.
+        \item Sea $\beta=\sqrt{2}+\sqrt{3}$, $m_{\beta,\Q}=t^4-10t^2+1$,
+            $[\Q(\beta):\Q]=4$ y $1,\beta,\beta^2,\beta^3$ es una base de
+            $\Q(\beta)$ sobre $\Q$, por lo que $\Q(\beta)=\left\{
+            a+b\beta+c\beta^2+d\beta^3\mid a,b,c.d\in \Q \right\} $
+        \item $\pi$ es trascendente sobre $\Q$, por lo que
+            $1,\pi,\pi^2,\ldots,\pi^n,\ldots$ son linealmente independientes
+            sobre $\Q$.
+    \end{itemize}
+\end{ej}
+
+Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
+
+\begin{tma}[transitividad del grado]
+    Si tenemos extensiones $\F\subseteq\K\subseteq\L$ entonces:
+    \begin{enumerate}
+        \item $\F\subseteq\K$ y $\K\subseteq\L$ son finitas si y solo si
+            $\F\subseteq\L$ es finita. En tal caso además
+            \[[\L:\K][\K:\F]=[\L:\F].\]
+        \item Si $[\K:\F]=\infty$ o $[\L:\K]=\infty$ entonces $[\L:\F]=\infty$.
+    \end{enumerate}
+\end{tma}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item[(2)] Por contrarrecíproco. Es equivalente probar que si
+            $[\L:\F]\in \N\implies[\K:\F]\in \N \wedge[\L:\K]\in \N$. Sea
+            $n=[\L:\F]$,
+            \begin{itemize}
+                \item Como $\K\subseteq\L$ es un subcuerpo, $\K$ es un
+                    subespacio de $\L$, por lo que $\dim_\F{\K}=[\K:\F]\leq
+                    \dim_\F{L}=n$
+                \item Sea $\left\{ \gamma_1,\ldots,\gamma_n \right\}$ una base
+                    de $\L$ sobre $\F$ y $\gamma\in \L$. Existen $a_i\in\F$ tales
+                    que $\gamma=a_1\gamma_1+\ldots+a_n\gamma_n$, por lo que
+                    $\left\{ \gamma_1,\ldots,\gamma_n \right\} $ son un sistema
+                    de generadores de $\L$ sobre $\K$ y entonces
+                    $\dim_\K{\L}<n$.
+            \end{itemize}
+        \item[(1)] Sean $m=[\L:\K]$ y $s=[\K:\F]$ queremos ver que
+            $[\L:\F]=m*s$.
+
+            Sean $\alpha_1,\ldots,\alpha_m$ base de $\L$ sobre
+            $\K$ y $\beta_1,\ldots,\beta_s$ base de $\K$ sobre $\F$ veamos que
+            \[B=\left\{\beta_j*\alpha_i\mid j=1,\ldots,s,\ i=1,\ldots,m\right\}\]
+            es una base de $\L$ sobre $\F$. Sea $\gamma\in\L$ existen $a_i\in\K$
+            tales que $\gamma=a_1\alpha_1+\ldots+a_n\alpha_m$ y para cada $a_i$
+            existen $b_{ij}\in\F$ tales que $a_i=b_{i1}\beta+\ldots+b_{is}
+            \beta_s$. Con esto se tiene que \[\gamma=\sum_{i=1}^{m}a_i\alpha_i=
+            \sum_{i=1}^m\sum_{j=1}^sb_{ij}\beta_j\alpha_i\] y por tanto $B$ es
+            un sistema de generadores de $\L$ sobre $\F$.
+
+            Veamos que son linealmente independientes. Sean $d_{ij}\in\F$ tales
+            que
+            \[0=\sum_{i=1}^m(\underbrace{\sum_{j=1}^sd_{ij}\beta_j}_{=e_i\in\K})
+            \alpha_i=\sum_{i=1}^me_i\alpha_i\implies\forall i: 0=e_i=\sum_{j=1}^sd_{ij}
+            \beta_j\implies\forall i,j: d_{ij}\]
+            ya que $\alpha_1,\ldots,\alpha_m$ son L.I. sobre $\K$ y
+            $\beta_1,\ldots,\beta_s$ son L.I. sobre $\F$.
+    \end{enumerate}
+\end{proof}
+
+\begin{ej}
+    El polinomio mínimo de $\sqrt{2}$ sobre $\Q(\sqrt{3})$ es
+    $t^2-2$. Esto es equivalente a que
+    $\sqrt{2}\not\in\Q(\sqrt{3})=\left\{ a+b\sqrt{3}\mid a,b\in\Q\right\}$. Si
+    $\sqrt{2}\in\Q(\sqrt{3)}$ existirían $a,b\in\Q$ tales que
+    $\sqrt{2}=a+b\sqrt{3}$. Pero \[2=(a+b\sqrt{3})^2=a^2+3b^2+2ab\sqrt{3}
+        \Leftrightarrow (a^2+3b^2-2)+2ab\sqrt{3}=0 \implies 2ab=0 \wedge
+        a^2+3b^2-2=0\]
+     Si $b=0$, $a=\sqrt{2}$, lo que no puede ser ya que $\sqrt{2}\not\in\Q$ y
+     si $a=0$, $b=\sqrt{2}=b\sqrt{3} \Leftrightarrow b={\sqrt{2}}/{\sqrt{3}}=
+     \sqrt{{2}/{3}}$, lo que tampoco es posible porque $\sqrt{{2}/{3}}\not\in\Q$.
+
+    Sean ahora las extensiones $\Q\subseteq\Q(\sqrt{3})\subseteq
+    \Q(\sqrt{3},\sqrt{2})$, por el teorema anterior sabemos que
+    \[[\Q(\sqrt{3},\sqrt{2}):\Q]=\underbrace{[\Q(\sqrt{3}):\Q]}_{=2}\underbrace{
+      [\Q(\sqrt{3},\sqrt{2})=\Q(\sqrt{3})(\sqrt{2}):\Q(\sqrt{3})]}_{=2}=4.\]
+    Como $m_{\sqrt{3},\Q}=t^2-3$, $1,\sqrt{3}$ es base de $\Q(\sqrt{3})$ sobre
+    $\Q$ y como $m_{\sqrt{2},\Q(\sqrt{3})}=t^2-2$ (ejercicio), $1,\sqrt{2}$ es
+    base de $\Q(\sqrt{2})$ sobre $\Q$. Por la demostración del teorema anterior
+    sabemos que $\left\{1,\sqrt{2},\sqrt{3},\sqrt{3}\sqrt{2}=\sqrt{6}\right\}$
+    es base de $\Q(\sqrt{2},\sqrt{3})$ sobre $\Q$.
+\end{ej}
+
+\begin{ejer}\hspace{0pt}
+    \begin{enumerate}
+        \item Probar que $\Q(\sqrt{2}+\sqrt{3})=\Q(\sqrt{2},\sqrt{3})$
+        \item Hallar el polinomio mínimo $m_{\alpha,\Q}$, siendo:
+            \begin{multicols}{4}
+                \begin{enumerate}
+                    \item $\alpha=\sqrt{2}(1+i)$
+                    \item $\alpha=\sqrt{2+\sqrt{2}}$
+                    \item $\alpha=\sqrt{2}$
+                \end{enumerate}
+            \end{multicols}
+        \item Hallar los grados de las extensiones
+            \begin{multicols}{2}
+                \begin{enumerate}
+                    \item $\Q\subseteq\Q(i,\sqrt[4]{2})$
+                    \item $\Q\subseteq\Q\left(\sqrt{3},\sqrt[3]{2}\right)$
+                    \item $\Q\subseteq\Q\left(\sqrt{2+\sqrt{2}}\right)$
+                    \item $\Q\subseteq\Q\left(i,\sqrt{2+\sqrt{2}}\right)$
+                \end{enumerate}
+            \end{multicols}
+    \end{enumerate}
+\end{ejer}
+
+\fecha{25/02}
+\begin{sol}
+    \begin{enumerate}
+        \item La inclusión $\subseteq$ es inmediata ya que $\sqrt{2}+\sqrt{3}\in
+            \Q(\sqrt{2},\sqrt{3})$. Tenemos entonces la cadena
+            \[Q\subseteq\Q(\sqrt{2}+\sqrt{3})\subseteq\Q(\sqrt{2},\sqrt{3}).\]
+            La extensión $\Q\subseteq\Q(\sqrt{2},\sqrt{3})$ tiene grado 4 y si
+            consideramos $\Q\subseteq\Q(\sqrt{2}+\sqrt{3})$ el polinomio mínimo
+            $m_{\sqrt{2}+\sqrt{3},\Q}=t^4-10t^2+1$ tiene grado 4, por lo que la
+            extensión también. Usando la transitividad del grado:
+            \[\underbrace{[\Q(\sqrt{2},\sqrt{3}):\Q]}_{4}=
+                \underbrace{[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2}+\sqrt{3})]}_{1}*
+                \underbrace{[\Q(\sqrt{2}+\sqrt{3}):\Q]}_{4}\]
+                Y como hemos visto, esto
+                $[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2}+\sqrt{3})]=1\Leftrightarrow
+                \Q(\sqrt{2},\sqrt{3})=\Q(\sqrt{2}+\sqrt{3})$.
+        \item
+            \begin{enumerate}
+                \item El polinomio $f=t^4+16$ verifica $f(\alpha)=
+                    f(\sqrt{2}(1+i))=0$:
+
+                    Sea $f=(t+\sqrt{2}+i\sqrt{2})(t+\sqrt{2}-i\sqrt{2})
+                    (t-\sqrt{2}+i\sqrt{2})(t-\sqrt{2}-i\sqrt{2})=\ldots=t^4+16$.
+
+                    De otra forma, como $\alpha=\sqrt{2}(1+i)$,
+                    $\alpha^2=2(1+i)^2=4i$ y $\alpha^4=-16$, luego
+                    $f(\alpha)=\alpha^4+16=0$.
+
+                    Ahora falta ver que $f$ es irreducible:
+            \end{enumerate}
+    \end{enumerate}
+\end{sol}
+
+
+\end{document}
+
