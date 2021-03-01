@@ -835,7 +835,7 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
                 \begin{enumerate}
                     \item $\alpha=\sqrt{2}(1+i)$
                     \item $\alpha=\sqrt{2+\sqrt{2}}$
-                    \item $\alpha=\sqrt{2}$
+                    \item $\alpha=\sqrt[n]{2}$
                 \end{enumerate}
             \end{multicols}
         \item Hallar los grados de las extensiones
@@ -879,10 +879,165 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
                     $f(\alpha)=\alpha^4+16=0$.
 
                     Ahora falta ver que $f$ es irreducible:
+                    Como $f=t^4+16=t^4+2^4$ y $f$ es irreducible en $\K[t]
+                    \Leftrightarrow g=f(at), a\in \K\setminus\{0\}$ es
+                    irreducible, veamos que $g=f(2t)=2^4t^4+2^4=2^4(t^4+1)$ es
+                    irreducible. Por el criterio de traslación, $g$ es
+                    irreducible $\Leftrightarrow h=g(t+a), a\in\K$ es
+                    irreducible. Sea $h=g(t+1)=(t+1)^4+1=t^4+4t^3+6t^2+4t+2$,
+                    por el criterio de Eisenstein con $p=2$, $h$ es irreducible
+                    en $\Q[t]$.
+                \item Como antes, puedo obtener el polinomio de dos formas:
+                    \begin{align*}
+                        f&=(t-\sqrt{2+\sqrt{2}})(t+\sqrt{2+\sqrt{2}})
+                        (t-\sqrt{2-\sqrt{2}})(t+\sqrt{2-\sqrt{2}})\\
+                         &=(t^2-(2+\sqrt{2}))(t^2-(2-\sqrt{2}))=(t^2-2)^2-2\\
+                         &=t^4-4t^2+2
+                    \end{align*}
+                    O también manipulando la expresión de $\alpha$:
+                    \[\alpha=\sqrt{2+\sqrt{2}}\implies\alpha^2=2+\sqrt{2}
+                     \implies\alpha^2-2=\sqrt{2}\implies(\alpha^2-2)^2=2\implies
+                     \alpha^4-4\alpha^2+2=0\]
+
+                     Usando el criterio de Eisenstein con $p=2$ se ve que $f$ es
+                     irreducible.
+                \item Procediendo como en los apartados anteriores se obtiene
+                    $f(t)=t^n-2$, que es irreducible por el criterio de
+                    Eisenstein con $p=2$.  
+            \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item Si consideramos las extensiones intermedias
+                    $\Q\subseteq\Q(\sqrt[4]{2})\subseteq\Q(\sqrt[4]{2},i)$,
+                    calculando su grado, podemos aplicar la transitividad del
+                    grado. Como $m_{\sqrt{2},\Q}=t^4-2$,
+                    $[\Q(\sqrt[4]{2}):\Q]=4$. 
             \end{enumerate}
     \end{enumerate}
 \end{sol}
+\fecha{1/03}
+\subsection{Extensiones algebraicas}
+\begin{defin}
+    Una extensión $\K\subseteq\L$ es algebraica si $\forall\alpha\in\L$ $\alpha$
+    es algebraico sobre $\K$. 
+\end{defin}
 
+\begin{prop}
+    Sea $\K\subseteq\L$ una extensión finita
+    \begin{enumerate}
+        \item Si $\alpha\in \L$ entonces $\alpha$ es algebraico sobre $\K$ y
+            $\deg{m_{\alpha,\K}}$ divide a $[\L]:\K$.
+        \item $\K\subseteq\L$ es algebraica. 
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item Si $\alpha\in\L$,  $\K\subseteq\K(\alpha)\subseteq\L$  y por la
+            transitividad del grado
+            \[\N\ni[\L:\K]=[L:\K(\alpha)]*\underbrace{[\K(\alpha):\K]}_{\deg{m_{\alpha,\K}}}.\]
+        \item Todo $\alpha\in\L$ es algebraico sobre $\K$ por (1).  
+    \end{enumerate}
+\end{proof}
+
+\begin{tma}
+    Sea $\K\subseteq\L$ una extensión. Son equivalentes
+    \begin{enumerate}
+        \item $\K\subseteq\L$ es finita ($[\L:\K]\in \N$).
+        \item Existen $\alpha_1,\ldots,\alpha_n\in\L$ tales que son algebraicos
+            sobre $\K$ y $\L=\K(\alpha_1,\ldots,\alpha_n)$  
+    \end{enumerate}
+\end{tma}
+
+\begin{proof}\hspace{0pt}
+    \begin{itemize}
+        \item (1)$\implies$(2). $[\L:\K]=\dim_\K{\L}=m\in\N$. Sea
+            $\alpha_1,\ldots,\alpha_m$ una base de $\L$ sobre $\K$. Si
+            $\gamma\in\L$ existen $a_1,\ldots,a_m\in \K$ tales que
+            $\gamma=a_1\alpha_1+\ldots+a_m\alpha_m \implies \L\subseteq
+            \K(\alpha_1,\ldots,\alpha_m)\subseteq L$ 
+        \item (2)$\implies$(1). Lo probamos por inducción sobre $n$.
+            \begin{itemize}
+                \item Si $n=1$ entonces $\L=\K(\alpha_1)$ con $\alpha_1$
+                    algebraico sobre $\K \implies
+                    [\L:\K]=\deg{m_{\alpha_1,\K}}\in\N$ 
+                \item Sea $n>1$ y supongamos cierto el resultado para $n-1$. Sea
+                    $\K':=\K(\alpha_1,\ldots,\alpha_{n-1})$, $\L=\K'(\alpha_n)$.
+                    Como $\alpha_n$ es algebraico sobre $K$ se tiene que
+                    $m_{\alpha_n,\K}\in \K[t]\subseteq\K'[t]$ ya que
+                    $\K\subseteq\K'$. Por tanto, como $m_{\alpha_n,\K}(\alpha)=
+                    0$, $\alpha_n$ es algebraico sobre $\K'$. Entonces $[\L:\K']
+                    \in\N$ (como en el caso $n=1$) y por hipótesis de inducción
+                    $[\K':\K]\in \N$. Por la transitividad del grado
+                    $[\L:\K]\in\N$.  
+            \end{itemize}
+    \end{itemize}
+\end{proof}
+
+\begin{ejer}
+    Sean $\L_0\subseteq L_1\subseteq\ldots\subseteq\L_n$ extensiones. Probar
+    \begin{enumerate}
+        \item Si $\forall i\in \left\{ 1,\ldots,n\right\}[\L_i:\L_{i-1}]\in\N$
+            entonces $ [\L_n:\L_0]=[\L_n:\L_{n-1}]*\ldots*[\L_1:\L_0]$.
+        \item Si existe $i\in \left\{ 1,\ldots,n\right\}$ tal que
+            $[\L_i:\L_{i-1}]=\infty$ entonces $[\L_n:\L_0]$. 
+    \end{enumerate}
+\end{ejer}
+
+\begin{prop}
+    Sea $\K\subseteq\L$ una extensióny $\alpha,\beta\in\L$. Si $\alpha,\beta$
+    son algebraicos sobre $\K$ entonces $\alpha+\beta$ y $\alpha*\beta$ son
+    algebraicos sobre $\K$.     
+\end{prop}
+
+\begin{proof}
+    $\K\subseteq\K(\alpha,\beta)\subseteq\L$. Como $\alpha,\beta$ son
+    algebraicos sobre $\K$, $\K\subseteq\K(\alpha,\beta)$ es finita. Esto
+    implica que $\alpha+\beta\in\K(\alpha,\beta)$ y $\alpha*\beta\in
+    \K(\alpha,\beta)$ han de ser algebraicos sobre $\K$ ya que
+    \[\K\subseteq\K(\alpha+\beta)\subseteq\K(\alpha,\beta)\] 
+    y entonces $\K\ni[\K(\alpha,\beta):\K]=[\K(\alpha,\beta):\K(\alpha+\beta)]*
+    \underbrace{[\K(\alpha+\beta):\K]}_{\in \N}$ (análogamente para
+    $\alpha*\beta$- 
+\end{proof}
+
+\begin{obs}
+    Si $\K\subseteq\L$ es finita y $\alpha\in\L$ entonces $[\K(\alpha):\K]\in
+    \N$ divide a $[\L:\K]\in\N$. 
+\end{obs}
+
+\begin{ejer}
+    Probar que si $\alpha\neq 0$ es algebraico sobre $\K$ entonces $\alpha^{-1}$
+    es algebraico sobre $\K$.
+\end{ejer}
+
+Hay dos formas de demostrar esto:
+\begin{enumerate}
+    \item Hallar un polinomio no nulo que tenga a $\alpha^{-1}$ como raíz. 
+    \item Observar que $\alpha^{-1}\in \K(\alpha),[\K(\alpha):\K]\in\N\implies
+        [\K(\alpha^{-1}:\K]\in\N$. 
+\end{enumerate}
+
+\begin{tma}
+    Sea $\K\subseteq\L$ una extensión y \[M=\left\{ \alpha\in\L\mid\alpha\text{ es
+    algebraico sobre }\K \right\}.\] 
+    Entonces $M$ es cuerpo y $\K\subseteq M\subseteq\L$.  
+\end{tma}
+
+\begin{proof}
+    Por la proposición anterior, si $\alpha,\beta\in
+    M\implies\alpha+\beta,\alpha*\beta\in M$. Por tanto $M$ es subanillo de
+    $\L$. Ahora $\K\subseteq M$ ya que si $\alpha\in\K$, $t-\alpha\in\K[t]$
+    tiene a $\alpha$ como raíz. Por el ejercicio anterior, si $\alpha\in
+    M\setminus\{0\}, \alpha^{-1}\in M$, de donde $M$ es un cuerpo.   
+\end{proof}
+
+\begin{ej}
+    Consideramos la extensión $\Q\subseteq\C$ y sea \[\overline{\Q}=\left\{ z\in
+    \C\mid z\text{ es algebraico sobre }\Q\right\}=\left\{ \text{clausura
+    algebraica de }\Q\right\}.\]
+
+    $\overline{\Q}$ es algebraicamente cerrado.
+\end{ej}
 
 \end{document}
-
