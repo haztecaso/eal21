@@ -186,7 +186,7 @@ $\K$ con $f(\K)$ y escribiremos $\K\subseteq \L$.
 \end{ejer}
 
 
-\subsection{Construcción de $\C$ a partir de $\R$}
+\section{Construcción de $\C$ a partir de $\R$}
 
 Sea $\C =\left\{ a+bi\mid a,b\in\R, i^2 = -1 \right\}$ veamos que $\C\cong
 \frac{\R[x]}{I}$ donde $I=\langle x^2 +1\rangle=\left\{(x^2+1)g\mid g\in\R[x]
@@ -222,7 +222,7 @@ Ahora $\alpha^2=(x+I)^2=x^2+I$ y $x^2=1(x^2+1)=-1$ por lo que $\alpha^2=x^2+I
 Con esto tenemos que la aplicación $\frac{\R[x]}{I}\to \C$ tal que
 $a+b\alpha\mapsto a+bi$ es un isomorfismo.
 
-\subsection{El anillo cociente $\K[x]/\left<f\right>$}
+\section{El anillo cociente $\K[x]/\left<f\right>$}
 
 Sea ahora $\K$ un cuerpo, $f\in\K[x]$ de grado $n\geq 1$ e $I=\langle f\rangle=
 \left\{ g*f\mid g\in\K[x] \right\}$, consideramos la congruencia módulo $I$:
@@ -359,7 +359,7 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 \end{ej}
 
 \fecha{18/02}
-\subsection{Elementos algebraicos y transcendentes}
+\section{Elementos algebraicos y transcendentes}
 \begin{defin}
     Sea $\K\subseteq\L$ una extensión de cuerpos y $\alpha\in\L$.
     \begin{itemize}
@@ -513,7 +513,7 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 \end{ej}
 
 \fecha{22/02}
-\subsection{Extensiones finitamente generadas}
+\section{Extensiones finitamente generadas}
 Recordemos que si $\K$ es un cuerpo, $\K[x_1,\ldots,x_n]$ es el anillo de
 polinomios en las variables $x_1,\ldots,x_n$ que se puede definir de forma
 inductiva como \[\K[x_1,\ldots,x_n]=\K[x_1,\ldots,x_{n-1}][x_n]=\left\{
@@ -668,10 +668,9 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
     inducción sobre $n$.
     \item $\K(\alpha_1,\ldots,\alpha_n)=\left\{\text{menor subcuerpo que contiene a } \K \text{ y a } \alpha_1,\ldots,\alpha_n\right\}\subseteq\K[\alpha_1,\ldots,\alpha_n]\subseteq
     \K(\alpha_1,\ldots,\alpha_n)$
-    \end{itemize}
     \begin{itemize}
-        \item[$n=1$] Ya visto en el corolario anterior.
-        \item[$n>1$] Por hipótesis de inducción
+        \item $n=1$. Ya visto en el corolario anterior.
+        \item $n>1$. Por hipótesis de inducción
             $\K[\alpha_1,\ldots,\alpha_{n-1}]$ es un cuerpo al ser
             $\alpha_1,\ldots,\alpha_{n-1}$ algebraicos sobre $\K$. Ahora, como
             $\alpha_n$ es algebraico sobre $\K$, es raíz del polinomio mínimo
@@ -680,8 +679,15 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
             polinomio mínimo $m_{\alpha,\K}\in
             \K[\alpha_1,\ldots,\alpha_{n-1}][t]$, es decir $\alpha$ es
             algebraico sobre $\K[\alpha_1,\ldots,\alpha_{n-1}]$ y por tanto
-            \[\K[\alpha_1,\ldots,\alpha_{n}]=\K[\alpha_1,\ldots,\alpha_{n-1}][\alpha_n]=\K[\alpha_1,\ldots,\alpha_{n-1}](\alpha_n)=\K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)=\K(\alpha_1,\ldots,\alpha_n).\]
+            \begin{align*}
+                \K[\alpha_1,\ldots,\alpha_{n}]
+                &=\K[\alpha_1,\ldots,\alpha_{n-1}][\alpha_n]
+                =\K[\alpha_1,\ldots,\alpha_{n-1}](\alpha_n)\\
+                &=\K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
+                =\K(\alpha_1,\ldots,\alpha_n).
+            \end{align*}
     \end{itemize}\vspace{-1em}
+    \end{itemize}
 \end{proof}
 
 \begin{ej}
@@ -916,7 +922,7 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
     \end{enumerate}
 \end{sol}
 \fecha{1/03}
-\subsection{Extensiones algebraicas}
+\section{Extensiones algebraicas}
 \begin{defin}
     Una extensión $\K\subseteq\L$ es algebraica si $\forall\alpha\in\L$ $\alpha$
     es algebraico sobre $\K$. 
