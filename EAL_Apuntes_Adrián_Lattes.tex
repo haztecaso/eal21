@@ -584,7 +584,7 @@ Si $\L=\K(\alpha_1,\ldots,\alpha_n)$ y $1\leq r\leq n-1$,
     $\L$ que contiene a $\K$ y a $\alpha_1,\ldots,\alpha_r$.
 \end{proof}
 
-Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente, 
+Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente,
 consideramos la extensión $\K\subseteq\K(\beta)$
 
 \begin{prop}
@@ -1155,8 +1155,119 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
         \item $\text{ord}(a^k)=\frac{n}{\text{mcd}(k,n)}$.
         \item $G= \left< a \right> \Leftrightarrow \text{mcd}(k,n)=1$.
         \item El número de generadores de $G$ es $\#\left\{ 1\leq k<
-            n\mid\text{mcd}(k,n)=1 \right\}=\varphi(n)$.
+            n\mid\text{mcd}(k,n)=1 \right\}=\varphi(n)$, donde $\varphi$ es la
+            \textit{función de Euler}.
     \end{enumerate}
 \end{obs}
+
+\fecha{3/03}
+\begin{ej}[Raíces octavas de la unidad]\hspace{2em}\vspace{1em}
+    \begin{multicols}{2}
+        
+        \includegraphics[scale=0.6]{fig01.eps}
+    \begin{itemize}
+        \item $\omega,\omega^3,\omega^5,\omega^7$  tienen orden 8,
+        \item $\omega^2,\omega^6$ tienen orden 4,
+        \item $\omega^4$ tiene orden 2 y
+        \item $\omega^8=1$ tiene orden 1
+    \end{itemize}
+
+
+    \end{multicols}
+
+    Y si factorizamos $t^8-1$ en $\Q[t]$:
+    $t^8-1=(t^4-1)(t^4+1)=(t^2-1)(t^2+1)(t^4+1)=(t-1)(t+1)(t^2+1)(t^4+1)$.
+
+    El polinomio $f=t^4+1$ es irreducible en $\Q[t] \Leftrightarrow
+    h=f(t+1)=t^4+4t^3+6t^2+4t+2$  es irreducible en $\Q[t]$. Y como $h$ es
+    irreducible por el criterio de Einsenstein con $p=2$, $f$ también es
+    irreducible.
+\end{ej}
+
+\begin{ej}
+    \completar %dibujito
+    Sean $\omega=e^{\frac{i2\pi}{3}}$
+\end{ej}
+
+\begin{defin}
+    Sean $\K$ un cuerpo y $f\in\K[t]$ un polinomio de grado $n\geq1$. Decimos
+    que $\L\supset\K$ es un \textit{cuerpo de descomposición de $f$ sobre $\K$}
+    si:
+    \begin{itemize}
+        \item $f=c(t-\alpha_1)*\ldots*(t-\alpha_n)$ con $\alpha_1,\alpha_n\in\L, c\in \K$
+            y
+        \item $\L=\K(\alpha_1,\ldots,\alpha_n)$.
+    \end{itemize}
+\end{defin}
+
+\begin{obs}
+    Hemos visto que si $f\in\K$ con $\deg{f}=n$ existe una extensión
+    $\K\subseteq\F$ de forma que $f$ se escinde sobre $\F$. Es decir, existen
+    $\alpha_1,\ldots,\alpha_n\in \F$ tales que
+    $f=c(t-\alpha_1)*\ldots*(t-\alpha_n)$. Tomamos
+    $\L=\K(\alpha_1,\ldots,\alpha_n)\subseteq\F$.
+\end{obs}
+
+\begin{ej}\hspace{0pt}
+    \begin{itemize}
+        \item Sea $f=t^2+1\in\Q[t]$,
+            \begin{itemize}
+                \item $\Q(i)$ es un cuerpo de descomposición de $f$ sobre $\Q$.
+                \item Sean $\L=\frac{\Q[x]}{\left<x^2+1\right>}$ y $\alpha=x+\left<
+                    x^2+1\right>$ tenemos $f=(t-\alpha)(t+\alpha)$ en $\L[t]$, por lo
+                    que $\L=\Q(\alpha)$ y $\L$ es cuerpo de descomposición de $f$ sobre
+                    $\Q$.
+            \end{itemize}
+            Se tiene un isomorfismo $\L\to\Q(i)$ tal que deja fijo a $\Q$ y
+            $\alpha\mapsto i$.
+        \item Sea $f=(t^2-2)(t^2-3)$, $\L=\Q(\sqrt{2},\sqrt{3})$ es cuerpo de
+            descomposición de $f$ sobre $\Q$.
+        \item Sean $f=t^3-2$, $\alpha =\sqrt[3]{2}$ y $\omega$ una raíz cúbica
+            de $1$. Se tiene que $(\alpha*\omega)^3=\alpha^3\omega^3=\alpha^3=2$
+            y \[f=(t-\alpha)(t-\omega\alpha)(t-\omega^2\alpha).\] Entonces
+            $\L=\Q(\alpha,\omega\alpha,\omega^2\alpha)=\Q(\alpha,\omega)$ es
+            cuerpo de descomposición de $f$ sobre $\Q$.
+        \item Sea $f=t^4-2=(t-\sqrt[4]{2})(t+\sqrt[4]{2})(t-i\sqrt[4]{2})
+            (t+i\sqrt[4]{2})$. Entonces
+            $\L=\Q(\sqrt[4]{2},-\sqrt[4]{2},i\sqrt[4]{2},-i\sqrt[4]{2})=\Q(i,\sqrt[4]{2})$
+            es el cuerpo de descomposición de $f$ sobre $\Q$.
+        \item El cuerpo de descomposición de $f=t^2+1$
+            \begin{itemize}
+                \item sobre $\R$ es $\R(i)=\C$ ,
+                \item sobre $\Q(\sqrt{2})$ es $\Q(\sqrt{2})(i)=\Q(\sqrt{2},i)$ y
+                \item sobre $\C$ es $\C$.
+            \end{itemize}
+    \end{itemize}
+\end{ej}
+
+\begin{tma}
+    Sean $\K$ un cuerpo, $f\in \K[t]$ de grado $n\geq1$ y $\L$ un cuerpo de
+    descomposición de $f$ sobre $\K$.\\ Entonces $[\L:\K]\leq n!$
+\end{tma}
+
+\begin{proof}
+    Por inducción sobre $n=\deg{f}$:
+    \begin{itemize}[itemindent=32pt]
+        \item[Si $n=1$:] $f=at+b=a(t+\frac{b}{a})$ con $a\neq0$ y
+            $\L=\K(-\frac{b}{a})=\K \implies [\L:\K]=1$.
+        \item[Si $n>1$:] Sea $\L$ un cuerpo de descomposición de $f$ sobre $\K$.
+            $\L=\K(\alpha_1,\ldots,\alpha_n)$ con $\alpha_1,\ldots,\alpha_n$ las
+            raíces de $f$. Sea $\F=\K(\alpha_1)$, $\K\subseteq\F\subseteq\L$.
+
+            Tenemos $f=(t-\alpha_1)*g$ en $\F[t]$ ya que $f(\alpha_1)=0$ y
+            $\alpha_1\in \F$. Entonces $g\in\F[t]$ y $\deg{g}=n-1$ y
+            $\F=(\alpha_2,\ldots,\alpha_n)=\K(\alpha_1)(\alpha_2,\ldots,\alpha_n)
+            =\K(\alpha_1,\alpha_2,\ldots,\alpha_n)=\L$ es un cuerpo de
+            descomposición de $g$ en $\F$. Aplicando la hipótesis de inducción
+            obtenemos que $[\L:\F]\leq (n-1)!$
+
+            Además $[\F:\K]=[\K(\alpha_1):\K]=\deg{m_{\alpha_1,\K}}$ y como
+            $f\in \K[t]$ y $f(\alpha_1)=0 \implies m_{\alpha_1,\K}$ divide a $f
+            \implies \deg{f}=n\geq\deg{m_{\alpha_1,\K}}=\left[ \F:\K \right]$.
+
+            Con esto se tiene que $[\L:\K]=[\L:\F]*[\F:\K]\leq (n-1)!*n=n!$.
+    \end{itemize}
+    \vspace{-1em}
+\end{proof}
 
 \end{document}
