@@ -101,9 +101,9 @@
 \section{Raíces de polinomios y extensiones de cuerpos}
 
 \begin{defin}
-    Decimos que un anillo unitario y conmutativo $(\F,+,*)$ es un cuerpo si para
-    todo $a\in \F\setminus\{0\}$ existe $a^{-1}\in \F\setminus\{0\}$ tal que $a*
-    a^{-1}=1$ y $1\neq 0$.
+    Decimos que un anillo unitario y conmutativo $(\F,+,*)$ es un
+    \textit{cuerpo} si para todo $a\in \F\setminus\{0\}$ existe $a^{-1}\in
+    \F\setminus\{0\}$ tal que $a*a^{-1}=1$ y $1\neq 0$.
 \end{defin}
 
 \begin{obs}
@@ -114,7 +114,7 @@
     Si $\F$ es un cuerpo sus únicos ideales son $\left\{ 0 \right\}$ y $\F$.
 \end{prop}
 \begin{proof}
-    Sea $I\subseteq \F$ es un ideal distinto de $\left\{ 0 \right\}$ y $a\in
+    Sea $I\subseteq \F$ un ideal distinto de $\left\{ 0 \right\}$ y $a\in
     I\setminus\{0\}$. Entonces todo $b\in\F$ se puede escribir como
     $b=(ba^{-1})a\in I$, de donde $\F\subseteq I$ y por tanto $I=\F$.
 \end{proof}
@@ -141,11 +141,10 @@
 
 \begin{defin}
     Sean $\K$ y $\L$ cuerpos y $f:\K\to\L$ un homomorfismo de anillos. Decimos
-    que $f$ define una extensión de $\K$ en $\L$.
+    que $f$ define una \textit{extensión de $\K$ en $\L$}.
+    Por el lema tenemos que $\K\cong f(\K)\subseteq \L$, por lo que identificaremos
+    $\K$ con $f(\K)$ y escribiremos \[\K\subseteq \L.\]
 \end{defin}
-
-Por el lema tenemos que $\K\approx f(\K)\subseteq \L$, por lo que identificaremos
-$\K$ con $f(\K)$ y escribiremos $\K\subseteq \L$.
 
 \begin{ej}
     $\Q\subseteq\R$, $\R\subseteq\C$.
@@ -155,16 +154,14 @@ $\K$ con $f(\K)$ y escribiremos $\K\subseteq \L$.
 
 \begin{ej}
     Sea $\F$ un cuerpo, consideramos el anillo de polinomios $\F[x]$ y
-    $K$ el cuerpo de fracciones de $\F[x]$:
-    \[K=\left\{ \frac{p}{q}\mid p,q\in \F[x], q\neq 0 \right\} \]
+    $\K$ el cuerpo de fracciones de $\F[x]$,
+    \[\K=\left\{ \frac{p}{q}\mid p,q\in \F[x], q\neq 0 \right\}\]
     donde $\frac{p}{q} = \frac{p'}{q'}$ si $pq'=p'q$.
-    En $K$ definimos la suma y producto como
-
-    \begin{itemize}
-        \item $\frac{p}{q}+\frac{p'}{q'}=\frac{pq'+p'q}{pq}$
-        \item $\frac{p}{q}*\frac{p'}{q'}=\frac{pp'}{qq'}$
-    \end{itemize}
-
+    En $\K$ definimos la suma y producto como
+    \begin{align*}
+        \frac{p}{q}+\frac{p'}{q'}&=\frac{pq'+p'q}{pq}\\
+        \frac{p}{q}*\frac{p'}{q'}&=\frac{pp'}{qq'}
+    \end{align*}
 \end{ej}
 
 \begin{obs}
@@ -173,16 +170,16 @@ $\K$ con $f(\K)$ y escribiremos $\K\subseteq \L$.
 \end{obs}
 
 \begin{notacion}
-    Sea $\K$ n cuerpo denotamos su cuerpo de fracciones como $\K(x)$.
+    Sea $\K$ un cuerpo denotamos el cuerpo de fracciones de $\K[x]$ como $\K(x)$.
 \end{notacion}
 
 \begin{ej}
-    Si $\F=\Q$, $\frac{2+x+x^3}{1+x^2}\in Q(x)$
+    Si $\F=\Q$, $\frac{2+x+x^3}{1+x^2}\in \Q(x)$
 \end{ej}
 
 \begin{ejer}
-    Sean dos cuerpos $\K$ y $\F$ la aplicación $j:\F\to\K$ tal que $a\mapsto
-    \frac{a}{1}$ es un homomorfismo que define la extensión $F\subseteq K$.
+    Sean $\K$ y $\F$ dos cuerpos. La aplicación $j:\F\to\K$ tal que $j(a)=
+    \frac{a}{1}$ es un homomorfismo que define la extensión $\F\subseteq \K$.
 \end{ejer}
 
 
@@ -191,17 +188,17 @@ $\K$ con $f(\K)$ y escribiremos $\K\subseteq \L$.
 Sea $\C =\left\{ a+bi\mid a,b\in\R, i^2 = -1 \right\}$ veamos que $\C\cong
 \frac{\R[x]}{I}$ donde $I=\langle x^2 +1\rangle=\left\{(x^2+1)g\mid g\in\R[x]
 \right\}$. La relación de congruencia está definida para $p,q\in\R[x]$ como
-\[p\sim_I q \Leftrightarrow p-q\in I\Leftrightarrow x^2+1\mid p-q.\]
+\[p\sim_I q \Leftrightarrow p-q\in I\Leftrightarrow x^2+1\mid(p-q).\]
 
 Dado $p\in\R[x]$ se puede escribir como $p=h(x)*(x^2+1)+bx+a$, de donde
 $p\sim_I bx+a=r(x)$ y su clase de equivalencia es $p+I=\left\{ p\mid p-q\in
 I\right\}=(a+bx)I$. Con esto vemos que el conjunto cociente
 \[\frac{\R[x]}{I}=\left\{ p+I\mid p\in\R[x] \right\} \]
 es un anillo con las operaciones
-\begin{itemize}
-    \item $(p+I)+(p'+I) = (p+p')+I$
-    \item $(p+I)*(p'+I) = (p*p')+I$
-\end{itemize}
+\begin{align*}
+    (p+I)+(p'+I)&=(p+p')+I\\
+    (p+I)*(p'+I)&=(p*p')+I
+\end{align*}
 
 \begin{obs}
     La aplicación $j:\R\to\frac{\R[x]}{I}$ tal que $a\mapsto a+I$ es un
@@ -212,10 +209,10 @@ En lo siguiente denotamos la clase $a+I$ por $a$, para todo $a\in\R$ y
 escribimos $\alpha = x+I$. Con esto la clase de un elemento $a+bx$ es
 \[a+bx+I=a+I+(b+I)*(\alpha+I)=a+b\alpha\]
 y las operaciones
-\begin{itemize}
-    \item $(a+b\alpha)+(a'+b'\alpha)=a+a'+(b+b')\alpha$
-    \item $(a+b\alpha)*(a'+b'\alpha)=aa'+(ab'+a'b)\alpha+bb'\alpha^2$
-\end{itemize}
+\begin{align*}
+    (a+b\alpha)+(a'+b'\alpha)&=a+a'+(b+b')\alpha\\
+    (a+b\alpha)*(a'+b'\alpha)&=aa'+(ab'+a'b)\alpha+bb'\alpha^2
+\end{align*}
 Ahora $\alpha^2=(x+I)^2=x^2+I$ y $x^2=1(x^2+1)=-1$ por lo que $\alpha^2=x^2+I
 =-1+I=-1$
 
@@ -228,17 +225,17 @@ Sea ahora $\K$ un cuerpo, $f\in\K[x]$ de grado $n\geq 1$ e $I=\langle f\rangle=
 \left\{ g*f\mid g\in\K[x] \right\}$, consideramos la congruencia módulo $I$:
 \[p\sim_I q\Leftrightarrow p-q\in I \Leftrightarrow f\mid(p-q)\]
 donde $p,q\in\K[x]$. La clase de equivalencia de $p\in\K[x]$ es
-\[p+I:=\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}.\]
+$p+I:=\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}$.
 
-Se tiene entonces que $\frac{K[x]}{U}=\left\{ p+I\mid p\in\K[x] \right\}$ es un
+Se tiene entonces que $\frac{\K[x]}{I}=\left\{ p+I\mid p\in\K[x] \right\}$ es un
 anillo unitario y conmutativo con las operaciones definidas entre los
 representantes. Así
-\[\frac{K[x]}{I}=\left\{ a_0+a_1x+\ldots+a_{n-1}x^{n-1}+I\mid a_0,\ldots,a_{n-1}
+\[\frac{\K[x]}{I}=\left\{ a_0+a_1x+\ldots+a_{n-1}x^{n-1}+I\mid a_0,\ldots,a_{n-1}
 \in\K \right\}\]
 donde las $a_i$ son las clases de los restos de dividir por $f$ y $n=\deg{f}$.
 Si denotamos $a+I$ por $a$ para todo $a\in\K$ y $x+I$ por $\alpha$ podemos
 escribir
-\[\frac{K[x]}{I}=\left\{ a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}\mid a_0,\ldots,a_{n-1}
+\[\frac{\K[x]}{I}=\left\{ a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}\mid a_0,\ldots,a_{n-1}
 \in\K \right\}.\]
 
 
@@ -253,9 +250,10 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 
 \fecha{17/02}
 \begin{defin}
-    Un anillo $A$ es íntegro si para todos $a,b\in A$ con $a\neq 0, b\neq 0$
-    entonces $ab\neq 0$.
+    Un anillo $A$ es \textit{íntegro} si para todos $a,b\in A$ con $a\neq 0, b
+    \neq 0$ entonces $ab\neq 0$.
 \end{defin}
+
 \begin{prop}
     Sea $\K$ un cuerpo y $f\in \K$ de grado $n\geq1$. Son equivalentes
     \begin{enumerate}
@@ -264,65 +262,74 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
         \item $f$ es irreducible.
     \end{enumerate}
 \end{prop}
-\begin{proof}\hspace{1em}
-    \begin{itemize}
-        \item[(2)$\implies$(1)] Todo cuerpo es anillo íntegro.
-        \item[(1)$\implies$(3)] Si $f=g*h$ con $\deg{f}>\deg{g},\deg{h}$ y sea
-            $\alpha = x+\left< f \right> $ se tiene
-            $f(\alpha)=0=g(\alpha)h(\alpha)$.
-            Ahora $g+\left< f \right> = g(\alpha) \neq 0$ ya que $f$ divide a
-            $g$ y análogamente $h+\left< f \right> = h(\alpha)\neq 0$.
 
+\begin{proof}\hspace{1em}
+    \begin{itemize}[itemindent=36pt]
+        \item[(2)$\implies$(1)] Todo cuerpo es anillo íntegro.
+        \item[(1)$\implies$(3)] Si $f=g*h$ con $\deg{f}>\deg{g},\deg{f}\geq
+            \deg{h}$ y sea $\alpha = x+\left< f \right> $ se tiene $f(\alpha)=0
+            =g(\alpha)h(\alpha)$. Ahora $g+\left< f \right> = g(\alpha) \neq 0$
+            ya que $f$ divide a $g$ y análogamente $h+\left< f \right> =
+            h(\alpha)\neq 0$.
             Por tanto $A=\frac{\K[t]}{\left< f \right> }$ no es íntegro.
         \item[(3)$\implies$(2)] Sea $g\in \K[t]$  tal que $g+\left< f \right>
             =g(\alpha)\neq 0$. Vemos que $\exists(g(\alpha))^{-1}$ en
             $A=\frac{\K[t]}{\left< f \right> }$. Como $f$ es irreducible y
-            $f\not|g \implies \gcd(f,g)=1$. En $\K[t]$ tenemos la identindad de
+            $\neg f|g \implies \gcd(f,g)=1$. En $\K[t]$ tenemos la identindad de
             Bézout (gracias a que $\K$ es cuerpo), por lo que existen $p,q\in
             \K[t]$ tales que $pf+qg=1$.
             Ahora, como $f(\alpha)=0$, $q(\alpha)=q+\left< f \right>$  es el
             inverso de $g(\alpha)=g+\left< f \right>$ ya que $1=q(\alpha)
             g(\alpha)$.
     \end{itemize}
+    \vspace{-1em}
 \end{proof}
+
 \begin{cor}
     Sean $\K$ un cuerpo y $f\in\K[t]$ irreducible, existe una extensión
     $\K\subseteq\L$ y $\alpha\in\L$ tales que $f(\alpha)=0$.
 \end{cor}
+
 \begin{proof}
-    Tomo $\L=\frac{\K[t]}{\left< f \right> }$ y $\alpha=t+\left< f \right> $ y
-    aplico la proposición.
+    Tomamos el cuerpo $\frac{\K[t]}{\left< f \right> }$ y el polinomio
+    $\alpha=t+\left< f \right>$  y aplicamos la proposición anterior.
 \end{proof}
+
 \begin{ej}
     Sea $f=t^2-2\in \Q[t]$. Si $\alpha=\sqrt{2}$, $f$  tiene una raíz en $\R$ y
     $f=(t-\sqrt{2})(t+\sqrt{2})$ en $\R[t]$.
 \end{ej}
+
 \begin{defin}
-    Sea $\K$ un cuerpo y $f\in\K[t]$, se dice que $f$ se escinde sobre $K$ (o se
-    descompone totalmente sobre $\K$) si existen $\alpha_1,\ldots,\alpha_n\in\K$
-    y $a\in\K$ tales que
-    \[f=a(t-\alpha_1)*\ldots*(t-\alpha_n)\]
+    Sea $\K$ un cuerpo y $f\in\K[t]$, se dice que $f$ se \textit{escinde} sobre
+    $\K$ (o se \textit{descompone totalmente} sobre $\K$) si existen $\alpha_1,
+    \ldots,\alpha_n\in\K$ y $a\in\K$ tales que
+    \[f=a(t-\alpha_1)*\ldots*(t-\alpha_n).\]
 \end{defin}
+
 \begin{obs}
     La condición de la definición es equivalente a que $f$ tenga todas sus
     raíces en $\K$. Es decir, todos los factores irreducibles de $f$ en $\K[t]$
     tienen grado $1$.
 \end{obs}
+
 \begin{tma}
     Sea $\K$ un cuerpo y $f\in\K[t]$ de grado $n\geq1$. Entonces existe una
     extensión $\K\subseteq L$ tal que $f$ se escinde sobre $L$.
 \end{tma}
+
 \begin{proof}
     Por inducción sobre $n=\deg{f}$:
-    \begin{itemize}
-        \item Si $n=1$, $f=a+bt$ con $b\neq 0$ y $f=b(\frac{a}{b}+t)$ y
+    \begin{itemize}[itemindent=30pt]
+        \item[Si $n=1$] $f=a+bt$ con $b\neq 0$ y $f=b(\frac{a}{b}+t)$ y
             $-\frac{a}{b}$ es raíz de $f$.
-        \item Supongamos ahora que el resultado es cierto para polinomios de
+        \item[Si $n>1$] Supongamos que el resultado es cierto para polinomios de
             grado $n-1$. Como $\K[t]$ es D.F.U. puedo expresar $f$
             como producto de irreducibles: $f=f_1*\ldots*f_s$ con $f_i\in\K[t]$
-            irreducibles. Por el corolario existe una extensión $\K\subseteq\L_1$
-            tal que existe $\alpha_1\in\L_1$ tal que $f_1(\alpha_1)=0$ lo que
-            equivale a que $f_1=(t-\alpha_1)*g$ en $\L_1[t]$.
+            irreducibles. Por el corolario anterior existe una extensión
+            $\K\subseteq\L_1$ tal que existe $\alpha_1\in\L_1$ tal que
+            $f_1(\alpha_1)=0$ lo que equivale a que $f_1=(t-\alpha_1)*g$ en
+            $\L_1[t]$.
 
             Ahora $f=(t-\alpha_1)*g*f_2*\ldots*f_s$ en $\L_1[t]$ donde
             $h=g*f_2*\ldots f_s\in\L_1[t]$ tiene $\deg{h}=n-1$. Por tanto,
@@ -330,32 +337,38 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
             extensión $\L_1\subseteq\L$ tal que $h$ se escinde sobre $\L$, de
             donde tenemos que $f$ se escinde sobre $\L$.
     \end{itemize}
+    \vspace{-1em}
 \end{proof}
+
 \begin{ej}
     Sea $f=t^4-2$ entonces
     \[f=(t-\sqrt[4]{2})(t+\sqrt[4]{2})(t-i\sqrt[4]{2})(t+i\sqrt[4]{2})\]
-    lo que $f$ se escinde sobre $\C$.
+    lo que implica que $f$ se escinde sobre $\C$.
 \end{ej}
+
 \begin{tma}[fundamental del Álgebra]
     Si $f\in \C[t]$ de grado $n$, entonces $f$ se escinde sobre $\C$.
 \end{tma}
+
 \begin{defin}
-    Un cuerpo $\K$ es algebraicamente cerrado si todo polinomio $f\in\K[t]$ de
-    grado $\geq1$ se escinde sobre $\K$.
+    Un cuerpo $\K$ es \textit{algebraicamente cerrado} si todo polinomio $f\in\K[t]$ de
+    grado $\deg{f}\geq1$ se escinde sobre $\K$.
 \end{defin}
+
 \begin{ej}
     $\C$ es algebraicamente cerrado.
 \end{ej}
+
 \begin{ej}
     Sean $\K=\frac{\Z}{2\Z}=\left\{0,1\right\}$ y $f=t^3+t+1\in\K[t]$. Como
     $\deg{f}=3$ y no tiene factores de grado 1 (no tiene raíces en $\K$) tenemos
     que $f$ es irreducible en $\K[t]$. Además
     \[\L=\frac{\K[t]}{\left< f \right> }=\left\{ a_0+a_1\alpha+a_2\alpha^2\mid
-    \alpha=t+\left< f \right>,\alpha_i\in\K, f(\alpha)=\alpha^3+\alpha+1=0 \right\}\]
+    a_i\in\K,\alpha=t+\left< f \right>, f(\alpha)=\alpha^3+\alpha+1=0 \right\}\]
     y como $\K$ tiene característica 2
     \[0=f(\alpha)^2=(\alpha^3+\alpha+1)^2=(\alpha^3)^2+\alpha^2+1=(\alpha^2)^3+\alpha^2+1=f(\alpha^2)\]
-    y de forma análoga $0=f(\alpha)^4=f(\alpha^4)$, por lo que $f$ se escinde
-    sobre $\L$.
+    y de forma análoga $0=f(\alpha)^4=f(\alpha^4)$. Por tanto deducimos que $f$
+    se escinde sobre $\L$.
 \end{ej}
 
 \fecha{18/02}
