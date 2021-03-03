@@ -531,8 +531,8 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 
 \fecha{22/02}
 \section{Extensiones finitamente generadas}
-Recordemos que si $\K$ es un cuerpo, $\K[x_1,\ldots,x_n]$ es el anillo de
-polinomios en las variables $x_1,\ldots,x_n$ que se puede definir de forma
+Recordemos que si $\K$ es un cuerpo, definimos $\K[x_1,\ldots,x_n]$ el
+\textit{anillo de polinomios en las variables $x_1,\ldots,x_n$} de forma
 inductiva como \[\K[x_1,\ldots,x_n]=\K[x_1,\ldots,x_{n-1}][x_n]=\left\{
 \sum_{\substack{I=\left( i_1,\ldots,i_n \right)\\ 0\leq i_j\leq N }}
 a_Ix_1^{i_1}*\ldots*x_n^{i_n}\mid N\in \N,a_I\in\K\right\} \]
@@ -553,7 +553,9 @@ a_Ix_1^{i_1}*\ldots*x_n^{i_n}\mid N\in \N,a_I\in\K\right\} \]
 
 \begin{proof}
     Queda como ejercicio comprobar que $\K(\alpha_1,\ldots,\alpha_n)$ es un
-    subcuerpo de $\L$. Supongamos que $\K\subseteq\F\subseteq\L$ con $\F$
+    subcuerpo de $\L$.
+
+    Supongamos que $\K\subseteq\F\subseteq\L$ con $\F$
     subcuerpo de $\L$ y $\alpha_1,\ldots,\alpha_n\in\F$. Si $p\in\K[x_1,\ldots,
     x_n]\subseteq\F$ se tiene que $p(\alpha_1,\ldots,\alpha_n)\in \F$ porque
     $\F$ es cerrado con respecto a la suma y multiplicación y los coeficientes
@@ -562,8 +564,8 @@ a_Ix_1^{i_1}*\ldots*x_n^{i_n}\mid N\in \N,a_I\in\K\right\} \]
 \end{proof}
 
 \begin{defin}
-    Una extensión $\K\subseteq\L$ es finitamente generada si existen
-    $\alpha_1,\ldots,\alpha_n\in\L$ tales que $K(\alpha_1,\ldots,\alpha_n)=L$.
+    Una extensión $\K\subseteq\L$ es \textit{finitamente generada} si existen
+    $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\K(\alpha_1,\ldots,\alpha_n)=\L$.
 \end{defin}
 
 \begin{ej}
@@ -573,8 +575,8 @@ a_Ix_1^{i_1}*\ldots*x_n^{i_n}\mid N\in \N,a_I\in\K\right\} \]
 \end{ej}
 
 \begin{prop}
-Si $\L=\K(\alpha_1,\ldots,\alpha_n)$ y $1\leq r\leq
-n-1$,\[\L=\K(\alpha_1,\ldots,\alpha_r)(\alpha_{r+1},\ldots,\alpha_n)\]
+Si $\L=\K(\alpha_1,\ldots,\alpha_n)$ y $1\leq r\leq n-1$,
+\[\L=\K(\alpha_1,\ldots,\alpha_r)(\alpha_{r+1},\ldots,\alpha_n).\]
 \end{prop}
 
 \begin{proof}
@@ -582,13 +584,17 @@ n-1$,\[\L=\K(\alpha_1,\ldots,\alpha_r)(\alpha_{r+1},\ldots,\alpha_n)\]
     $\L$ que contiene a $\K$ y a $\alpha_1,\ldots,\alpha_r$.
 \end{proof}
 
-Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente, vamos
-a estudiar propiedades de la extensión $\K\subseteq\K(\beta)$
+Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente, 
+consideramos la extensión $\K\subseteq\K(\beta)$
 
 \begin{prop}
     Si $\beta\in\L$ es trascendente sobre $\K$ el homomorfismo de evaluación en
-    $\beta$ \[\phi:\K[t]\to L \text{ tal que } p(t)\mapsto p(\beta)\] verifica
-    que
+    $\beta$
+    \begin{align*}
+        \phi:\K[t]&\to L \\
+    p(t)&\mapsto p(\beta)
+    \end{align*}
+    verifica que
     \begin{enumerate}
         \item $\ker{\phi}=\{0\}$
         \item $\im{\phi}=\K[\beta]$
@@ -618,10 +624,12 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
     \begin{enumerate}
         \item $\im{\phi}=\K[\beta]$
         \item $\ker{\phi}=\left<m_{\beta,\K}\right>$
-        \item Se tiene un isomorfismo \[\bar{\phi}:\frac{\K[t]}{\left<
-            m_{\beta,\K} \right> }\to \K[\beta] \text{ tal que } p(t)+\left<
-        m_{\beta,\K} \right> \mapsto p(\beta).\]
-        En particular $\K[\beta]$ es un cuerpo.
+        \item La aplicación $\overline{\phi}$ dada por
+            \[\begin{matrix*}
+                \cfrac{\K[t]}{\left<m_{\beta,\K}\right>}&\to&\K[\beta]\\[1em]
+                p(t)+\left< m_{\beta,\K} \right>&\mapsto&p(\beta)
+            \end{matrix*}\]
+            es un isomorfismo. En particular $\K[\beta]$ es un cuerpo.
     \end{enumerate}
 \end{lema}
 
@@ -640,6 +648,7 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
             $m_{\beta,\K}$ es irreducible $\frac{\K[t]}{\left< m_{\beta,\K}
             \right> }$ es cuerpo luego $\K[\beta]$ es cuerpo.
     \end{enumerate}
+    \vspace{-2em}
 \end{proof}
 
 \begin{cor}
