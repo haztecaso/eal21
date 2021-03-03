@@ -225,9 +225,9 @@ Sea ahora $\K$ un cuerpo, $f\in\K[x]$ de grado $n\geq 1$ e $I=\langle f\rangle=
 \left\{ g*f\mid g\in\K[x] \right\}$, consideramos la congruencia módulo $I$:
 \[p\sim_I q\Leftrightarrow p-q\in I \Leftrightarrow f\mid(p-q)\]
 donde $p,q\in\K[x]$. La clase de equivalencia de $p\in\K[x]$ es
-$p+I:=\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}$.
+$p+I\coloneqq\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}$.
 
-Se tiene entonces que $\frac{\K[x]}{I}=\left\{ p+I\mid p\in\K[x] \right\}$ es un
+Se tiene entonces que \[\frac{\K[x]}{I}=\left\{ p+I\mid p\in\K[x] \right\}\] es un
 anillo unitario y conmutativo con las operaciones definidas entre los
 representantes. Así
 \[\frac{\K[x]}{I}=\left\{ a_0+a_1x+\ldots+a_{n-1}x^{n-1}+I\mid a_0,\ldots,a_{n-1}
@@ -254,6 +254,7 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
     \neq 0$ entonces $ab\neq 0$.
 \end{defin}
 
+\newpage
 \begin{prop}
     Sea $\K$ un cuerpo y $f\in \K$ de grado $n\geq1$. Son equivalentes
     \begin{enumerate}
@@ -376,13 +377,13 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 \begin{defin}
     Sea $\K\subseteq\L$ una extensión de cuerpos y $\alpha\in\L$.
     \begin{itemize}
-        \item $\alpha\in \L$ es algebraico sobre $\K$ si existe $f\in\K[t]$ no
-            nulo tal que $f(\alpha)=0$.
-        \item $\alpha\in \L$ es transcendente sobre $\K$ si $\alpha$ no es
-            algebraico sobre $\K$.
+        \item $\alpha\in \L$ es \textit{algebraico} sobre $\K$ si existe
+            $f\in\K[t]$ no nulo tal que $f(\alpha)=0$.
+        \item $\alpha\in \L$ es \textit{transcendente} sobre $\K$ si $\alpha$ no
+            es algebraico sobre $\K$.
     \end{itemize}
     Si $\alpha\in\C$ es algebraico sobre $\Q$ decimos simplemente que $\alpha$
-    es un número algebraico.
+    es un \textit{número algebraico}.
 \end{defin}
 
 \begin{ej}\hspace{0pt}
@@ -403,17 +404,17 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 \end{ej}
 
 \begin{proof}
-    Supongamos que exista $f=a_0+a_1t+\ldots+a_nt^n\in\K[t]$ con $n\geq1$ tal
-    que $f(x)=a_0+a_1x+\ldots+a_nx^n=0$ en $\L=\K(x)$. Esto pasa si y solo sí el
+    Supongamos que existe $f=a_0+a_1t+\ldots+a_nt^n\in\K[t]$ con $n\geq1$ tal
+    que \[f(x)=a_0+a_1x+\ldots+a_nx^n=0\] en $\L=\K(x)$. Esto pasa si y solo sí el
     polinomio $f(x)\in\K[x]$ es el polinomio nulo: $a_0=a_1=\ldots=a_n=0$. Por
     tanto $x$ no es algebraico sobre $\K$.
 \end{proof}
 
 \begin{defin}
     Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$. El
-    polinomio mínimo de $\alpha$ sobre $\K$ es el polinomio mónico de menor
-    grado en $\K[t]$ que tiene a $\alpha$ como raíz. Lo denotaremos por
-    $m_{\alpha,\K}$
+    \textit{polinomio mínimo} de $\alpha$ sobre $\K$ es el polinomio mónico de
+    menor grado en $\K[t]$ que tiene a $\alpha$ como raíz. Lo denotaremos por
+    $m_{\alpha,\K}$.
 \end{defin}
 
 \begin{ej}
@@ -421,7 +422,8 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
     polinomio mínimo no puede tener grado 1.
 \end{ej}
 
-\begin{prop}\hspace{0pt}
+\begin{prop}
+    Sea $\K\subseteq\L$ una extensión y $\alpha\in \L$ algebraico sobre $\K$,
     \begin{enumerate}
         \item El polinomio mínimo $m_{\alpha,\K}$ es irreducible en $\K[t]$.
         \item Si $g\in \K[t]$ es tal que $g(\alpha)=0$ entonces $m_{\alpha,\K}$
@@ -435,15 +437,16 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
             $\K[t]$. Evaluando en $\alpha$:
             \[m_{\alpha,\K(\alpha)}=0=f(\alpha)g(\alpha)\text{ en }\L.\]
             Por tanto $f(\alpha)=0$ o $h(\alpha)=0$ al ser $\L$
-            íntegro. Supongamos que $f(\alpha)=0$. Por definición de polinomio
-            mínimo $\deg{f}\geq\deg{m_{\alpha,\K}}$ y como $\deg{f}\leq
-            \deg{m_{\alpha,\K}}$ ya que $f\mid m_{\alpha,\K}$ deducimos que
-            $\deg{f}=\deg{m_{\alpha,\K}}$ y $\deg{h}=0$, por lo que
-            $h\in\K\setminus\{0\}$ de donde $m_{\alpha,\K}$ es irreducible.
-        \item Si $g\in\K[t]$ y $g(\alpha)=0$ entonces dividiendo $g$ por
+            íntegro. Podemos suponer que $f(\alpha)=0$. Por definición de
+            polinomio mínimo $\deg{f}\geq\deg{m_{\alpha,\K}}$ y como
+            $f\mid m_{\alpha,\K}$ además $\deg{f}\leq \deg{m_{\alpha,\K}}$ de
+            donde deducimos que $\deg{f}=\deg{m_{\alpha,\K}}$ y $\deg{h}=0$.
+            Entonces $h\in\K\setminus\{0\}\implies m_{\alpha,\K}$ es
+            irreducible.
+        \item Sea $g\in\K[t]$ con $g(\alpha)=0$. Dividiendo $g$ por
             $m_{\alpha,\K}$ obtenemos $q,r\in\K[t]$ tales que \[g=q*m_{\alpha,
             \K}+r\] con $\deg{r}<\deg{m_{\alpha,\K}}$ o $r=0$
-            ($\deg{0}:=-\infty$). Evaluando en $\alpha$:
+            ($\deg{0}\coloneqq-\infty$). Evaluando en $\alpha$:
             \[0=g(\alpha)=q(\alpha)*m_{\alpha,\K}+r(\alpha)=r(\alpha)\]
             y por tanto $r(\alpha)=0$. Si $r$ fuera no nulo se tendría que
             $r\in\K[x]$ y $r\neq 0$ con $\deg{r}<\deg{m_{\alpha,\K}}$ y
@@ -494,7 +497,7 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
             tiene raíces racionales, es decir $\pm\sqrt{2}\pm\sqrt{3}\not\in\Q$.
             Esto implica que $f$ no tiene factores de grado $1$.
         \item Por el Lema de Gauss si $f$ fuera producto de dos polinomios de
-            grado dos en $\Q[t]$ entonces existen $g,h\in\Z[t]$ tales que
+            grado dos en $\Q[t]$ entonces existirían $g,h\in\Z[t]$ tales que
             $f=g*h$ con $\deg{g}=2$ y $\deg{h}=2$. Como $f$ es mónico podemos
             suponer que $g$ y $h$ son mónicos:
             \[f=t^4-10t^2+1=(t^2+at+b)(t^2+ct+d)=t^4+(a+c)t^3+(ac+b+d)t^2+(ad+bc)t+bd\]
@@ -521,7 +524,8 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
                 \item Caso 2: $b=d=-1$. $-c^2-2=-10\Leftrightarrow c^2=8$ no
                     tiene solución en $\Z$.
             \end{itemize}
-            Por tanto no hay soluciones enteras y $f$ es irreducible.
+            Por tanto, al no haber soluciones enteras, llegamos a un absurdo y
+            $f$ es irreducible.
     \end{itemize}
 \end{ej}
 
@@ -981,7 +985,7 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
                     algebraico sobre $\K \implies
                     [\L:\K]=\deg{m_{\alpha_1,\K}}\in\N$
                 \item Sea $n>1$ y supongamos cierto el resultado para $n-1$. Sea
-                    $\K':=\K(\alpha_1,\ldots,\alpha_{n-1})$, $\L=\K'(\alpha_n)$.
+                    $\K'\coloneqq\K(\alpha_1,\ldots,\alpha_{n-1})$, $\L=\K'(\alpha_n)$.
                     Como $\alpha_n$ es algebraico sobre $K$ se tiene que
                     $m_{\alpha_n,\K}\in \K[t]\subseteq\K'[t]$ ya que
                     $\K\subseteq\K'$. Por tanto, como $m_{\alpha_n,\K}(\alpha)=
