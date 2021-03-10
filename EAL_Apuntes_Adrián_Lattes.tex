@@ -1193,6 +1193,8 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     Sean $\omega=e^{\frac{i2\pi}{3}}$
 \end{ej}
 
+\section{Cuerpos de descomposición}
+
 \begin{defin}
     Sean $\K$ un cuerpo y $f\in\K[t]$ un polinomio de grado $n\geq1$. Decimos
     que $\L\supset\K$ es un \textit{cuerpo de descomposición de $f$ sobre $\K$}
@@ -1404,5 +1406,81 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     \end{itemize}
 \end{proof}
 
+\fecha{10/03}
+\begin{cor}
+    Sea $\K$ un cuerpo y $f\in\K[t]$ de grado $n\geq1$. Sean $\L$ y $\L'$
+    cuerpos de descomposición de $f$ sobre $\K$. Entonces las extensiones
+    $\K\subseteq\L$ y $\K\subseteq\L'$ son isomorfas. Es decir existe un
+    isomorfismo $\sigma:\L\to\L'$ tal que $\sigma_{\mid_\K}=\id_\K$.  
+\end{cor}
+
+\begin{proof}
+    Tenemos los isomorfismos $\varphi=\id_\K:\K\to\K$ y
+    $\tilde{\varphi}=\id_{\K[t]}, \tilde{\varphi}(f)=f$. Aplicando el teorema
+    existe un isomorfismo $\sigma:\L\to\L'$ tal que $\sigma(a)=a$ para toda
+    $a\in\K$.  
+    \completar %diagrama
+\end{proof}
+
+\begin{cor}
+    Sea $\K$ un cuerpo, $f\in\K[t]$ irreducible y $\alpha,\beta$ raíces de $f$
+    en su cuerpo de descomposición $\L$ sobre $\K$. Entonces se tiene un
+    isomorfismo de cuerpos $\sigma:\L\to\L$  tal que
+    $\sigma(\alpha)=\sigma(\beta)$ y $\sigma(a)=a$ para toda $a\in\K$.      
+\end{cor}
+
+\begin{proof}
+    Como $f\in\K[t]$ es irreducible y $\alpha,\beta\in\L$ son raíces de $f$ en
+    $\L$ tenemos que $f=m_{\alpha,\K}=m_{\beta,\K}$. Tenemos los isomorfismos
+    $\varphi_1$ y $\varphi_2$:  
+    \[\begin{tikzcd}
+        \K(\alpha)=\K[\alpha]\arrow{d}{\varphi_2^{-1}\circ\varphi_1}
+        \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\ 
+        \text{ con }\varphi_1(\alpha)=t+\left<f\right>
+        \text{ y }\varphi_1(a)=a \forall a\in\K;
+        \\
+        \K(\alpha)=\K[\beta] \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\ 
+        \text{ con }\varphi_2(\beta)=t+\left<f\right>
+        \text{ y }\varphi_2(a)=a \forall a\in\K.
+    \end{tikzcd}\]
+
+    Y el isomorfismo $\varphi\coloneqq\varphi_2^{-1}\circ\varphi_1:\K(\alpha)\to
+    \K(\beta)$ es tal que $\varphi(\alpha)=\beta$ y $\varphi(a)=a$ para toda
+    $a\in\K$. Observamos además que $\tilde{\varphi}(f)=f$ ya que $f\in\K[t]$ y
+    $\varphi_{1\mid_\K}$, $\varphi_{2\mid_\K}$ 
+
+    \completar
+
+\end{proof}
+
+\begin{ej}
+    \begin{itemize}
+        \item Sea $f=t^2-2\in\Q[t]$ irreducible y con raíces $\pm\sqrt{2}$.
+            $\L=\Q(\sqrt{2})$ es un cuerpo de descomposición de $f$ sobre $\Q$.
+            El corolario garantiza que existe un isomorfismo de anillos $\sigma:
+            \L\to\L$ tal que $\sigma(\sqrt{2})=-\sqrt{2}$ y $\sigma(a)=a$ para
+            toda $a\in\Q$. \[\sigma(a+b\sqrt{2})=\sigma(a)+\sigma(b)
+            \sigma(\sqrt{2})=a-b\sqrt{2}\] 
+        \item Sabemos que $f=t^4-10t^2+1\in\Q[t]$ es irreducible con raíces
+            $\pm\sqrt{2},\pm\sqrt{3}$ y cuerpo de descomposición
+            $\L=\Q(\sqrt{2}, \sqrt{3})=\Q(\sqrt{2}+\sqrt{3})$.  
+    \end{itemize}
+\end{ej}
+
+\begin{ejer}
+    Probar que existe un isomorfismo $\sigma:\L\to\L$ tal que
+    $\sigma(\sqrt{2})=\sqrt{2}$ y $\sigma(\sqrt{3})=-\sqrt{3}$.
+\end{ejer}
+
+\begin{obs}
+    Si $f=a_0+a_1t+\ldots+a_nt^n\in\K[t]$ de grado $n\geq1$ y $\L$ es
+    \textit{el} cuerpo de descomposición de $f$ sobre $\K$. Sea $\sigma:\L\to\L$
+    un isomorfismo tal que $\sigma(a)=a$ para toda $a\in\K$. Entonces $\sigma$
+    define una biyección del conjunto de raíces de $f$ en sí mismo.
+\end{obs}
+\begin{proof}
+    Basta comprobar que si $\alpha$ es raíz de $f$ entonces $\sigma(\alpha)$ es
+    raíz de $f$ (ejercicio).
+\end{proof}
 
 \end{document}
