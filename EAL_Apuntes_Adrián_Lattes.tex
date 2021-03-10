@@ -84,6 +84,10 @@
 
 \DeclareMathSymbol{*}{\mathbin}{symbols}{"01}
 
+% Diagrams
+\usepackage{tikz}
+\usetikzlibrary{cd}
+
 \newcommand{\fecha}[1]{\marginpar{\underline{#1}}}
 % \newcommand{\fecha}[1]{{\hfill\large{#1/2021}}\\[-0.8em]\noindent\rule{17cm}{0.1mm}}
 \newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
@@ -1163,7 +1167,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
 \fecha{3/03}
 \begin{ej}[Raíces octavas de la unidad]\hspace{2em}\vspace{1em}
     \begin{multicols}{2}
-        
+
         \includegraphics[scale=0.6]{fig01.eps}
     \begin{itemize}
         \item $\omega,\omega^3,\omega^5,\omega^7$  tienen orden 8,
@@ -1269,5 +1273,136 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     \end{itemize}
     \vspace{-1em}
 \end{proof}
+
+\fecha{8/03} %Copiado de grabación
+\begin{defin}[Isomorfismo de extensiones]
+    Sean $\varphi: \K_1\to \K_2$ un isomorfismo de cuerpos y
+    $\K_1\subseteq\L_1$, $\K_2\subseteq\L_2$ dos extensiones. Decimos que estas
+    extensiones son \textit{isomorfas} si existe un isomorfismo
+    $\overline{\varphi}:\L_1\to \L_2$ tal que para todo $a\in\K_1$
+    \[\overline{\varphi}(a)=\varphi(a).\]
+    Es decir, $\K_1\subseteq\L_1$ y $\K_2\subseteq\L_2$ son extensiones
+    isomorfas si existe $\overline{\varphi}$ tal que el siguiente diagrama es
+    conmutativo:
+    \[\begin{tikzcd}
+        \L_1\arrow{r}{\overline{\varphi}}  & \L_2 \\%
+        \K_1 \arrow{r}{\varphi}\arrow[hook]{u}& \K_2\arrow[hook]{u}
+    \end{tikzcd}\]
+\end{defin}
+
+\begin{obs}
+    Si $\varphi:\K_1 \to \K_2$ es un isomorfismo, sea $f=\sum_{j=0}^ma_jt^j\in
+    \K_1[t]$ definimos $\tilde{\varphi}(f)\coloneqq\sum_{j=0}^m\varphi(a_j)t^j$.
+
+    Se tiene que $\tilde{\varphi}:\K_1[t]\to \K_2[t]$ es un isomorfismo de
+    anillos (ejercicio).
+\end{obs}
+
+\begin{tma}
+    Sean $\K_1$ un cuerpo y $f_1\in\K_1[t]$ de grado $n$, $\L_1$ un cuerpo de
+    descomposición de $f_1$ sobre $\K_1$, $\varphi:\K_1\to\K_2$ un isomorfismo,
+    $f_2=\tilde{\varphi}(f_1)\in\K_2[t]$ y $\L_2$ un cuerpo de descomposición de
+    $f_2$ sobre $\K_2$. Entonces las extensiones $\K_1\subseteq\L_1$ y
+    $\K_2\subseteq\L_2$ son isomorfas.
+\end{tma}
+
+\begin{proof}
+    Por inducción sobre $n=\deg{f_1}=\deg{f_2}$.
+    \begin{itemize}[itemindent=30pt]
+        \item[Si $n=1$.] Entonces $\L_1=\K_1$, $\L_2=\K_2$ y $\varphi:\L_1\to
+            \L_2$ es un isomorfismo.
+        \item[Si $n>1$.] Sea $f_1=c_1(t-\alpha_1)*\ldots*(t-\alpha_n)$ en
+            $\L_1$. La idea es considerar las extensiones intermedias
+            $\K_1\subseteq\K_1(\alpha_1)\subseteq\K_1(\alpha_1,\ldots,\alpha_n)=\L_1$
+            y construir isomorfismos de extensiones intermedios.
+            \begin{enumerate}[itemindent=24pt]
+                \item[Paso I.] Modelo abstracto para $\K_1(\alpha_1)$.
+
+                    Sea $h_1=m_{\alpha_1,\K_1}\in\K_1[t]$ tenemos que
+                    $h_1\mid f_1$ en $\K_1[t]$ ya que $f_1(\alpha_1)=0$.
+                    Como $\alpha_1$ es algebraico tenemos además que
+                    $\K_1(\alpha_1)=\K_1[\alpha_1]\cong
+                    \frac{\K_1[t]}{\left<h_1\right>}$ mediante el isomorfismo
+                    \begin{align*}
+                        \psi_1: \K_1[\alpha_1]&\to \frac{\K_1[t]}{\left< h_1
+                        \right>}\\
+                            \alpha_1&\mapsto t\mod\left<h_1\right>.
+                    \end{align*}
+                \item[Paso II.] \textit{Tomamos} una raíz de $f_2$
+                    correspondiente a $\alpha_1$.
+
+                    Hemos visto que el isomorfismo $\varphi:\K_1\to \K_2$ induce
+                    otro isomorfismo $\tilde{\varphi}:\K_1[t]\to\K_2[t]$. Por
+                    definición $f_2=\tilde{\varphi}(f_1)$. Como $h_1\mid
+                    f_1\implies
+                    h_2\coloneqq\tilde{\varphi}(h_1)\mid\varphi(f_1)=f_2$. En
+                    $\L_1[t]$ podemos factorizar
+                    $f_2=c_2(t-\beta_1)*\ldots*(t-\beta_m)$ y como $h_2\mid
+                    f_2$, las raíces de $h_2$ son raíces de $f_2$.
+                \item[Paso III.] Modelo para $\K_2(\beta_1)$. 
+
+                    Como $h_2\in\K_2[t]$  y $h_2=m_{\beta_1,\K_2}$ tenemos que
+                    $\K_2(\beta_1)=\K_2[\beta_1]$ es isomorfo a
+                    $\frac{\K_2[t]}{\left< h_2 \right> }$ mediante el
+                    isomorfismo
+                    \begin{align*}
+                        \psi_2: \K_2[\beta_1]&\to \frac{\K_2[t]}{\left< h_2
+                        \right>}\\
+                            \beta_2&\mapsto t\mod\left<h_2\right>.
+                    \end{align*}
+
+                \item[Paso IV.] Las extensiones $\K_1\subseteq\K_1(\alpha_1)$ y
+                    $\K_2\subseteq\K_2(\beta_1)$ son isomorfas. 
+
+                    Como $h_2=\tilde{\varphi}(h_1)$ y
+                    $\tilde{\varphi}:\K_1[t]\to \K_2[t]\implies\left<h_2\right>
+                    = \left< \tilde{\varphi}(h_2) \right> $ y obtenemos un
+                    isomorfismo \[\hat{\varphi}:\frac{\K_1[t]}{\left<h_1\right>}
+                    \to \frac{\K_2[t]}{\left<h_2\right>}\] tal que
+                    $\hat{\varphi}(t+\left< h_1 \right> )=t+\left< h_2 \right>$
+                    y $\hat{\varphi}(a)=\varphi(a)$ para toda $a\in\K_1$.  
+
+                    Juntando lo visto hasta ahora tenemos un isomorfismo
+                    $\varphi_1$:
+                    \[\begin{tikzcd}
+                        \K_1\ar{r}{\psi_1}\ar[bend right]{rrr}{\varphi_1}&
+                    \frac{\K_1[t]}{\left<h_1\right>}\ar{r}{\hat{\varphi}}&
+                    \frac{\K_2[t]}{\left<h_2\right>}\ar{r} {\psi_2^{-1}}&
+                        \K_2(\beta_1)
+                    \end{tikzcd}\]
+                    tal que $\varphi_1(\alpha_1)=\beta_1$ y 
+                    $\varphi_1(a)=\varphi(a)$ para toda $a\in\K_1$.
+
+                    Por otro lado, podemos factorizar:
+                    \begin{align*}
+                        f_1=(t-\alpha_1)*g_1\text{ en }\K_1(\alpha_1)[t]\\
+                        f_2=(t-\beta_1)*g_2\text{ en }\K_2(\beta_1)[t]
+                    \end{align*}
+                    con $\deg{g_1}=\deg{g_2}=n-1$. Ahora
+                    $\L_1=\K_1(\alpha_1,\ldots,\alpha_m)=\K_1(\alpha_1)(\alpha_2,
+                    \ldots,\alpha_m)$ es un cuerpo de descomposición de $g_1$
+                    sobre $\K_1(\alpha_1)$ y $\L_2=\K_2(\beta_1,\ldots,\beta_m)$
+                    es un cuerpo de descomposición de $g_2$ sobre
+                    $\K_2(\beta_1)$. Si consideramos \[\tilde{\varphi_1}:
+                    \K_1(\alpha_1)[t]\to\K_2(\beta_1)[t],\] por lo visto en los
+                    pasos anteriores, tenemos que $\tilde{\varphi_1}(f_1)=f_2$ y
+                    $\tilde{\varphi_1}(t-\beta_1)=t-\beta_1 \implies
+                    \tilde{\varphi_1}(g_1)=g_2$. 
+                \item[Paso V.] Aplicamos la hipótesis de inducción a
+                    $g_1\in\K_1(\alpha_1)[t]$, su cuerpo de descomposición
+                    $\L_1$, $g_2\in\K_2(\beta_1)[t]$, su cuerpo de
+                    descomposición $\L_2$ y $\varphi_1:\K_1(\alpha_1)\to
+                    \K_2(\beta_1)$.
+
+                    Por tanto existe un isomorfismo $\overline{\varphi}:
+                    \L_1\to\L_2$ tal que para todo $b\subseteq\K_1(\alpha_1)$ se
+                    tiene $\overline{\varphi}(b)=\varphi_1(b)$ y por tanto
+                    $\overline{\varphi}(a)=\varphi_1(a)$ para toda $a\in\K_1$.   
+
+                    \completar
+            \end{enumerate}
+    \end{itemize}
+\end{proof}
+
 
 \end{document}
