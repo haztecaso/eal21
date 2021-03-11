@@ -1418,8 +1418,12 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     Tenemos los isomorfismos $\varphi=\id_\K:\K\to\K$ y
     $\tilde{\varphi}=\id_{\K[t]}, \tilde{\varphi}(f)=f$. Aplicando el teorema
     existe un isomorfismo $\sigma:\L\to\L'$ tal que $\sigma(a)=a$ para toda
-    $a\in\K$.  
-    \completar %diagrama
+    $a\in\K$. Es decir, existe $\sigma$ tal que el siguiente diagrama es
+    conmutativo: 
+    \[\begin{tikzcd}
+        \L\arrow{r}{\sigma}  & \L' \\%
+        \K \arrow{r}{\id_\K}\arrow[hook]{u}& \K\arrow[hook]{u}
+    \end{tikzcd}\]
 \end{proof}
 
 \begin{cor}
@@ -1437,11 +1441,11 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
         \K(\alpha)=\K[\alpha]\arrow{d}{\varphi_2^{-1}\circ\varphi_1}
         \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\ 
         \text{ con }\varphi_1(\alpha)=t+\left<f\right>
-        \text{ y }\varphi_1(a)=a \forall a\in\K;
+        \text{ y }\varphi_1(a)=a\ \forall a\in\K;
         \\
         \K(\alpha)=\K[\beta] \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\ 
         \text{ con }\varphi_2(\beta)=t+\left<f\right>
-        \text{ y }\varphi_2(a)=a \forall a\in\K.
+        \text{ y }\varphi_2(a)=a\ \forall a\in\K.
     \end{tikzcd}\]
 
     Y el isomorfismo $\varphi\coloneqq\varphi_2^{-1}\circ\varphi_1:\K(\alpha)\to
