@@ -78,6 +78,7 @@
 
 \newcommand{\id}{\text{id}}
 \newcommand{\im}[1]{\operatorname{im}\left(#1\right)}
+\newcommand{\car}{\text{id}}
 
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
@@ -1486,5 +1487,111 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     Basta comprobar que si $\alpha$ es raíz de $f$ entonces $\sigma(\alpha)$ es
     raíz de $f$ (ejercicio).
 \end{proof}
+
+\fecha{11/03}
+
+Recordemos que, sean $\K$ un cuerpo, $f\in\K[t]$ y $a\in\K$ una raíz de $f$,
+existe $m\geq1$ (\textit{la multiplicidad algebraica}) tal que $f=(t-a)^m*h$ con
+$h\in\K[t]$ y $h(a)\neq0$. Si $m=1$ decimos que la raíz $a$ es \textit{simple},
+y si $m>1$ es \textit{múltiple}.
+
+\begin{defin}[Derivada formal]
+    Sea $f=a_nt^n+\ldots+a_1t+a_0\in\K[t]$ su \textit{derivada formal} es el
+    polinomio $f'=na_nt^{n-1}+\ldots+a_1\in\K[t]$.   
+\end{defin}
+
+\begin{prop}
+    Sea $\K$ un cuerpo y $f\in\K[t]$ con $\deg{f}\geq1$. Son equivalentes
+    \begin{enumerate}
+        \item $f$ tiene una raíz múltiple en su cuerpo de descomposición $\L$.  
+        \item $\text{mcd}(f,f')\neq 1$. Es decir $f$ y $f'$ tienen un factor
+            irreducible en común.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+        Si escribimos $f=(t-a)^m*h$ en $\L[t]$, donde
+            $a\in\L$ y $m$ es la multiplicidad algebraica de $a$, 
+            \[f'=m(t-a)^{m-1}+(t-a)^m*h'=(t-a)^{m-1}(m*h+(t-a)*h').\]  
+            Si $m=1$, $f'(a)=h(a)\neq 0$ y $m_{\alpha,\K}$ divide a
+            $f$ porque $f(a)=0$, pero $m_{\alpha,\K}$ no divide a $f'$
+            ya que $f'(a)\neq 0$. Como los factores irreducibles de $f$ son
+            de la forma $m_{\alpha,\K}$ para $a\in\L$ raíz de $f$, concluimos
+            que $\text{mcd}(f,f')=1 \Leftrightarrow $ el polinomio $f$ tiene
+            raíces simples en $\L$. 
+\end{proof}
+
+\section{Paréntesis: cuerpos finitos}
+
+Sea $\K$ un cuerpo. Tenemos un homomorfismo de anillos $\psi:\Z\to\K$ dado por
+\[\psi(n)=n*1_\K=
+    \begin{cases}
+        1+\stackrel{(n)}{\ldots}+1& \text{ si } n>0\\
+        0& \text{ si } n=0\\
+        (-1)+\stackrel{(n)}{\ldots}+(-1)& \text{ si } n<0
+    \end{cases}
+\]
+
+Se dan los siguientes dos casos:
+\begin{enumerate}
+    \item $\ker{\psi}=\left\{ 0 \right\}$ y $\psi$ es inyectiva, con lo que
+        $\Z\subseteq\K \implies \Q\subseteq\K$ y $\K$ tiene característica 0.    
+    \item $\ker{\psi}=p\Z$ es un ideal de $\Z$ donde $p\neq 0$ es primo. En este
+        caso \[\frac{\Z}{\ker{\psi}}=\frac{\Z}{p\Z}\cong\text{un subanillo de }\K\] 
+        y $p$ es la característica de $\K$. Denotamos por $\F_p=\frac{\Z}{p\Z}$
+        al cuerpo finito con $p$ elementos. Con esto se tiene la extensión de
+        cuerpos $\F_p\subseteq\K$.  
+\end{enumerate}
+
+\begin{ej}
+    Sea $\K$ el cuerpo de fracciones del anillo de polinomios $\F_p[x]$ se tiene
+    la extensión $\F[x]\subseteq\K$ y como $\F_p\subseteq\K$, $\K$ es un cuerpo
+    infinito de característica $p$. 
+\end{ej}
+
+\begin{obs}
+    Si $\car{\K} = p>0$ y  $\varphi:\K\to\K$ es un isomorfismo,
+    $\varphi_{\mid_{\F_p}}=\id_{\F_p}$ ya que $\varphi(1)=1$ por definición. 
+\end{obs}
+
+\begin{obs}
+    Sea $\K$ es un cuerpo de $\car{\K}=p>0$. Para todos $a,b\in\K$ se tiene
+    \[(a+b)^p=a^p+b^p\text{ y }(a+b)^{p^n}=a^{p^n}+b^{p^n}\] 
+    para toda $n\geq1$. 
+\end{obs}
+
+\begin{proof}
+    Usando el binomio de Newton, $(a+b)^p=a^p+ {p}{1}$ 
+    \completar
+\end{proof}
+
+\begin{defin}
+    Sea $\K$ un cuerpo de característica $p$. La aplicación $F:\K\to\K$ tal
+    que $F(a)=a^p$ es un homomorfismo que se denomina \textit{homomorfismo de
+    Frobenius}. 
+\end{defin}
+
+\begin{obs}
+    El homomorfismo de Frobenius es realmente un homomorfismo ya que
+    \begin{itemize}
+        \item $F(ab)=(ab)^p=a^pb$ 
+        \item $F(a+b)=(a+b)^p=a^p+b^p$
+        \item $F(1)=1^p=1$ 
+    \end{itemize}
+\end{obs}
+
+\begin{tma}
+    Sea $\K$ un cuerpo finito de característica $p$. Entonces
+    \begin{enumerate}
+        \item $\#K=p^n$ donde $n=\left[ \K:\F_p \right]$
+        \item $\K$ es el cuerpo de descomposición del polinomio
+            $t^{p^n}-t\in\F_p[t]$  
+        \item Dos cuerpos finito con igual número de elementos son isomorfos.
+    \end{enumerate}
+\end{tma}
+
+\begin{notacion}
+    Si $\#K=p^n=q$ entonces escribimos $\K=\F_{p_n}=\F_q$.
+\end{notacion}
 
 \end{document}
