@@ -78,7 +78,7 @@
 
 \newcommand{\id}{\text{id}}
 \newcommand{\im}[1]{\operatorname{im}\left(#1\right)}
-\newcommand{\car}{\text{id}}
+\newcommand{\car}[1]{\text{car}(#1)}
 
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
@@ -1580,15 +1580,69 @@ Se dan los siguientes dos casos:
     \end{itemize}
 \end{obs}
 
+\fecha{15/03}
+
+\begin{obs}
+    Sabemos que si $\car{\K}=p$ entonces $\F_p=\left\{
+    \overline{1},\ldots,\overline{p-1},\overline{p}=0\right\}\subseteq\K$. Si
+    $a\in\F_p$ entonces $F(a)=a^p=a$, y si $a\neq0$ $a^{p-1}=1\mod p$ por el
+    \textit{Pequeño teorema de Fermat} $\implies a^p=a$, es decir $F_{|_{\F_p}}=
+    \id_{\F_p}$.
+
+    Visto de otra forma, $F(\F_p)\subseteq\F_p$ ya que $F(1)=1$, $F(0)=0$ y al
+    ser $F$ un homomorfismo inyectivo de $\F_p\to\F_p$ y $\#\F_p=p$, $F$ tiene
+    que ser sobreyectivo.  
+\end{obs}
+
 \begin{tma}
-    Sea $\K$ un cuerpo finito de característica $p$. Entonces
+    Sea $p$ primo y $q=p^n$ con $n\geq1$.
     \begin{enumerate}
-        \item $\#K=p^n$ donde $n=\left[ \K:\F_p \right]$
-        \item $\K$ es el cuerpo de descomposición del polinomio
-            $t^{p^n}-t\in\F_p[t]$  
-        \item Dos cuerpos finito con igual número de elementos son isomorfos.
+        \item El cuerpo de descomposición de $f=t^{p^n}-t$ tiene $q=p^n$
+            elementos.  
+        \item  Si $\K$ es un cuerpo finito de característica $p$ entonces
+            $\#\K=p^n$ donde $n=\left[ \K:\F_p \right]$.
+        \item Dos cuerpos finitos con $p^n$ elementos son isomorfos 
     \end{enumerate}
 \end{tma}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item[(2)] $\F_p\subseteq\K \implies \left[ \K:\F_p \right]=n\in\N$. Sea
+            $\alpha_1,\ldots, \alpha_n$ una base de $\K$ sobre $\F_p$, si
+            $\alpha\in\K$, $\alpha=a_1\alpha_1+\ldots+a_n\alpha_n$ de forma
+            única con $a_j\in\F_p$. Es decir, $(a_1,\ldots,a_n)\in\F_p^n$ son
+            las coordenadas de $\alpha \implies$ $\#\K=\#\F_p^n=p^n$.  
+        \item[(1)] $f'=p^nt^{p^n-1}-1$ y como $\car{\K}=p$ $f'=-1$. De aquí
+            obtenemos que $\text{mcd}(f,f')=1$ y por tanto $f$ tiene sólo raíces
+            simples en su cuerpo de descomposición $\L$. Sea ahora $M$ el
+            conjunto de las raíces de $f$ en $\L$ veamos que $M$ es un cuerpo:
+            \begin{itemize}
+                \item $1$ es raíz de $f$
+                \item Si $\alpha,\beta\in M\implies \alpha,\beta\in M$ ya que
+                    $(\alpha\beta)^{p^n}=\alpha^{p^n}\beta^{p^n}=\alpha\beta
+                    \implies\alpha\beta\in M$.
+                \item Si $\alpha,\beta\in M\implies \alpha+\beta\in M$ ya que
+                    $(\alpha+\beta)^{p^n}=\alpha^{p^n}+\beta^{p^n}=\alpha+\beta
+                    \implies\alpha+\beta\in M$. 
+                \item Con los puntos anteriores tenemos que $M$ es un subanillo
+                    íntegro con un número finito de elementos. Queda como
+                    ejercicio ver que esto implica que $M$ es un cuerpo.
+            \end{itemize}
+        \item[(3)] Si $\K$ es un cuerpo finito con $\car{\K}=p$ y $p^n$
+            elementos, entonces $\K$ es un cuerpo de descomposición de $f$ sobre
+            $\F_p$. Sea $\K^\star=\left( \K\setminus\left\{ 0 \right\} , *
+                \right)$ grupo con $p^n-1$ elementos, por el \textit{teorema de
+            Lagrange}, si $a\in\K\implies s=\text{ord}(a)=\left|\left<a\right>
+            \right|\mid \left| \K^\star \right| =p ^n \implies p^n-1=s*t,
+            a^{p^n-1}=a^{st}=(a^s)^t=1^t=1\implies a$ es raíz de
+            $f=t(t^{p^n-1}-1)$. Si $a=0$, $0$ es raiz de $f$. Todos los
+            elementos de $\K$ son raíces de $f$ y como hay exactamente
+            $p^n=\#\K$ raíces, $\K$ es cuerpo de descomposición de $f$ sobre
+            $\K$. Con esto tenemos el resultado, por la unicidad del cuerpo de
+            descomposición.
+    \end{enumerate}
+\end{proof}
+
 
 \begin{notacion}
     Si $\#K=p^n=q$ entonces escribimos $\K=\F_{p_n}=\F_q$.
