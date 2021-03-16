@@ -79,6 +79,8 @@
 \newcommand{\id}{\text{id}}
 \newcommand{\im}[1]{\operatorname{im}\left(#1\right)}
 \newcommand{\car}[1]{\text{car}(#1)}
+\newcommand{\ord}[1]{\text{ord}(#1)}
+\newcommand{\mcd}[1]{\text{mcd}(#1)}
 
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
@@ -1342,7 +1344,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     $\L_1[t]$ podemos factorizar
                     $f_2=c_2(t-\beta_1)*\ldots*(t-\beta_m)$ y como $h_2\mid
                     f_2$, las raíces de $h_2$ son raíces de $f_2$.
-                \item[Paso III.] Modelo para $\K_2(\beta_1)$. 
+                \item[Paso III.] Modelo para $\K_2(\beta_1)$.
 
                     Como $h_2\in\K_2[t]$  y $h_2=m_{\beta_1,\K_2}$ tenemos que
                     $\K_2(\beta_1)=\K_2[\beta_1]$ es isomorfo a
@@ -1355,7 +1357,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     \end{align*}
 
                 \item[Paso IV.] Las extensiones $\K_1\subseteq\K_1(\alpha_1)$ y
-                    $\K_2\subseteq\K_2(\beta_1)$ son isomorfas. 
+                    $\K_2\subseteq\K_2(\beta_1)$ son isomorfas.
 
                     Como $h_2=\tilde{\varphi}(h_1)$ y
                     $\tilde{\varphi}:\K_1[t]\to \K_2[t]\implies\left<h_2\right>
@@ -1363,7 +1365,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     isomorfismo \[\hat{\varphi}:\frac{\K_1[t]}{\left<h_1\right>}
                     \to \frac{\K_2[t]}{\left<h_2\right>}\] tal que
                     $\hat{\varphi}(t+\left< h_1 \right> )=t+\left< h_2 \right>$
-                    y $\hat{\varphi}(a)=\varphi(a)$ para toda $a\in\K_1$.  
+                    y $\hat{\varphi}(a)=\varphi(a)$ para toda $a\in\K_1$.
 
                     Juntando lo visto hasta ahora tenemos un isomorfismo
                     $\varphi_1$:
@@ -1373,7 +1375,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     \frac{\K_2[t]}{\left<h_2\right>}\ar{r} {\psi_2^{-1}}&
                         \K_2(\beta_1)
                     \end{tikzcd}\]
-                    tal que $\varphi_1(\alpha_1)=\beta_1$ y 
+                    tal que $\varphi_1(\alpha_1)=\beta_1$ y
                     $\varphi_1(a)=\varphi(a)$ para toda $a\in\K_1$.
 
                     Por otro lado, podemos factorizar:
@@ -1390,7 +1392,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     \K_1(\alpha_1)[t]\to\K_2(\beta_1)[t],\] por lo visto en los
                     pasos anteriores, tenemos que $\tilde{\varphi_1}(f_1)=f_2$ y
                     $\tilde{\varphi_1}(t-\beta_1)=t-\beta_1 \implies
-                    \tilde{\varphi_1}(g_1)=g_2$. 
+                    \tilde{\varphi_1}(g_1)=g_2$.
                 \item[Paso V.] Aplicamos la hipótesis de inducción a
                     $g_1\in\K_1(\alpha_1)[t]$, su cuerpo de descomposición
                     $\L_1$, $g_2\in\K_2(\beta_1)[t]$, su cuerpo de
@@ -1400,7 +1402,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     Por tanto existe un isomorfismo $\overline{\varphi}:
                     \L_1\to\L_2$ tal que para todo $b\subseteq\K_1(\alpha_1)$ se
                     tiene $\overline{\varphi}(b)=\varphi_1(b)$ y por tanto
-                    $\overline{\varphi}(a)=\varphi_1(a)$ para toda $a\in\K_1$.   
+                    $\overline{\varphi}(a)=\varphi_1(a)$ para toda $a\in\K_1$.
 
                     \completar
             \end{enumerate}
@@ -1412,7 +1414,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     Sea $\K$ un cuerpo y $f\in\K[t]$ de grado $n\geq1$. Sean $\L$ y $\L'$
     cuerpos de descomposición de $f$ sobre $\K$. Entonces las extensiones
     $\K\subseteq\L$ y $\K\subseteq\L'$ son isomorfas. Es decir existe un
-    isomorfismo $\sigma:\L\to\L'$ tal que $\sigma_{\mid_\K}=\id_\K$.  
+    isomorfismo $\sigma:\L\to\L'$ tal que $\sigma_{\mid_\K}=\id_\K$.
 \end{cor}
 
 \begin{proof}
@@ -1420,7 +1422,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     $\tilde{\varphi}=\id_{\K[t]}, \tilde{\varphi}(f)=f$. Aplicando el teorema
     existe un isomorfismo $\sigma:\L\to\L'$ tal que $\sigma(a)=a$ para toda
     $a\in\K$. Es decir, existe $\sigma$ tal que el siguiente diagrama es
-    conmutativo: 
+    conmutativo:
     \[\begin{tikzcd}
         \L\arrow{r}{\sigma}  & \L' \\%
         \K \arrow{r}{\id_\K}\arrow[hook]{u}& \K\arrow[hook]{u}
@@ -1431,20 +1433,20 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     Sea $\K$ un cuerpo, $f\in\K[t]$ irreducible y $\alpha,\beta$ raíces de $f$
     en su cuerpo de descomposición $\L$ sobre $\K$. Entonces se tiene un
     isomorfismo de cuerpos $\sigma:\L\to\L$  tal que
-    $\sigma(\alpha)=\sigma(\beta)$ y $\sigma(a)=a$ para toda $a\in\K$.      
+    $\sigma(\alpha)=\sigma(\beta)$ y $\sigma(a)=a$ para toda $a\in\K$.
 \end{cor}
 
 \begin{proof}
     Como $f\in\K[t]$ es irreducible y $\alpha,\beta\in\L$ son raíces de $f$ en
     $\L$ tenemos que $f=m_{\alpha,\K}=m_{\beta,\K}$. Tenemos los isomorfismos
-    $\varphi_1$ y $\varphi_2$:  
+    $\varphi_1$ y $\varphi_2$:
     \[\begin{tikzcd}
         \K(\alpha)=\K[\alpha]\arrow{d}{\varphi_2^{-1}\circ\varphi_1}
-        \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\ 
+        \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\
         \text{ con }\varphi_1(\alpha)=t+\left<f\right>
         \text{ y }\varphi_1(a)=a\ \forall a\in\K;
         \\
-        \K(\alpha)=\K[\beta] \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\ 
+        \K(\alpha)=\K[\beta] \arrow{r}{\varphi_1}&\frac{\K[t]}{\left<f\right>},\
         \text{ con }\varphi_2(\beta)=t+\left<f\right>
         \text{ y }\varphi_2(a)=a\ \forall a\in\K.
     \end{tikzcd}\]
@@ -1452,7 +1454,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     Y el isomorfismo $\varphi\coloneqq\varphi_2^{-1}\circ\varphi_1:\K(\alpha)\to
     \K(\beta)$ es tal que $\varphi(\alpha)=\beta$ y $\varphi(a)=a$ para toda
     $a\in\K$. Observamos además que $\tilde{\varphi}(f)=f$ ya que $f\in\K[t]$ y
-    $\varphi_{1\mid_\K}$, $\varphi_{2\mid_\K}$ 
+    $\varphi_{1\mid_\K}$, $\varphi_{2\mid_\K}$
 
     \completar
 
@@ -1465,10 +1467,10 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
             El corolario garantiza que existe un isomorfismo de anillos $\sigma:
             \L\to\L$ tal que $\sigma(\sqrt{2})=-\sqrt{2}$ y $\sigma(a)=a$ para
             toda $a\in\Q$. \[\sigma(a+b\sqrt{2})=\sigma(a)+\sigma(b)
-            \sigma(\sqrt{2})=a-b\sqrt{2}\] 
+            \sigma(\sqrt{2})=a-b\sqrt{2}\]
         \item Sabemos que $f=t^4-10t^2+1\in\Q[t]$ es irreducible con raíces
             $\pm\sqrt{2},\pm\sqrt{3}$ y cuerpo de descomposición
-            $\L=\Q(\sqrt{2}, \sqrt{3})=\Q(\sqrt{2}+\sqrt{3})$.  
+            $\L=\Q(\sqrt{2}, \sqrt{3})=\Q(\sqrt{2}+\sqrt{3})$.
     \end{itemize}
 \end{ej}
 
@@ -1497,13 +1499,13 @@ y si $m>1$ es \textit{múltiple}.
 
 \begin{defin}[Derivada formal]
     Sea $f=a_nt^n+\ldots+a_1t+a_0\in\K[t]$ su \textit{derivada formal} es el
-    polinomio $f'=na_nt^{n-1}+\ldots+a_1\in\K[t]$.   
+    polinomio $f'=na_nt^{n-1}+\ldots+a_1\in\K[t]$.
 \end{defin}
 
 \begin{prop}
     Sea $\K$ un cuerpo y $f\in\K[t]$ con $\deg{f}\geq1$. Son equivalentes
     \begin{enumerate}
-        \item $f$ tiene una raíz múltiple en su cuerpo de descomposición $\L$.  
+        \item $f$ tiene una raíz múltiple en su cuerpo de descomposición $\L$.
         \item $\text{mcd}(f,f')\neq 1$. Es decir $f$ y $f'$ tienen un factor
             irreducible en común.
     \end{enumerate}
@@ -1511,14 +1513,14 @@ y si $m>1$ es \textit{múltiple}.
 
 \begin{proof}
         Si escribimos $f=(t-a)^m*h$ en $\L[t]$, donde
-            $a\in\L$ y $m$ es la multiplicidad algebraica de $a$, 
-            \[f'=m(t-a)^{m-1}+(t-a)^m*h'=(t-a)^{m-1}(m*h+(t-a)*h').\]  
+            $a\in\L$ y $m$ es la multiplicidad algebraica de $a$,
+            \[f'=m(t-a)^{m-1}+(t-a)^m*h'=(t-a)^{m-1}(m*h+(t-a)*h').\]
             Si $m=1$, $f'(a)=h(a)\neq 0$ y $m_{\alpha,\K}$ divide a
             $f$ porque $f(a)=0$, pero $m_{\alpha,\K}$ no divide a $f'$
             ya que $f'(a)\neq 0$. Como los factores irreducibles de $f$ son
             de la forma $m_{\alpha,\K}$ para $a\in\L$ raíz de $f$, concluimos
             que $\text{mcd}(f,f')=1 \Leftrightarrow $ el polinomio $f$ tiene
-            raíces simples en $\L$. 
+            raíces simples en $\L$.
 \end{proof}
 
 \section{Paréntesis: cuerpos finitos}
@@ -1535,53 +1537,52 @@ Sea $\K$ un cuerpo. Tenemos un homomorfismo de anillos $\psi:\Z\to\K$ dado por
 Se dan los siguientes dos casos:
 \begin{enumerate}
     \item $\ker{\psi}=\left\{ 0 \right\}$ y $\psi$ es inyectiva, con lo que
-        $\Z\subseteq\K \implies \Q\subseteq\K$ y $\K$ tiene característica 0.    
+        $\Z\subseteq\K \implies \Q\subseteq\K$ y $\K$ tiene característica 0.
     \item $\ker{\psi}=p\Z$ es un ideal de $\Z$ donde $p\neq 0$ es primo. En este
-        caso \[\frac{\Z}{\ker{\psi}}=\frac{\Z}{p\Z}\cong\text{un subanillo de }\K\] 
+        caso \[\frac{\Z}{\ker{\psi}}=\frac{\Z}{p\Z}\cong\text{un subanillo de }\K\]
         y $p$ es la característica de $\K$. Denotamos por $\F_p=\frac{\Z}{p\Z}$
         al cuerpo finito con $p$ elementos. Con esto se tiene la extensión de
-        cuerpos $\F_p\subseteq\K$.  
+        cuerpos $\F_p\subseteq\K$.
 \end{enumerate}
 
 \begin{ej}
     Sea $\K$ el cuerpo de fracciones del anillo de polinomios $\F_p[x]$ se tiene
     la extensión $\F[x]\subseteq\K$ y como $\F_p\subseteq\K$, $\K$ es un cuerpo
-    infinito de característica $p$. 
+    infinito de característica $p$.
 \end{ej}
 
 \begin{obs}
     Si $\car{\K} = p>0$ y  $\varphi:\K\to\K$ es un isomorfismo,
-    $\varphi_{\mid_{\F_p}}=\id_{\F_p}$ ya que $\varphi(1)=1$ por definición. 
+    $\varphi_{\mid_{\F_p}}=\id_{\F_p}$ ya que $\varphi(1)=1$ por definición.
 \end{obs}
 
 \begin{obs}
     Sea $\K$ es un cuerpo de $\car{\K}=p>0$. Para todos $a,b\in\K$ se tiene
-    \[(a+b)^p=a^p+b^p\text{ y }(a+b)^{p^n}=a^{p^n}+b^{p^n}\] 
-    para toda $n\geq1$. 
+    \[(a+b)^p=a^p+b^p\text{ y }(a+b)^{p^n}=a^{p^n}+b^{p^n}\]
+    para toda $n\geq1$.
 \end{obs}
 
 \begin{proof}
-    Usando el binomio de Newton, $(a+b)^p=a^p+ {p}{1}$ 
+    Usando el binomio de Newton, $(a+b)^p=a^p+ {p}{1}$
     \completar
 \end{proof}
 
 \begin{defin}
     Sea $\K$ un cuerpo de característica $p$. La aplicación $F:\K\to\K$ tal
     que $F(a)=a^p$ es un homomorfismo que se denomina \textit{homomorfismo de
-    Frobenius}. 
+    Frobenius}.
 \end{defin}
 
 \begin{obs}
     El homomorfismo de Frobenius es realmente un homomorfismo ya que
     \begin{itemize}
-        \item $F(ab)=(ab)^p=a^pb$ 
+        \item $F(ab)=(ab)^p=a^pb$
         \item $F(a+b)=(a+b)^p=a^p+b^p$
-        \item $F(1)=1^p=1$ 
+        \item $F(1)=1^p=1$
     \end{itemize}
 \end{obs}
 
 \fecha{15/03}
-
 \begin{obs}
     Sabemos que si $\car{\K}=p$ entonces $\F_p=\left\{
     \overline{1},\ldots,\overline{p-1},\overline{p}=0\right\}\subseteq\K$. Si
@@ -1591,17 +1592,17 @@ Se dan los siguientes dos casos:
 
     Visto de otra forma, $F(\F_p)\subseteq\F_p$ ya que $F(1)=1$, $F(0)=0$ y al
     ser $F$ un homomorfismo inyectivo de $\F_p\to\F_p$ y $\#\F_p=p$, $F$ tiene
-    que ser sobreyectivo.  
+    que ser sobreyectivo.
 \end{obs}
 
 \begin{tma}
     Sea $p$ primo y $q=p^n$ con $n\geq1$.
     \begin{enumerate}
         \item El cuerpo de descomposición de $f=t^{p^n}-t$ tiene $q=p^n$
-            elementos.  
+            elementos.
         \item  Si $\K$ es un cuerpo finito de característica $p$ entonces
             $\#\K=p^n$ donde $n=\left[ \K:\F_p \right]$.
-        \item Dos cuerpos finitos con $p^n$ elementos son isomorfos 
+        \item Dos cuerpos finitos con $p^n$ elementos son isomorfos
     \end{enumerate}
 \end{tma}
 
@@ -1611,7 +1612,7 @@ Se dan los siguientes dos casos:
             $\alpha_1,\ldots, \alpha_n$ una base de $\K$ sobre $\F_p$, si
             $\alpha\in\K$, $\alpha=a_1\alpha_1+\ldots+a_n\alpha_n$ de forma
             única con $a_j\in\F_p$. Es decir, $(a_1,\ldots,a_n)\in\F_p^n$ son
-            las coordenadas de $\alpha \implies$ $\#\K=\#\F_p^n=p^n$.  
+            las coordenadas de $\alpha \implies$ $\#\K=\#\F_p^n=p^n$.
         \item[(1)] $f'=p^nt^{p^n-1}-1$ y como $\car{\K}=p$ $f'=-1$. De aquí
             obtenemos que $\text{mcd}(f,f')=1$ y por tanto $f$ tiene sólo raíces
             simples en su cuerpo de descomposición $\L$. Sea ahora $M$ el
@@ -1623,7 +1624,7 @@ Se dan los siguientes dos casos:
                     \implies\alpha\beta\in M$.
                 \item Si $\alpha,\beta\in M\implies \alpha+\beta\in M$ ya que
                     $(\alpha+\beta)^{p^n}=\alpha^{p^n}+\beta^{p^n}=\alpha+\beta
-                    \implies\alpha+\beta\in M$. 
+                    \implies\alpha+\beta\in M$.
                 \item Con los puntos anteriores tenemos que $M$ es un subanillo
                     íntegro con un número finito de elementos. Queda como
                     ejercicio ver que esto implica que $M$ es un cuerpo.
@@ -1643,9 +1644,78 @@ Se dan los siguientes dos casos:
     \end{enumerate}
 \end{proof}
 
+\fecha{16/03} % Ver grabación: problema 15
 
 \begin{notacion}
-    Si $\#K=p^n=q$ entonces escribimos $\K=\F_{p_n}=\F_q$.
+    Hemos visto que si $p\in\N$  es primo y $n\geq1$ existe un cuerpo $\K$ con
+    $q=p^n$ elementos único salvo isomorfismo. Lo denotamos por $\F_q$.
 \end{notacion}
+
+\begin{defin}[Función de Euler]
+    La \textit{función de Euler} $\phi:\N^+\to\N$ está definida por $\phi(1)=1$
+    y para todo $n>1$ $\phi(n)=\#\left\{1\leq j<n\mid \text{mcd}(j,n)=1\right\}=
+    \left| \left( \Z_n^\star \right)\right|$.
+\end{defin}
+
+\begin{lema}
+    Sea $G=\left< a \right> $  un grupo cíclico de orden $m\in\N$.
+    \begin{enumerate}
+        \item  Para cada divisor $d$ de $m$ existe un único subgrupo de orden
+            $d$ de $G$ que además es cíclico.
+        \item El número de elementos de orden $m$ en $G$ es $\phi(m)$.
+        \item $m=\sum_{d\mid m}\phi(d)$.
+    \end{enumerate}
+\end{lema}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item[(2)] Usamos la fórmula
+            $\ord{a^k}=\frac{\ord{a^k}}{\text{mcd}(k,
+                \ord{a}})=\frac{m}{\mcd{k,m}}$:
+                $\ord{a^k}=m\Leftrightarrow\mcd{k,m}=1$.
+            \item[(1)] Supongamos $m=ds$. Se tiene $\ord{a^s}=d$ por la fórmula
+                y además $\left< a^s \right> $ tiene orden $d$.
+                Sea $H<G$ con $\left|H\right|=d$ y $k=\min\left\{ j\geq1\mid
+                a^j\in H \right\}$. Si $a^j\in H$, $j=qk+r$ con $q\in\N$ y
+                $0\leq r<k$. Ahora $a^j=(a^k)^q*a^r\implies a^r=a^{j-qk}\in
+                H\implies r=0$ (si $r\neq0$ se contradice la definición de
+                $k$).
+
+                Por tanto $H= \left< a^k \right>$,
+                $\ord{a^k}=\frac{ds}{\mcd{k,m}=d}$ y como $s=\mcd{k,m}\implies
+                s\mid k\implies \left<a^k\right>\subseteq \left< a^s\right>$.
+                Como ambos tienen orden $d$, $\left<a^k\right>=\left<a^s\right> =H$
+            \item[(3)] Si $d=m$, $\phi(m)$ es el número de elementos de orden
+                $m$ en $G=\left<a\right>$.
+
+                Si $d<m$, $\phi(d)$ es el número de elementos de orden $d$ en
+                $G$, por el apartado (1).
+    \end{enumerate}
+\end{proof}
+
+\begin{tma}
+    El grupo de unidades de $\F_q$ $\left( \F_q^\star=\F_q\setminus\left\{ 0
+    \right\},*\right)$ es cíclico.
+\end{tma}
+
+\begin{proof}
+    Sea $\K$ un cuerpo con $\#\K=p^n=q$ tenemos $\left|\K^\star\right|=q-1$. Sea
+    $a\in\K^\star$ con $\ord{a}=d \implies a^d=1 \implies a$ es raíz de
+    $t^d-1\in\K[t]$. Sea $1\leq s\leq d$, $a^s\in\left<a\right>$ y $(a^s)^d=1$,
+    por lo que $a^s$ también es raíz de $t^d-1$. Por tanto se tiene la siguiente
+    descomposición: \[t^d-1=\prod_{j=1}^{d}(t-a^j).\]
+    Ahora, si $b\in\K^\star$ y $\ord{b}=d$, entonces $\left<a\right> = \left<b
+    \right>$. Si $d$ divide a $\left| \K^\star \right| = q-1$ entonces, sea
+    \[c_d=\text{número de elementos de orden }d\text{ en }\K^\star=
+        \begin{cases}
+            \phi(d)&\text{si }\exists a\in\K \text{ con }\ord{a}=d,\\
+            0&\text{en caso contrario}.
+        \end{cases}\]
+        Como $\left|\K^\star\right|=q-1=\sum_{d\mid q-1} c_d\leq \sum_{d\mid
+        q-1}\phi(d)=q-1$ (por el lema anterior) se tiene que $c_d=\phi(d)$ para
+        toda $d$ que divida a $q-1$. Por tanto, si $d=q-1,\ c_d=\phi(q-1)\neq0
+        \implies\exists\alpha\in\K^\star$ con $\ord{\alpha}=q-1\implies
+        \left<\alpha\right>=\K^\star$.
+\end{proof}
 
 \end{document}
