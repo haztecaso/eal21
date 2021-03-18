@@ -1718,4 +1718,100 @@ Se dan los siguientes dos casos:
         \left<\alpha\right>=\K^\star$.
 \end{proof}
 
+\fecha{17/03}
+\begin{ej}
+    Sea $\L=\F_2[t]/\left<f\right>$ con $f=t^4+t^3+t^2+t+1$ y $\alpha=t+\left<f
+    \right>$. Entonces $1,\alpha,\alpha^2,\alpha^3$ son base de $\L$ sobre
+    $\F_2$ y $\L=\left\{a_0+a_1\alpha+a_2\alpha^2+a_3\alpha^3|a_i\in\F_2
+    \right\}$. Tenemos entonces que $\L=\F_{2^4}$ y $\left|\L^\star\right|=15$.
+
+    Buscamos un elemento en $\L^\star$ de orden $15$. Calculamos las potencias
+    de $\alpha$ y vimos que $\ord{\alpha}=5$. Sea $\beta=\alpha+1$, $\ord{\beta}
+    \mid 15\implies\ord{\beta}\in\left\{1,3,5,15\right\}$. Ahora 
+    \begin{align*}
+        \beta^2&=(\alpha+1)^2=\alpha^2+1,\\
+        \beta^3&=(\alpha^2+1)(\alpha+1)=\alpha^3+\alpha^2+\alpha+1,\\
+        \beta^5&=\beta^2*\beta^3=(\alpha^2+1)(\alpha^3+\alpha^2+\alpha+1)=
+        \alpha^5+\alpha^4+\alpha^3+\alpha^2+\alpha^3+\alpha^2+\alpha+1\\
+               &=1+\alpha^3+\alpha^2+\alpha+1+\alpha+1=1+\alpha^3+\alpha^2\neq1
+    .\end{align*}
+    Donde hemos usado que $f(\alpha)=0\implies
+    \alpha^4=\alpha^3+\alpha^2+\alpha+1$. Por tanto concluimos que
+    $\ord{\beta}=15$. 
+
+    Habíamos visto que $g=t^4+t^3+1=m_{\beta,\F_2}$. Ahora
+    \begin{align*}
+        \K=\frac{\F_2[t]}{\left<g\right>}&\cong\F_2[\beta]=\L\\
+        t+\left<g\right>&\to\beta
+    \end{align*}
+    y $ord{t+\left< g \right>}=15$ en $\K^\star$. Por tanto $\K^\star=\L^\star$.   
+\end{ej}
+
+\begin{defin}
+    Sea $\F_q$ con $q=p^n$ un cuerpo finito, decimos que $\alpha\in\F$ es
+    \textit{primitivo} si $\left< \alpha \right> =\F_q^\star\Leftrightarrow \F_q
+    =\left\{0\right\}\cup\left\{\alpha,\alpha^2,\ldots,\alpha^{n-1}=1\right\}$.
+\end{defin}
+
+\begin{obs}
+    El teorema anterior garantiza que para todo cuerpo finito existe
+    $\alpha\in\F_q$ primitivo. Si $\alpha\in\F_q$ 
+    \completar %mirar grabación (la captura no se ve bien)
+\end{obs}
+
+\begin{lema}
+    Si $g\in\F_p[t]$ y $\alpha\in\K\supset\F_p$ entonces $g(\alpha)=0\implies
+    g(\alpha^p)=0$.   
+\end{lema}
+
+\begin{proof}
+    Si $g=a_0+a_1t+\ldots+a_nt^n$,
+    $0=g(\alpha)=a_0+a_1\alpha+\ldots+a_n\alpha^n$. Elevando a $p$ y usando que
+    $\car{\K}=p$ y $a^p=a$ para toda $a\in\F_p$:   
+    \[0=(\sum_{i=0}^n a_i\alpha^i)^p=\sum_{i=0}a_i^p\alpha^{ip}=\sum_{i=0}^n
+        a_i(\alpha^p)^i=g(\alpha^p).\]   
+\end{proof}
+
+\begin{ej}
+    Sea $\beta\in\L$ una raíz de $g=t^4+t^3+1=(t-\beta)(t-\beta^2)(t-\beta^4)
+    (t-\beta^8)$ en $\L[t]$, con $\car{\L}=2$.
+    \begin{align*}
+        \beta^2 &\text{ es raíz de } g,\\
+        \beta^4=(\beta^2)^2 &\text{ es raíz de } g,\\
+        \beta^8 &\text{ es raíz de } g \text{ y}\\
+        \beta^16=\beta.
+    \end{align*}
+    Y por tanto $\ord{\beta}=15$.
+\end{ej}
+
+\begin{cor}
+    Sea $p \in\N$ un número primo:
+    \begin{enumerate}
+        \item  Para todo $n\in\N$ existe un polinomio irreducible de grado $n$
+            en $\F_p[t]$.
+        \item Sea $g\in\F_p[t]$ mónico e irreducible con $\deg{g}=n$. Entonces
+            \begin{enumerate}
+                \item $g$ divide a $f_n=t^{p^n}-t$ y
+                \item  $g$ se descompone completamente en $\F_{p^n}[t]$:
+                    \[g=(t-\alpha_1)*\ldots*(t-\alpha_n)\] 
+                    con $\alpha_i\in\F_{p^n}$.
+            \end{enumerate}
+    \end{enumerate}
+\end{cor}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item  $\L=\F_p[t]/\left<g\right>$  es un cuerpo con $q=p^n$ elementos.
+            Sea
+            \begin{equation}
+                \L\cong\F_q=\left\{ \text{raíces de }f_n\in\F_q[t]\right\}
+                \tag{$\star$}
+            \end{equation}
+            Tenemos que si $\alpha=t+\left< g \right> $ en $\L$ entonces
+            $g(\alpha)=0$ y $g=m_{\alpha,\F_p}$. Por $\left( \star \right)$,
+            $f(\alpha)=0\implies g\mid f_n$.
+        \item \completar %Ver vídeo
+    \end{enumerate}
+\end{proof}
+
 \end{document}
