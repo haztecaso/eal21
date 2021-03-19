@@ -751,9 +751,14 @@ por elementos de $\L$.
     $\C$ como espacio vectorial sobre $\R$.
 \end{ej}
 
-\begin{obs}
-    $[\L:\K]=1 \Leftrightarrow\K=\L$
-    \completar
+\begin{obs} Sea $\K\subseteq\L$ una extensión, 
+    \[\begin{tikzcd}
+        \left[\L:\K\right]=1\arrow[Leftrightarrow]{r}{}
+        \arrow[Leftrightarrow]{d}{}
+        &\K=\L\arrow[Leftrightarrow]{d}{\K\subseteq\L}\\
+        1 \text{ es base de }\L \text{ sobre }\K
+        \arrow[Leftrightarrow]{r}{}& \L\subseteq \K
+    \end{tikzcd}\]
     % ¿hacer dibujito?
 \end{obs}
 
