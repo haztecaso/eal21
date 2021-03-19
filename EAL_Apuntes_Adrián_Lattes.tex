@@ -751,7 +751,7 @@ por elementos de $\L$.
     $\C$ como espacio vectorial sobre $\R$.
 \end{ej}
 
-\begin{obs} Sea $\K\subseteq\L$ una extensión, 
+\begin{obs} Sea $\K\subseteq\L$ una extensión,
     \[\begin{tikzcd}
         \left[\L:\K\right]=1\arrow[Leftrightarrow]{r}{}
         \arrow[Leftrightarrow]{d}{}
@@ -1164,10 +1164,10 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
 \begin{obs}
     Si $G= \left< a \right>$ es un grupo cíclico de orden $n$
     \begin{enumerate}
-        \item $\text{ord}(a^k)=\frac{n}{\text{mcd}(k,n)}$.
-        \item $G= \left< a \right> \Leftrightarrow \text{mcd}(k,n)=1$.
+        \item $\ord{a^k}=\frac{n}{\mcd{k,n}}$.
+        \item $G= \left< a \right> \Leftrightarrow \mcd{k,n}=1$.
         \item El número de generadores de $G$ es $\#\left\{ 1\leq k<
-            n\mid\text{mcd}(k,n)=1 \right\}=\varphi(n)$, donde $\varphi$ es la
+            n\mid\mcd{k,n}=1 \right\}=\varphi(n)$, donde $\varphi$ es la
             \textit{función de Euler}.
     \end{enumerate}
 \end{obs}
@@ -1506,21 +1506,20 @@ y si $m>1$ es \textit{múltiple}.
     Sea $\K$ un cuerpo y $f\in\K[t]$ con $\deg{f}\geq1$. Son equivalentes
     \begin{enumerate}
         \item $f$ tiene una raíz múltiple en su cuerpo de descomposición $\L$.
-        \item $\text{mcd}(f,f')\neq 1$. Es decir $f$ y $f'$ tienen un factor
+        \item $\mcd{f,f'}\neq 1$. Es decir $f$ y $f'$ tienen un factor
             irreducible en común.
     \end{enumerate}
 \end{prop}
 
 \begin{proof}
-        Si escribimos $f=(t-a)^m*h$ en $\L[t]$, donde
-            $a\in\L$ y $m$ es la multiplicidad algebraica de $a$,
-            \[f'=m(t-a)^{m-1}+(t-a)^m*h'=(t-a)^{m-1}(m*h+(t-a)*h').\]
-            Si $m=1$, $f'(a)=h(a)\neq 0$ y $m_{\alpha,\K}$ divide a
-            $f$ porque $f(a)=0$, pero $m_{\alpha,\K}$ no divide a $f'$
-            ya que $f'(a)\neq 0$. Como los factores irreducibles de $f$ son
-            de la forma $m_{\alpha,\K}$ para $a\in\L$ raíz de $f$, concluimos
-            que $\text{mcd}(f,f')=1 \Leftrightarrow $ el polinomio $f$ tiene
-            raíces simples en $\L$.
+    Si escribimos $f=(t-a)^m*h$ en $\L[t]$, donde $a\in\L$ y $m$ es la
+    multiplicidad algebraica de $a$,
+    \[f'=m(t-a)^{m-1}+(t-a)^m*h'=(t-a)^{m-1}(m*h+(t-a)*h').\]
+    Si $m=1$, $f'(a)=h(a)\neq 0$ y $m_{\alpha,\K}$ divide a $f$ porque $f(a)=0$,
+    pero $m_{\alpha,\K}$ no divide a $f'$ ya que $f'(a)\neq 0$. Como los
+    factores irreducibles de $f$ son de la forma $m_{\alpha,\K}$ para $a\in\L$
+    raíz de $f$, concluimos que $\mcd{f,f'}=1\Leftrightarrow$ el polinomio $f$
+    tiene raíces simples en $\L$.
 \end{proof}
 
 \section{Paréntesis: cuerpos finitos}
@@ -1560,7 +1559,7 @@ Se dan los siguientes dos casos:
     Sea $\K$ un cuerpo de característica $p>0$. Para todos $a,b\in\K$ y toda
     $n\geq1$ se tiene
     \begin{itemize}
-        \item $(a+b)^p=a^p+b^p$ y 
+        \item $(a+b)^p=a^p+b^p$ y
         \item $(a+b)^{p^n}=a^{p^n}+b^{p^n}$.
     \end{itemize}
 \end{obs}
@@ -1619,7 +1618,7 @@ Se dan los siguientes dos casos:
             única con $a_j\in\F_p$. Es decir, $(a_1,\ldots,a_n)\in\F_p^n$ son
             las coordenadas de $\alpha \implies$ $\#\K=\#\F_p^n=p^n$.
         \item[(1)] $f'=p^nt^{p^n-1}-1$ y como $\car{\K}=p$ $f'=-1$. De aquí
-            obtenemos que $\text{mcd}(f,f')=1$ y por tanto $f$ tiene sólo raíces
+            obtenemos que $\mcd{f,f'}=1$ y por tanto $f$ tiene sólo raíces
             simples en su cuerpo de descomposición $\L$. Sea ahora $M$ el
             conjunto de las raíces de $f$ en $\L$ veamos que $M$ es un cuerpo:
             \begin{itemize}
@@ -1638,7 +1637,7 @@ Se dan los siguientes dos casos:
             elementos, entonces $\K$ es un cuerpo de descomposición de $f$ sobre
             $\F_p$. Sea $\K^\star=\left( \K\setminus\left\{ 0 \right\} , *
                 \right)$ grupo con $p^n-1$ elementos, por el \textit{teorema de
-            Lagrange}, si $a\in\K\implies s=\text{ord}(a)=\left|\left<a\right>
+            Lagrange}, si $a\in\K\implies s=\ord{a}=\left|\left<a\right>
             \right|\mid \left| \K^\star \right| =p ^n \implies p^n-1=s*t,
             a^{p^n-1}=a^{st}=(a^s)^t=1^t=1\implies a$ es raíz de
             $f=t(t^{p^n-1}-1)$. Si $a=0$, $0$ es raiz de $f$. Todos los
@@ -1658,7 +1657,7 @@ Se dan los siguientes dos casos:
 
 \begin{defin}[Función de Euler]
     La \textit{función de Euler} $\phi:\N^+\to\N$ está definida por $\phi(1)=1$
-    y para todo $n>1$ $\phi(n)=\#\left\{1\leq j<n\mid \text{mcd}(j,n)=1\right\}=
+    y para todo $n>1$ $\phi(n)=\#\left\{1\leq j<n\mid \mcd{j,n}=1\right\}=
     \left| \left( \Z_n^\star \right)\right|$.
 \end{defin}
 
@@ -1675,9 +1674,8 @@ Se dan los siguientes dos casos:
 \begin{proof}\hspace{0pt}
     \begin{enumerate}
         \item[(2)] Usamos la fórmula
-            $\ord{a^k}=\frac{\ord{a^k}}{\text{mcd}(k,
-                \ord{a}})=\frac{m}{\mcd{k,m}}$:
-                $\ord{a^k}=m\Leftrightarrow\mcd{k,m}=1$.
+            $\ord{a^k}=\frac{\ord{a^k}}{\mcd{k,\ord{a}}}=
+            \frac{m}{\mcd{k,m}}$: $\ord{a^k}=m\Leftrightarrow\mcd{k,m}=1$.
             \item[(1)] Supongamos $m=ds$. Se tiene $\ord{a^s}=d$ por la fórmula
                 y además $\left< a^s \right> $ tiene orden $d$.
                 Sea $H<G$ con $\left|H\right|=d$ y $k=\min\left\{ j\geq1\mid
@@ -1732,7 +1730,7 @@ Se dan los siguientes dos casos:
 
     Buscamos un elemento en $\L^\star$ de orden $15$. Calculamos las potencias
     de $\alpha$ y vimos que $\ord{\alpha}=5$. Sea $\beta=\alpha+1$, $\ord{\beta}
-    \mid 15\implies\ord{\beta}\in\left\{1,3,5,15\right\}$. Ahora 
+    \mid 15\implies\ord{\beta}\in\left\{1,3,5,15\right\}$. Ahora
     \begin{align*}
         \beta^2&=(\alpha+1)^2=\alpha^2+1,\\
         \beta^3&=(\alpha^2+1)(\alpha+1)=\alpha^3+\alpha^2+\alpha+1,\\
@@ -1742,14 +1740,14 @@ Se dan los siguientes dos casos:
     .\end{align*}
     Donde hemos usado que $f(\alpha)=0\implies
     \alpha^4=\alpha^3+\alpha^2+\alpha+1$. Por tanto concluimos que
-    $\ord{\beta}=15$. 
+    $\ord{\beta}=15$.
 
     Habíamos visto que $g=t^4+t^3+1=m_{\beta,\F_2}$. Ahora
     \begin{align*}
         \K=\frac{\F_2[t]}{\left<g\right>}&\cong\F_2[\beta]=\L\\
         t+\left<g\right>&\to\beta
     \end{align*}
-    y $ord{t+\left< g \right>}=15$ en $\K^\star$. Por tanto $\K^\star=\L^\star$.   
+    y $ord{t+\left< g \right>}=15$ en $\K^\star$. Por tanto $\K^\star=\L^\star$.
 \end{ej}
 
 \begin{defin}
@@ -1761,20 +1759,20 @@ Se dan los siguientes dos casos:
 \begin{obs}
     El teorema anterior garantiza que para todo cuerpo finito existe
     $\alpha\in\F_q$ primitivo. Si $\alpha\in\F_q$ es primitivo en $\F_q$
-    entonces $\alpha^k$ es primitivo $\Leftrightarrow\mcd{k,q-1}=1$.   
+    entonces $\alpha^k$ es primitivo $\Leftrightarrow\mcd{k,q-1}=1$.
 \end{obs}
 
 \begin{lema}
     Si $g\in\F_p[t]$ y $\alpha\in\K\supset\F_p$ entonces $g(\alpha)=0\implies
-    g(\alpha^p)=0$.   
+    g(\alpha^p)=0$.
 \end{lema}
 
 \begin{proof}
     Si $g=a_0+a_1t+\ldots+a_nt^n$,
     $0=g(\alpha)=a_0+a_1\alpha+\ldots+a_n\alpha^n$. Elevando a $p$ y usando que
-    $\car{\K}=p$ y $a^p=a$ para toda $a\in\F_p$:   
+    $\car{\K}=p$ y $a^p=a$ para toda $a\in\F_p$:
     \[0=(\sum_{i=0}^n a_i\alpha^i)^p=\sum_{i=0}a_i^p\alpha^{ip}=\sum_{i=0}^n
-        a_i(\alpha^p)^i=g(\alpha^p).\]   
+        a_i(\alpha^p)^i=g(\alpha^p).\]
 \end{proof}
 
 \begin{ej}
@@ -1798,7 +1796,7 @@ Se dan los siguientes dos casos:
             \begin{enumerate}
                 \item $g$ divide a $f_n=t^{p^n}-t$ y
                 \item  $g$ se descompone completamente en $\F_{p^n}[t]$:
-                    \[g=(t-\alpha_1)*\ldots*(t-\alpha_n)\] 
+                    \[g=(t-\alpha_1)*\ldots*(t-\alpha_n)\]
                     con $\alpha_i\in\F_{p^n}$.
             \end{enumerate}
     \end{enumerate}
@@ -1827,7 +1825,7 @@ Se dan los siguientes dos casos:
     que las siguientes son raíces de $g$: \[\alpha^{p^0},\alpha^{p^1},(\alpha^p)^p=
     \alpha^{p^2},\ldots,\left(\alpha^{p^{n-2}}\right)^p=\alpha^{p^{n-1}},\]
     y son distintas entre si ya que $\alpha\in\F_{p^{n}}$ es primitivo
-    $\Leftrightarrow \ord{\alpha}=p^n-1>p^{n-1}$. 
+    $\Leftrightarrow \ord{\alpha}=p^n-1>p^{n-1}$.
 
     Más adelante veremos que esta propiedad vale para todo $\alpha\in\F_{p^n}$,
     no necesariemente primitivo.
