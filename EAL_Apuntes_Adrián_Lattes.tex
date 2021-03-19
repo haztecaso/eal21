@@ -1557,14 +1557,19 @@ Se dan los siguientes dos casos:
 \end{obs}
 
 \begin{obs}
-    Sea $\K$ es un cuerpo de $\car{\K}=p>0$. Para todos $a,b\in\K$ se tiene
-    \[(a+b)^p=a^p+b^p\text{ y }(a+b)^{p^n}=a^{p^n}+b^{p^n}\]
-    para toda $n\geq1$.
+    Sea $\K$ un cuerpo de característica $p>0$. Para todos $a,b\in\K$ y toda
+    $n\geq1$ se tiene
+    \begin{itemize}
+        \item $(a+b)^p=a^p+b^p$ y 
+        \item $(a+b)^{p^n}=a^{p^n}+b^{p^n}$.
+    \end{itemize}
 \end{obs}
 
 \begin{proof}
-    Usando el binomio de Newton, $(a+b)^p=a^p+ {p}{1}$
-    \completar
+    Usando el binomio de Newton,
+    \[(a+b)^p=a^p+\binom{p}{1}a^{p-1}b+\ldots+\binom{p}{p-1}ab^p+b^p\] y
+    $\binom{p}{k}=\frac{p!}{k!(p-k)!}=p \frac{(p-1)!}{k!(p-k)!}=0$ en $\K$ ya
+    que $\frac{(p-1)!}{k!(p-k)!}\in\N$ y $\car{\K}=p$.
 \end{proof}
 
 \begin{defin}
