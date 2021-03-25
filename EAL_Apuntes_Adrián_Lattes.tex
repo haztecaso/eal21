@@ -149,8 +149,8 @@
 \begin{defin}
     Sean $\K$ y $\L$ cuerpos y $f:\K\to\L$ un homomorfismo de anillos. Decimos
     que $f$ define una \textit{extensión de $\K$ en $\L$}.
-    Por el lema tenemos que $\K\cong f(\K)\subseteq \L$, por lo que identificaremos
-    $\K$ con $f(\K)$ y escribiremos \[\K\subseteq \L.\]
+    Por el lema tenemos que $\K\cong f(\K)\subseteq \L$, por lo que
+    identificaremos $\K$ con $f(\K)$ y escribiremos \[\K\subseteq \L.\]
 \end{defin}
 
 \begin{ej}
@@ -177,7 +177,8 @@
 \end{obs}
 
 \begin{notacion}
-    Sea $\K$ un cuerpo denotamos el cuerpo de fracciones de $\K[x]$ como $\K(x)$.
+    Sea $\K$ un cuerpo denotamos el cuerpo de fracciones de $\K[x]$ como
+    $\K(x)$.
 \end{notacion}
 
 \begin{ej}
@@ -231,29 +232,25 @@ $a+b\alpha\mapsto a+bi$ es un isomorfismo.
 Sea ahora $\K$ un cuerpo, $f\in\K[x]$ de grado $n\geq 1$ e $I=\langle f\rangle=
 \left\{ g*f\mid g\in\K[x] \right\}$, consideramos la congruencia módulo $I$:
 \[p\sim_I q\Leftrightarrow p-q\in I \Leftrightarrow f\mid(p-q)\]
-donde $p,q\in\K[x]$. La clase de equivalencia de $p\in\K[x]$ es
-$p+I\coloneqq\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}$.
+donde $p,q\in\K[x]$. La clase de equivalencia de $p\in\K[x]$ es $p+I\coloneqq
+\left\{q\in\K[x]\mid p\sim_Iq\right\}=\left\{p+g\mid g\in I\right\}$.
 
-Se tiene entonces que \[\frac{\K[x]}{I}=\left\{ p+I\mid p\in\K[x] \right\}\] es un
-anillo unitario y conmutativo con las operaciones definidas entre los
-representantes. Así
-\[\frac{\K[x]}{I}=\left\{ a_0+a_1x+\ldots+a_{n-1}x^{n-1}+I\mid a_0,\ldots,a_{n-1}
-\in\K \right\}\]
-donde las $a_i$ son las clases de los restos de dividir por $f$ y $n=\deg{f}$.
+Se tiene entonces que \[\frac{\K[x]}{I}=\left\{ p+I\mid p\in\K[x] \right\}\] es
+un anillo unitario y conmutativo con las operaciones definidas entre los
+representantes. Así \[\frac{\K[x]}{I}=\left\{ a_0+a_1x+\ldots+a_{n-1}x^{n-1}+
+I\mid a_0,\ldots,a_{n-1}\in\K \right\}\] donde las $a_i$ son las clases de los
+restos de dividir por $f$ y $n=\deg{f}$.
+
 Si denotamos $a+I$ por $a$ para todo $a\in\K$ y $x+I$ por $\alpha$ podemos
-escribir
-\[\frac{\K[x]}{I}=\left\{ a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}\mid a_0,\ldots,a_{n-1}
-\in\K \right\}.\]
-
+escribir \[\frac{\K[x]}{I}=\left\{ a_0+a_1\alpha+\ldots+a_{n-1}\alpha^{n-1}\mid
+a_0,\ldots,a_{n-1} \in\K \right\}.\]
 
 Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$:
-\begin{equation*}
-    \begin{split}
-        f(\alpha) &=c_0+c_1\alpha+\ldots+c_n\alpha^n
-              =c_0+I+(c_1+I)(x+I)+\ldots+(c_n+I)(x+I)^n \\
-                  &=(c_0+c_1x+\ldots+c_n+x^n)+I=f+I=0+I.
-    \end{split}
-\end{equation*}
+\begin{align*}
+    f(\alpha)&=c_0+c_1\alpha+\ldots+c_n\alpha^n=c_0+I+(c_1+I)(x+I)+\ldots
+    +(c_n+I)(x+I)^n\\
+             &=(c_0+c_1x+\ldots+c_n+x^n)+I=f+I=0+I.
+\end{align*}
 
 \fecha{17/02}
 \begin{defin}
@@ -1499,7 +1496,7 @@ y si $m>1$ es \textit{múltiple}.
 
 \begin{defin}[Derivada formal]
     Sea $f=a_nt^n+\ldots+a_1t+a_0\in\K[t]$ su \textit{derivada formal} es el
-    polinomio $f'=na_nt^{n-1}+\ldots+a_1\in\K[t]$.
+   polinomio $f'=na_nt^{n-1}+\ldots+a_1\in\K[t]$.
 \end{defin}
 
 \begin{prop}
@@ -1538,10 +1535,10 @@ Se dan los siguientes dos casos:
     \item $\ker{\psi}=\left\{ 0 \right\}$ y $\psi$ es inyectiva, con lo que
         $\Z\subseteq\K \implies \Q\subseteq\K$ y $\K$ tiene característica 0.
     \item $\ker{\psi}=p\Z$ es un ideal de $\Z$ donde $p\neq 0$ es primo. En este
-        caso \[\frac{\Z}{\ker{\psi}}=\frac{\Z}{p\Z}\cong\text{un subanillo de }\K\]
-        y $p$ es la característica de $\K$. Denotamos por $\F_p=\frac{\Z}{p\Z}$
-        al cuerpo finito con $p$ elementos. Con esto se tiene la extensión de
-        cuerpos $\F_p\subseteq\K$.
+        caso \[\frac{\Z}{\ker{\psi}}=\frac{\Z}{p\Z}\cong\text{un subanillo de
+        }\K\] y $p$ es la característica de $\K$. Denotamos por $\F_p=\frac{\Z}
+        {p\Z}$ al cuerpo finito con $p$ elementos. Con esto se tiene la
+        extensión de cuerpos $\F_p\subseteq\K$.
 \end{enumerate}
 
 \begin{ej}
@@ -1817,8 +1814,7 @@ Se dan los siguientes dos casos:
     \end{enumerate}
 \end{proof}
 
-\fecha{18/03}
-
+\fecha{18/03} % Ver grabación: ejercicios 16 y 19
 \begin{obs}
     Sea $\alpha\in\F_{p^n}$ primitivo y $g=m_{\alpha,\F_p}$, $n=\deg{g}=\left[
     \F_{p^n}:\F_p\right]$. Por el lema, $g(\alpha)=0)=g(\alpha^p)=0$. Obtenemos
@@ -1831,6 +1827,150 @@ Se dan los siguientes dos casos:
     no necesariemente primitivo.
 \end{obs}
 
-% Resto de la clase: ejercicios 16 y 19
+
+\fecha{22/03} % Ver grabación: ejercicio 16 y 20
+\begin{obs}
+    Sea $p$ donde imo, $n\geq1$, $\gamma\in\F_{p^n}$ y $g=m_{\gamma,\F_{p^n}}$
+    donde $k=\deg{g}$. Entonces \[\F_{p^k}\cong\frac{\F_p[t]}{\left< g \right>}
+        \cong\F_p[\gamma]\subseteq\F_{p^n}.\] 
+\end{obs}
+
+\begin{prop}
+    Sea $p$ primo y $n_1,n_2\in\N$. Son equivalentes: 
+    \begin{enumerate}
+        \item $n_1\mid n_2$ 
+        \item $\F_{p^{n_1}}\subseteq \F_{p^{n_2}}$ 
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}\hspace{0pt}
+    \begin{itemize}[itemindent=36pt]
+        \item[(2)$\implies$(1)] Tenemos $\F_p\subseteq\F_{p^{n_1}}\subseteq
+            \F_{p^{n_2}}$ y por la transitividad del grado
+            \[n_2=\left[ \F_{p^{n_2}}:\F_p \right]=
+            \left[\F_{p^{n_2}}:\F_{p^{n_1}}\right]*
+            \left[ \F_{p^{n_1}}:\F_p\right]=
+            \left[\F_{p^{n_2}}:\F_{p^{n_1}}\right]*n_1
+            \Leftrightarrow n_1\mid n_2.\] 
+        \item[(1)$\implies$(2)] Tenemos $n_2=d*n_1$. Sea $\alpha\in\F_{p^{n_2}}$
+            primitivo, $\left< \alpha \right>=\F_{p^{n_2}}^\star$ y
+            $\ord{\alpha}=p^{n_2}-1$. Ahora, como $n_2=d*n_1$, $p^{n_1}-1$
+            divide a $p^{n_2}-1$ ya que
+            $x^d-1=(x-1)(x^{d-1}+x^{d-2}+\ldots+x+1)$ y sustituyendo $x$ por
+            $p^{n_1}$,
+            \[p^{n_1*d}-1=(p^{n_2}-1)*s\]
+            para algún $s\in\Z$.
+
+            Si $\beta=\alpha^s$, como $\ord{\alpha}=p^{n_1*d}-1$, $\ord{
+            \beta}={\ord{\alpha}}/{\mcd{\ord{\alpha},s}}=p^{n_1}-1$ y 
+            $\beta$ es raíz del polinomio $f_{n_1}=t^{p^{n_1}-1}-t$.
+            Como las raíces de $f_{n_1}$ son los elementos de $\F_{p^{n_1}}$ y
+            $\ord{\beta}=p^{n_1}-1$,
+            \[\F_{p^{n_1}}=\{\beta,\beta^2,\ldots,\beta^{p^{n_1}-1}=1
+            \}\cup \left\{ 0 \right\}\subseteq\F_{p^{n_2}}.\] 
+    \end{itemize}
+\end{proof}
+
+\begin{ejer}
+    Hallar los subcuerpos de $\F_{16}$ y $\F_{2^{15}}$.  
+\end{ejer}
+
+\fecha{23/03} % Ver grabación y completar el inicio
+\begin{ej}
+    Consideramos $\F_{2^15}$,
+    \completar
+\end{ej}
+
+\fecha{24/03} % Ver grabación
+
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
+    Decimos que $\alpha$ es \textit{separable} sobre $\K$ si $m_{\alpha,\K}$ no
+    tiene raíces múltiples en su cuerpo de descomposición.
+\end{defin}
+
+\begin{obs}
+    Si $h\in\K[t]$ tiene grado $\geq1$, son equivalentes:
+    \begin{enumerate}
+        \item $h$ no tiene raíces múltiples en su cuerpo de descomposición.
+        \item $\mcd{h,h'}=1$, es decir h y h' no tienen factores irreducibles
+            comunes. 
+    \end{enumerate}
+\end{obs}
+
+\begin{defin}
+    Una extensión $\K\subseteq\L$ es \textit{separable} si todo $\alpha$
+    algebraico sobre $\K$ es separable sobre $\K$.  
+\end{defin}
+
+\begin{prop}
+    Sea $\K\subseteq\L$ una extensión,$\alpha\in\L$.
+    \begin{enumerate}
+        \item Si $\car\K=0$ entonces $\alpha$ es separable.  
+        \item si $\L$ es un cuerpo finito $\alpha$ es separable.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item Sea $f=m_{\alpha,\K}\in\K[t]$ de grado $n=[\K(\alpha):\K]\geq1$.
+            Por un lado $f=t^n+a_1t^{n-1}+\ldots+a_n$ es irreducible y además
+            $f'=nt^{n-1}+a(n-1)t^{n-2}+\ldots+a_{n-1}$ donde $n\neq0$ ya que
+            $\car\K=0$. Por tanto, como $\deg{f'}=n-1$ y $f$ es irreducible,
+            $\mcd{f,f'}=1$.
+        \item Sabemos que existen $q=p^n$ con $p$ primo tales que $\K\cong\F_q$,
+            $\L\cong\F_{q^n}=\F_{p^{nm}}$ y $n=[\L:\K]$. Entonces, si
+            $\alpha\in\L$, $m_{\alpha,\K}$ divide a $t^{p^{nm}}-t=\prod_{\beta
+            \in\L}(t-\beta)$ y por tanto $m_{\alpha,\K}$ tiene solo raíces
+            simples. \revisar
+    \end{enumerate}
+\end{proof}
+
+\begin{ej}[Extensión no separable]
+    Sea $\K=\F_p(x)$ el cuerpo de fracciones de $\F_p[x]$. Sabemos que $\K$ es
+    infinito y $\car{\K}=p$.
+
+    Sea $f=t^p+x\in\F_p[x][t]$. Aplicando el \textit{criterio de irreducibilidad
+    de Eisenstein} para el elemento primo $x\in\F_p[x]$ ($x$ es primo ya que
+    $\F_p[x]$ es DFU, por lo que todo irreducible es primo) deducimos que $f$ es
+    irreducible.
+    Por el \textit{lema de Gauss} sabemos que $f$ es irreducible en
+    $\F_p(x)[t]=\K[t]$.  
+
+    Sea $\L$ el cuerpo de descomposición de $f$ sobre $\K$. Tomo $\alpha\in\L$
+    una raíz de $f$: $f(\alpha)=\alpha^p+x=0\implies x=\alpha^p$.
+    En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.   
+
+    Por tanto $\L=\K(\alpha)$ y $m_{\alpha,\K}$ tiene una raíz de multiplicidad
+    $p>1$, por lo que $\alpha$ no es separable sobre $\K$.   
+\end{ej}
+
+\begin{tma}[del elemento primitivo]
+    Sea $\K\subseteq\L$ una extensión finita y separable. Entonces existe
+    $\alpha\in\L$ tal que $\L=\K(\alpha)$. Además, si $\K$ es infinito y
+    $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que 
+    \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\] 
+\end{tma}
+
+\begin{proof}
+    Si $\K\subseteq\L$ es una extensión finita, existen
+    $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
+
+    Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
+    $n$.
+    \begin{itemize}
+        \item Empezamos con $n=2$: $\L=\K(\beta,\gamma)$. Sean
+            $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
+            $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
+            distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
+            distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
+            descomposición $\mathbb{M}$ de $f*g$.  
+    \end{itemize}
+    \completar
+
+\fecha{25/03}
+    \completar 
+\end{proof}
+
 
 \end{document}
