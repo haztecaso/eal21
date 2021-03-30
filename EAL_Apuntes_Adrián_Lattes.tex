@@ -44,10 +44,11 @@
 % Theorems
 \usepackage{amsthm}
 \usepackage{thmtools}
-\newtheorem*{lema}{Lema}
-\newtheorem*{prop}{Proposición}
-\newtheorem*{tma}{Teorema}
-\newtheorem*{cor}{Corolario}
+\newtheorem{tma}{Teorema}[chapter]
+\renewcommand{\thetma}{\arabic{tma}}
+\newtheorem{lema}[tma]{Lema}
+\newtheorem{prop}[tma]{Proposición}
+\newtheorem{cor}{Corolario}[tma]
 \theoremstyle{definition}
 \newtheorem*{defin}{Definición}
 \newtheorem*{notacion}{Notación}
@@ -108,6 +109,7 @@
 \section{Raíces de polinomios y extensiones de cuerpos}
 
 \begin{defin}
+    \label{def:cuerpo}
     Decimos que un anillo unitario y conmutativo $(\F,+,*)$ es un
     \textit{cuerpo} si para todo $a\in \F\setminus\{0\}$ existe $a^{-1}\in
     \F\setminus\{0\}$ tal que $a*a^{-1}=1$ y $1\neq 0$.
@@ -259,7 +261,7 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 \end{defin}
 
 \newpage
-\begin{prop}
+\begin{prop}\label{prop:carirred}
     Sea $\K$ un cuerpo y $f\in \K$ de grado $n\geq1$. Son equivalentes
     \begin{enumerate}
         \item $\frac{\K[t]}{\left< f \right>}$ es un anillo íntegro.
@@ -290,14 +292,15 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
     \vspace{-1em}
 \end{proof}
 
-\begin{cor}
+\begin{cor}\label{cor:existenciaextension}
     Sean $\K$ un cuerpo y $f\in\K[t]$ irreducible, existe una extensión
     $\K\subseteq\L$ y $\alpha\in\L$ tales que $f(\alpha)=0$.
 \end{cor}
 
 \begin{proof}
     Tomamos el cuerpo $\frac{\K[t]}{\left< f \right> }$ y el polinomio
-    $\alpha=t+\left< f \right>$  y aplicamos la proposición anterior.
+    $\alpha=t+\left< f \right>$  y aplicamos la proposición
+    \ref{prop:carirred}.
 \end{proof}
 
 \begin{ej}
@@ -331,10 +334,10 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
         \item[Si $n>1$] Supongamos que el resultado es cierto para polinomios de
             grado $n-1$. Como $\K[t]$ es D.F.U. puedo expresar $f$
             como producto de irreducibles: $f=f_1*\ldots*f_s$ con $f_i\in\K[t]$
-            irreducibles. Por el corolario anterior existe una extensión
-            $\K\subseteq\L_1$ tal que existe $\alpha_1\in\L_1$ tal que
-            $f_1(\alpha_1)=0$ lo que equivale a que $f_1=(t-\alpha_1)*g$ en
-            $\L_1[t]$.
+            irreducibles. Por el corolario \ref{cor:existenciaextension}
+            existe una extensión $\K\subseteq\L_1$ tal que existe
+            $\alpha_1\in\L_1$ tal que $f_1(\alpha_1)=0$ lo que equivale a que
+            $f_1=(t-\alpha_1)*g$ en $\L_1[t]$.
 
             Ahora $f=(t-\alpha_1)*g*f_2*\ldots*f_s$ en $\L_1[t]$ donde
             $h=g*f_2*\ldots f_s\in\L_1[t]$ tiene $\deg{h}=n-1$. Por tanto,
@@ -426,7 +429,7 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
     polinomio mínimo no puede tener grado 1.
 \end{ej}
 
-\begin{prop}
+\begin{prop}\label{prop:pminirred}
     Sea $\K\subseteq\L$ una extensión y $\alpha\in \L$ algebraico sobre $\K$,
     \begin{enumerate}
         \item El polinomio mínimo $m_{\alpha,\K}$ es irreducible en $\K[t]$.
@@ -468,12 +471,12 @@ Además $f(\alpha)=0$ en $\frac{\K[x]}{I}$ ya que, si $f=c_0+c_1x+\ldots+c_nx^n$
 \end{cor}
 
 \begin{proof}
-    Como $f(\alpha)=0$, por la proposición anterior existe $g\in\K[t]$ tal que
-    $f=g*m_{\alpha,\K}$. Al ser $f$ irreducible uno de los dos factores está en
-    $\K\setminus\{0\}$. No puede ser $m_{\alpha,\K}$ ya que tiene grado
-    $n\geq1$, por lo que $g\in\K\setminus\{0\}$. Como $f$ y $m_{\alpha,\K}$ son
-    mónicos el coeficiente de $t^n$ en ambos es $1$, luego $g=1$ y
-    $f=m_{\alpha,\K}$.
+    Como $f(\alpha)=0$, por la proposición \ref{prop:pminirred} existe
+    $g\in\K[t]$ tal que $f=g*m_{\alpha,\K}$. Al ser $f$ irreducible uno de los
+    dos factores está en $\K\setminus\{0\}$.
+    No puede ser $m_{\alpha,\K}$ ya que tiene grado $n\geq1$, por lo que $g\in\K
+    \setminus\{0\}$. Como $f$ y $m_{\alpha,\K}$ son mónicos el coeficiente de
+    $t^n$ en ambos es $1$, luego $g=1$ y $f=m_{\alpha,\K}$.
 \end{proof}
 
 \begin{obs}
@@ -591,7 +594,7 @@ Si $\L=\K(\alpha_1,\ldots,\alpha_n)$ y $1\leq r\leq n-1$,
 Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente,
 consideramos la extensión $\K\subseteq\K(\beta)$
 
-\begin{prop}
+\begin{prop}\label{prop:propiedadesevaluacion}
     Si $\beta\in\L$ es trascendente sobre $\K$ el homomorfismo de evaluación en
     $\beta$
     \begin{align*}
@@ -639,7 +642,7 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
 
 \begin{proof}\hspace{0pt}
     \begin{enumerate}
-        \item Como en la proposición anterior.
+        \item Como en la proposición \ref{prop:propiedadesevaluacion}.
         \item $m_{\beta,\K}\in\K[t]$ y $\phi(m_{\beta,\K})=m_{\beta,\K}(\beta)
             =0$ por lo que $m_{\beta,\K}\in \ker{\phi} \implies \left<
             m_{\beta,\K} \right> \subseteq \ker{\phi}$. Si $f\in\ker{\phi}
@@ -655,11 +658,11 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
     \vspace{-2em}
 \end{proof}
 
-\begin{cor}
+\begin{cor}\label{cor:carcuerposelalg}
     Sea $\K\subseteq\L$ una extensión y $\beta\in \L$. Son equivalentes
     \begin{itemize}
-        \item $\beta$ es algebraico sobre $\K$
-        \item $\K[\beta]$ es cuerpo
+        \item $\beta$ es algebraico sobre $\K$.
+        \item $\K[\beta]$ es cuerpo.
     \end{itemize}
 \end{cor}
 
@@ -667,9 +670,10 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
 \begin{proof}\hspace{1em}
     \begin{itemize}[itemindent=14pt]
         \item[$\implies$]  Si $\alpha$ es algebraico sobre $\K$, por la proposición
-            anterior, sabemos que $\K[\alpha]\subseteq\L$ es un cuerpo. Por
-            tanto $\K(\alpha)\subseteq\K[\alpha]$ ya que $\K(\alpha)$ es el
-            menor subcuerpo de $\L$ que contiene a $\K$ y a $\alpha$. Por tanto
+            \ref{prop:propiedadesevaluacion}, sabemos que
+            $\K[\alpha]\subseteq\L$ es un cuerpo. Por tanto
+            $\K(\alpha)\subseteq\K[\alpha]$ ya que $\K(\alpha)$ es el menor
+            subcuerpo de $\L$ que contiene a $\K$ y a $\alpha$. Por tanto
             $\K(\alpha)=\K[\alpha]$.
         \item[$\impliedby$]  Si $\alpha$ es trascendente $\K[\alpha]$ es
             isomorfo al anillo de polinomios $\K[x]$ que no es un cuerpo. Por
@@ -699,7 +703,7 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
     \item $\K(\alpha_1,\ldots,\alpha_n)=\left\{\text{menor subcuerpo que contiene a } \K \text{ y a } \alpha_1,\ldots,\alpha_n\right\}\subseteq\K[\alpha_1,\ldots,\alpha_n]\subseteq
     \K(\alpha_1,\ldots,\alpha_n)$
     \begin{itemize}
-        \item $n=1$. Ya visto en el corolario anterior.
+        \item $n=1$. Ya visto en el corolario \ref{cor:carcuerposelalg}.
         \item $n>1$. Por hipótesis de inducción
             $\K[\alpha_1,\ldots,\alpha_{n-1}]$ es un cuerpo al ser
             $\alpha_1,\ldots,\alpha_{n-1}$ algebraicos sobre $\K$. Ahora, como
@@ -796,7 +800,7 @@ por elementos de $\L$.
 
 Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
 
-\begin{tma}[transitividad del grado]
+\begin{tma}[transitividad del grado]\label{tma:transitividadgrado}
     Si tenemos extensiones $\F\subseteq\K\subseteq\L$ entonces:
     \begin{enumerate}
         \item $\F\subseteq\K$ y $\K\subseteq\L$ son finitas si y solo si
@@ -858,14 +862,15 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
      \sqrt{{2}/{3}}$, lo que tampoco es posible porque $\sqrt{{2}/{3}}\not\in\Q$.
 
     Sean ahora las extensiones $\Q\subseteq\Q(\sqrt{3})\subseteq
-    \Q(\sqrt{3},\sqrt{2})$, por el teorema anterior sabemos que
+    \Q(\sqrt{3},\sqrt{2})$, por el teorema~\ref{tma:transitividadgrado} sabemos que
     \[[\Q(\sqrt{3},\sqrt{2}):\Q]=\underbrace{[\Q(\sqrt{3}):\Q]}_{=2}\underbrace{
       [\Q(\sqrt{3},\sqrt{2})=\Q(\sqrt{3})(\sqrt{2}):\Q(\sqrt{3})]}_{=2}=4.\]
     Como $m_{\sqrt{3},\Q}=t^2-3$, $1,\sqrt{3}$ es base de $\Q(\sqrt{3})$ sobre
     $\Q$ y como $m_{\sqrt{2},\Q(\sqrt{3})}=t^2-2$ (ejercicio), $1,\sqrt{2}$ es
-    base de $\Q(\sqrt{2})$ sobre $\Q$. Por la demostración del teorema anterior
-    sabemos que $\left\{1,\sqrt{2},\sqrt{3},\sqrt{3}\sqrt{2}=\sqrt{6}\right\}$
-    es base de $\Q(\sqrt{2},\sqrt{3})$ sobre $\Q$.
+    base de $\Q(\sqrt{2})$ sobre $\Q$. Por la demostración del
+    teorema~\ref{tma:transitividadgrado} sabemos que $\left\{1,\sqrt{2},\sqrt{3},
+    \sqrt{3}\sqrt{2}=\sqrt{6}\right\}$ es base de $\Q(\sqrt{2},\sqrt{3})$ sobre
+    $\Q$.
 \end{ej}
 
 \begin{ejer}\hspace{0pt}
@@ -1025,8 +1030,8 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
     \end{enumerate}
 \end{ejer}
 
-\begin{prop}
-    Sea $\K\subseteq\L$ una extensióny $\alpha,\beta\in\L$. Si $\alpha,\beta$
+\begin{prop}\label{prop:operacionesalgebraicos}
+    Sea $\K\subseteq\L$ una extensión y $\alpha,\beta\in\L$. Si $\alpha,\beta$
     son algebraicos sobre $\K$ entonces $\alpha+\beta$ y $\alpha*\beta$ son
     algebraicos sobre $\K$.
 \end{prop}
@@ -1059,14 +1064,14 @@ Hay dos formas de demostrar esto:
         [\K(\alpha^{-1}:\K]\in\N$.
 \end{enumerate}
 
-\begin{tma}
+\begin{tma}\label{tma:extensionintermedia}
     Sea $\K\subseteq\L$ una extensión y \[M=\left\{ \alpha\in\L\mid\alpha\text{ es
     algebraico sobre }\K \right\}.\]
     Entonces $M$ es cuerpo y $\K\subseteq M\subseteq\L$.
 \end{tma}
 
 \begin{proof}
-    Por la proposición anterior, si $\alpha,\beta\in
+    Por la proposición~\ref{prop:operacionesalgebraicos}, si $\alpha,\beta\in
     M\implies\alpha+\beta,\alpha*\beta\in M$. Por tanto $M$ es subanillo de
     $\L$. Ahora $\K\subseteq M$ ya que si $\alpha\in\K$, $t-\alpha\in\K[t]$
     tiene a $\alpha$ como raíz. Por el ejercicio anterior, si $\alpha\in
@@ -1103,12 +1108,13 @@ Hay dos formas de demostrar esto:
         Entonces $m_{\gamma,\K}\in \K'[t]$ y $\gamma$  es
         algebraico sobre $\K' \implies \K'(\gamma)\supseteq \K'$ es una
         extensión finita. Tenemos que $\F\subseteq\K'=\F(a_0,\ldots,a_{n-1})$ es
-        una extensión finita, por el teorema anterior (ya que
-        $a_0,\ldots,a_{n-1})$ son algebraicos sobre $\F$). Por la transitividad
-        del grado, como las extensiones
-        \[\F\subseteq\F(a_0,\ldots,a_{n-1})=\K'\subseteq\F(a_0,\ldots,a_{n-1})(\gamma)=\K'(\gamma)\]
-        son finitas, $\F\subseteq\K'(\gamma)$ es finita. Por tanto, como toda
-        extensión finita es algebraica, $\gamma$ es algebraico sobre $\F$.
+        una extensión finita, por el teorema~\ref{tma:extensionintermedia} (ya
+        que $a_0,\ldots,a_{n-1})$ son algebraicos sobre $\F$). Por la
+        transitividad del grado, como las extensiones
+        \[\F\subseteq\F(a_0,\ldots,a_{n-1})=\K'\subseteq\F(a_0,\ldots,a_{n-1})
+        (\gamma)=\K'(\gamma)\] son finitas, $\F\subseteq\K'(\gamma)$ es finita.
+        Por tanto, como toda extensión finita es algebraica, $\gamma$ es
+        algebraico sobre $\F$.
 \end{proof}
 
 Hemos visto que toda extensión finita es algebraica. Pero ¿toda extensión
@@ -1311,8 +1317,10 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
 \begin{proof}
     Por inducción sobre $n=\deg{f_1}=\deg{f_2}$.
     \begin{itemize}[itemindent=30pt]
-        \item[Si $n=1$.] Entonces $\L_1=\K_1$, $\L_2=\K_2$ y $\varphi:\L_1\to
-            \L_2$ es un isomorfismo.
+        \item[Si $n=1$.] Entonces $\L_1=\K_1$, $\L_2=\K_2$ y
+            $\overline{\varphi}=\varphi:\L_1\to\L_2$ es un isomorfismo, es
+            decir, $\K_1\subseteq\L_1$ y $\K_2\subseteq\L_2$ son trivialmente
+            isomorfas.
         \item[Si $n>1$.] Sea $f_1=c_1(t-\alpha_1)*\ldots*(t-\alpha_n)$ en
             $\L_1$. La idea es considerar las extensiones intermedias
             $\K_1\subseteq\K_1(\alpha_1)\subseteq\K_1(\alpha_1,\ldots,\alpha_n)=\L_1$
@@ -1658,7 +1666,7 @@ Se dan los siguientes dos casos:
     \left| \left( \Z_n^\star \right)\right|$.
 \end{defin}
 
-\begin{lema}
+\begin{lema}\label{lema:propsgruposciclicos}
     Sea $G=\left< a \right> $  un grupo cíclico de orden $m\in\N$.
     \begin{enumerate}
         \item  Para cada divisor $d$ de $m$ existe un único subgrupo de orden
@@ -1693,7 +1701,7 @@ Se dan los siguientes dos casos:
     \end{enumerate}
 \end{proof}
 
-\begin{tma}
+\begin{tma}\label{tma:grupounidadesciclico}
     El grupo de unidades de $\F_q$ $\left( \F_q^\star=\F_q\setminus\left\{ 0
     \right\},*\right)$ es cíclico.
 \end{tma}
@@ -1712,10 +1720,10 @@ Se dan los siguientes dos casos:
             0&\text{en caso contrario}.
         \end{cases}\]
         Como $\left|\K^\star\right|=q-1=\sum_{d\mid q-1} c_d\leq \sum_{d\mid
-        q-1}\phi(d)=q-1$ (por el lema anterior) se tiene que $c_d=\phi(d)$ para
-        toda $d$ que divida a $q-1$. Por tanto, si $d=q-1,\ c_d=\phi(q-1)\neq0
-        \implies\exists\alpha\in\K^\star$ con $\ord{\alpha}=q-1\implies
-        \left<\alpha\right>=\K^\star$.
+        q-1}\phi(d)=q-1$ (por el lema~\ref{lema:propsgruposciclicos}) se tiene
+        que $c_d=\phi(d)$ para toda $d$ que divida a $q-1$. Por tanto, si
+        $d=q-1,\ c_d=\phi(q-1)\neq0 \implies\exists\alpha\in\K^\star$ con
+        $\ord{\alpha}=q-1\implies \left<\alpha\right>=\K^\star$.
 \end{proof}
 
 \fecha{17/03}
@@ -1754,9 +1762,9 @@ Se dan los siguientes dos casos:
 \end{defin}
 
 \begin{obs}
-    El teorema anterior garantiza que para todo cuerpo finito existe
-    $\alpha\in\F_q$ primitivo. Si $\alpha\in\F_q$ es primitivo en $\F_q$
-    entonces $\alpha^k$ es primitivo $\Leftrightarrow\mcd{k,q-1}=1$.
+    El teorema~\ref{tma:grupounidadesciclico} garantiza que para todo cuerpo
+    finito existe $\alpha\in\F_q$ primitivo. Si $\alpha\in\F_q$ es primitivo en
+    $\F_q$ entonces $\alpha^k$ es primitivo $\Leftrightarrow\mcd{k,q-1}=1$.
 \end{obs}
 
 \begin{lema}
