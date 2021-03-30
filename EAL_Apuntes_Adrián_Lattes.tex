@@ -1333,10 +1333,11 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     Como $\alpha_1$ es algebraico tenemos además que
                     $\K_1(\alpha_1)=\K_1[\alpha_1]\cong
                     \frac{\K_1[t]}{\left<h_1\right>}$ mediante el isomorfismo
+                    dado por la proposición~\ref{prop:propiedadesevaluacion}:
                     \begin{align*}
                         \psi_1: \K_1[\alpha_1]&\to \frac{\K_1[t]}{\left< h_1
                         \right>}\\
-                            \alpha_1&\mapsto t\mod\left<h_1\right>.
+                            \alpha_1&\mapsto t+\left<h_1\right>.
                     \end{align*}
                 \item[Paso II.] \textit{Tomamos} una raíz de $f_2$
                     correspondiente a $\alpha_1$.
@@ -1348,7 +1349,8 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     h_2\coloneqq\tilde{\varphi}(h_1)\mid\varphi(f_1)=f_2$. En
                     $\L_1[t]$ podemos factorizar
                     $f_2=c_2(t-\beta_1)*\ldots*(t-\beta_m)$ y como $h_2\mid
-                    f_2$, las raíces de $h_2$ son raíces de $f_2$.
+                    f_2$, las raíces de $h_2$ son raíces de $f_2$. Podemos
+                    suponer que $\beta_2$ es raíz de $h_2$.  
                 \item[Paso III.] Modelo para $\K_2(\beta_1)$.
 
                     Como $h_2\in\K_2[t]$  y $h_2=m_{\beta_1,\K_2}$ tenemos que
@@ -1358,7 +1360,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     \begin{align*}
                         \psi_2: \K_2[\beta_1]&\to \frac{\K_2[t]}{\left< h_2
                         \right>}\\
-                            \beta_2&\mapsto t\mod\left<h_2\right>.
+                            \beta_1&\mapsto t+\left<h_2\right>.
                     \end{align*}
 
                 \item[Paso IV.] Las extensiones $\K_1\subseteq\K_1(\alpha_1)$ y
@@ -1375,7 +1377,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     Juntando lo visto hasta ahora tenemos un isomorfismo
                     $\varphi_1$:
                     \[\begin{tikzcd}
-                        \K_1\ar{r}{\psi_1}\ar[bend right]{rrr}{\varphi_1}&
+                        \K_1(\alpha_1)\ar{r}{\psi_1}\ar[bend right]{rrr}{\varphi_1}&
                     \frac{\K_1[t]}{\left<h_1\right>}\ar{r}{\hat{\varphi}}&
                     \frac{\K_2[t]}{\left<h_2\right>}\ar{r} {\psi_2^{-1}}&
                         \K_2(\beta_1)
@@ -1385,7 +1387,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
 
                     Por otro lado, podemos factorizar:
                     \begin{align*}
-                        f_1=(t-\alpha_1)*g_1\text{ en }\K_1(\alpha_1)[t]\\
+                        f_1=(t-\alpha_1)*g_1\text{ en }\K_1(\alpha_1)[t],
                         f_2=(t-\beta_1)*g_2\text{ en }\K_2(\beta_1)[t]
                     \end{align*}
                     con $\deg{g_1}=\deg{g_2}=n-1$. Ahora
@@ -1393,8 +1395,8 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     \ldots,\alpha_m)$ es un cuerpo de descomposición de $g_1$
                     sobre $\K_1(\alpha_1)$ y $\L_2=\K_2(\beta_1,\ldots,\beta_m)$
                     es un cuerpo de descomposición de $g_2$ sobre
-                    $\K_2(\beta_1)$. Si consideramos \[\tilde{\varphi_1}:
-                    \K_1(\alpha_1)[t]\to\K_2(\beta_1)[t],\] por lo visto en los
+                    $\K_2(\beta_1)$. Si consideramos $\tilde{\varphi_1}:
+                    \K_1(\alpha_1)[t]\to\K_2(\beta_1)[t],$ por lo visto en los
                     pasos anteriores, tenemos que $\tilde{\varphi_1}(f_1)=f_2$ y
                     $\tilde{\varphi_1}(t-\beta_1)=t-\beta_1 \implies
                     \tilde{\varphi_1}(g_1)=g_2$.
@@ -1405,13 +1407,21 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     \K_2(\beta_1)$.
 
                     Por tanto existe un isomorfismo $\overline{\varphi}:
-                    \L_1\to\L_2$ tal que para todo $b\subseteq\K_1(\alpha_1)$ se
-                    tiene $\overline{\varphi}(b)=\varphi_1(b)$ y por tanto
-                    $\overline{\varphi}(a)=\varphi_1(a)$ para toda $a\in\K_1$.
+                    \L_1\to\L_2$ tal que para todo $b\in\K_1(\alpha_1)$ se
+                    tiene $\overline{\varphi}(b)=\varphi_1(b)$.
 
-                    \completar
+                    \[\begin{tikzcd}
+                        \L_1\ar{r}{\overline{\varphi}}&\L_2\\
+                        \K_1(\alpha_1)\ar{r}{\varphi_1}\ar[hook]{u}&\K_2(\beta_1)\ar[hook]{u}\\
+                        \K_1\ar{r}{\varphi}\ar[hook]{u}&\K_2\ar[hook]{u}\\
+                    \end{tikzcd}\]
+                    En particular obtenemos que 
+                    $\overline{\varphi}(a)=\varphi_1(a)$ para toda $a\in\K_1$.
+                    Por tanto las extensiones $\K_1\subseteq\L_1$ y
+                    $\K_2\subseteq\L_2$ son isomorfas.
             \end{enumerate}
     \end{itemize}
+    \vspace{-2em}
 \end{proof}
 
 \fecha{10/03}
