@@ -1832,14 +1832,14 @@ Se dan los siguientes dos casos:
 \begin{obs}
     Sea $p$ donde imo, $n\geq1$, $\gamma\in\F_{p^n}$ y $g=m_{\gamma,\F_{p^n}}$
     donde $k=\deg{g}$. Entonces \[\F_{p^k}\cong\frac{\F_p[t]}{\left< g \right>}
-        \cong\F_p[\gamma]\subseteq\F_{p^n}.\] 
+        \cong\F_p[\gamma]\subseteq\F_{p^n}.\]
 \end{obs}
 
 \begin{prop}
-    Sea $p$ primo y $n_1,n_2\in\N$. Son equivalentes: 
+    Sea $p$ primo y $n_1,n_2\in\N$. Son equivalentes:
     \begin{enumerate}
-        \item $n_1\mid n_2$ 
-        \item $\F_{p^{n_1}}\subseteq \F_{p^{n_2}}$ 
+        \item $n_1\mid n_2$
+        \item $\F_{p^{n_1}}\subseteq \F_{p^{n_2}}$
     \end{enumerate}
 \end{prop}
 
@@ -1851,7 +1851,7 @@ Se dan los siguientes dos casos:
             \left[\F_{p^{n_2}}:\F_{p^{n_1}}\right]*
             \left[ \F_{p^{n_1}}:\F_p\right]=
             \left[\F_{p^{n_2}}:\F_{p^{n_1}}\right]*n_1
-            \Leftrightarrow n_1\mid n_2.\] 
+            \Leftrightarrow n_1\mid n_2.\]
         \item[(1)$\implies$(2)] Tenemos $n_2=d*n_1$. Sea $\alpha\in\F_{p^{n_2}}$
             primitivo, $\left< \alpha \right>=\F_{p^{n_2}}^\star$ y
             $\ord{\alpha}=p^{n_2}-1$. Ahora, como $n_2=d*n_1$, $p^{n_1}-1$
@@ -1862,23 +1862,22 @@ Se dan los siguientes dos casos:
             para algún $s\in\Z$.
 
             Si $\beta=\alpha^s$, como $\ord{\alpha}=p^{n_1*d}-1$, $\ord{
-            \beta}={\ord{\alpha}}/{\mcd{\ord{\alpha},s}}=p^{n_1}-1$ y 
+            \beta}={\ord{\alpha}}/{\mcd{\ord{\alpha},s}}=p^{n_1}-1$ y
             $\beta$ es raíz del polinomio $f_{n_1}=t^{p^{n_1}-1}-t$.
             Como las raíces de $f_{n_1}$ son los elementos de $\F_{p^{n_1}}$ y
             $\ord{\beta}=p^{n_1}-1$,
             \[\F_{p^{n_1}}=\{\beta,\beta^2,\ldots,\beta^{p^{n_1}-1}=1
-            \}\cup \left\{ 0 \right\}\subseteq\F_{p^{n_2}}.\] 
+            \}\cup \left\{ 0 \right\}\subseteq\F_{p^{n_2}}.\]
     \end{itemize}
 \end{proof}
 
 \begin{ejer}
-    Hallar los subcuerpos de $\F_{16}$ y $\F_{2^{15}}$.  
+    Hallar los subcuerpos de $\F_{16}$ y $\F_{2^{15}}$.
 \end{ejer}
 
 \fecha{23/03} % Ver grabación y completar el inicio
 \begin{ej}
-    Consideramos $\F_{2^15}$,
-    \completar
+    Consideramos $\F_{2^{15}}$, \completar
 \end{ej}
 
 \fecha{24/03} % Ver grabación
@@ -1894,19 +1893,19 @@ Se dan los siguientes dos casos:
     \begin{enumerate}
         \item $h$ no tiene raíces múltiples en su cuerpo de descomposición.
         \item $\mcd{h,h'}=1$, es decir h y h' no tienen factores irreducibles
-            comunes. 
+            comunes.
     \end{enumerate}
 \end{obs}
 
 \begin{defin}
     Una extensión $\K\subseteq\L$ es \textit{separable} si todo $\alpha$
-    algebraico sobre $\K$ es separable sobre $\K$.  
+    algebraico sobre $\K$ es separable sobre $\K$.
 \end{defin}
 
 \begin{prop}
     Sea $\K\subseteq\L$ una extensión,$\alpha\in\L$.
     \begin{enumerate}
-        \item Si $\car\K=0$ entonces $\alpha$ es separable.  
+        \item Si $\car\K=0$ entonces $\alpha$ es separable.
         \item si $\L$ es un cuerpo finito $\alpha$ es separable.
     \end{enumerate}
 \end{prop}
@@ -1935,21 +1934,21 @@ Se dan los siguientes dos casos:
     $\F_p[x]$ es DFU, por lo que todo irreducible es primo) deducimos que $f$ es
     irreducible.
     Por el \textit{lema de Gauss} sabemos que $f$ es irreducible en
-    $\F_p(x)[t]=\K[t]$.  
+    $\F_p(x)[t]=\K[t]$.
 
     Sea $\L$ el cuerpo de descomposición de $f$ sobre $\K$. Tomo $\alpha\in\L$
     una raíz de $f$: $f(\alpha)=\alpha^p+x=0\implies x=\alpha^p$.
-    En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.   
+    En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.
 
     Por tanto $\L=\K(\alpha)$ y $m_{\alpha,\K}$ tiene una raíz de multiplicidad
-    $p>1$, por lo que $\alpha$ no es separable sobre $\K$.   
+    $p>1$, por lo que $\alpha$ no es separable sobre $\K$.
 \end{ej}
 
 \begin{tma}[del elemento primitivo]
     Sea $\K\subseteq\L$ una extensión finita y separable. Entonces existe
     $\alpha\in\L$ tal que $\L=\K(\alpha)$. Además, si $\K$ es infinito y
-    $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que 
-    \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\] 
+    $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que
+    \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\]
 \end{tma}
 
 \begin{proof}
@@ -1964,12 +1963,12 @@ Se dan los siguientes dos casos:
             $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
             distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
             distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
-            descomposición $\mathbb{M}$ de $f*g$.  
+            descomposición $\mathbb{M}$ de $f*g$.
     \end{itemize}
     \completar
 
 \fecha{25/03}
-    \completar 
+    \completar
 \end{proof}
 
 \begin{ej}
@@ -1983,12 +1982,12 @@ Se dan los siguientes dos casos:
 \end{ej}
 
 \begin{ejer}
-    Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$. 
+    Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$.
 \end{ejer}
 
 
 \begin{ej}[extensión no separable]
-    \completar % ¿es el mismo ejemplo de ayer?
+    \completar% ¿es el mismo ejemplo de ayer?
 \end{ej}
 
 \begin{ej}[Extensión infinita que no es simple]
@@ -1996,7 +1995,7 @@ Se dan los siguientes dos casos:
     \in\L$ $\K(\alpha)\neq \L$. Por ejemplo tomamos $\K = $ cuerpo de fracciones
     de $\F_p[x,y]$ (con $x$ e $y$ variables). Sea $\alpha$ una raíz de $t^p-x$ y
     $\beta$ una raíz de $t^p-y$. Como $\F_p[x,y]$ es DFU, $x$ e $y$ son
-    irreducibles y $t^p-x$ y $t^p-y$ son irreducibles en $\K[t]$.    
+    irreducibles y $t^p-x$ y $t^p-y$ son irreducibles en $\K[t]$.
 
     Queda como ejercicio probar que
     \begin{enumerate}
@@ -2005,8 +2004,6 @@ Se dan los siguientes dos casos:
             tanto $m_{\gamma,\K}$ divide a $t^p-\gamma^p$, lo que implica que
             $[\K(\gamma):\K]\leq p$.  \end{enumerate}
 \end{ej}
-
-
 
 
 \end{document}
