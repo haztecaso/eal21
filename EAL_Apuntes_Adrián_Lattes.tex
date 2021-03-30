@@ -1350,7 +1350,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     $\L_1[t]$ podemos factorizar
                     $f_2=c_2(t-\beta_1)*\ldots*(t-\beta_m)$ y como $h_2\mid
                     f_2$, las raíces de $h_2$ son raíces de $f_2$. Podemos
-                    suponer que $\beta_2$ es raíz de $h_2$.  
+                    suponer que $\beta_2$ es raíz de $h_2$.
                 \item[Paso III.] Modelo para $\K_2(\beta_1)$.
 
                     Como $h_2\in\K_2[t]$  y $h_2=m_{\beta_1,\K_2}$ tenemos que
@@ -1415,7 +1415,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                         \K_1(\alpha_1)\ar{r}{\varphi_1}\ar[hook]{u}&\K_2(\beta_1)\ar[hook]{u}\\
                         \K_1\ar{r}{\varphi}\ar[hook]{u}&\K_2\ar[hook]{u}\\
                     \end{tikzcd}\]
-                    En particular obtenemos que 
+                    En particular obtenemos que
                     $\overline{\varphi}(a)=\varphi_1(a)$ para toda $a\in\K_1$.
                     Por tanto las extensiones $\K_1\subseteq\L_1$ y
                     $\K_2\subseteq\L_2$ son isomorfas.
@@ -1471,8 +1471,8 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     $a\in\K$. Observamos además que $\tilde{\varphi}(f)=f$ ya que $f\in\K[t]$ y
     $\varphi_{1\mid_\K}$, $\varphi_{2\mid_\K}$
 
-    Tenemos que $\K(\alpha)$ y $\K(\beta)$ están contenidos en $\L$, que es 
-    cuerpo de descomposición de $f$ sobre $\K(\alpha)$ y sobre $\K(\beta)$. 
+    Tenemos que $\K(\alpha)$ y $\K(\beta)$ están contenidos en $\L$, que es
+    cuerpo de descomposición de $f$ sobre $\K(\alpha)$ y sobre $\K(\beta)$.
     Aplicamos el teorema con $\K_1=\K(\alpha)$, $\K_2=\K(\beta)$, el
     isomorfismo $\varphi:\K(\alpha)\to \K(\beta)$ y $\L_1=\L_2=\L$. Tenemos
     entonces un isomorfismo $\overline{\varphi}:\L\to\L$ tal que
@@ -1481,7 +1481,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
         \K(\alpha)\ar[hook]{u}\ar{r}{\varphi}&\K(\beta)\ar[hook]{u}
     \end{tikzcd}\] es un diagrama conmutativo. En particular
     $\overline{\varphi}(\alpha)=\varphi(\alpha)=\beta$ y si $a\in\K$ entonces
-    $\overline{\varphi}(a)=\varphi(a)=a$.  
+    $\overline{\varphi}(a)=\varphi(a)=a$.
 \end{proof}
 
 \begin{ej}\hspace{0pt}
@@ -1837,7 +1837,22 @@ Se dan los siguientes dos casos:
             Tenemos que si $\alpha=t+\left< g \right> $ en $\L$ entonces
             $g(\alpha)=0$ y $g=m_{\alpha,\F_p}$. Por $\left( \star \right)$,
             $f(\alpha)=0\implies g\mid f_n$.
-        \item \completar %Ver vídeo
+        \item
+            \begin{enumerate}
+                \item Si $g\in\F_p[t]$ es irreducible y de grado $n$ entonces $\K=
+                    \frac{\F_p[t]}{\left< g \right>}$ es un cuerpo con $q=p^n$
+                    elementos. Por tanto $\K\cong\F_q$.
+                    Como $\alpha=t+\left< g \right>\in\K^\star$ y
+                    $\ord{\alpha}\mid\left| \K^\star\right|=q-1$ se tiene que
+                    $\alpha^{q-1}=1$, por lo que $\alpha$ es raíz de $f=t^q-t$.
+                    Ahora, ya que g es mónico e irreducible y $g(\alpha)=0$,
+                    sabemos que $g=m_{\alpha,\F_p}$ y como $f(\alpha)=0$, $g$
+                    divide a $f=t^q-t$.
+                \item Sabemos que $g\mid f=t^q-t$ y como $f=\prod_{\gamma\in\F_q}(t-\gamma)$ en $\F_q[t]$,
+                    todas las raíces de $g$, $\alpha_1,\ldots,\alpha_n$ son
+                    raíces de $f$. Por tanto
+                    $g=(t-\alpha_1)*\ldots*(t-\alpha_n)$ en $\F_q[t]$.
+            \end{enumerate}
     \end{enumerate}
 \end{proof}
 
