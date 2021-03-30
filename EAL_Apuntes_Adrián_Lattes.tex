@@ -1471,11 +1471,20 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
     $a\in\K$. Observamos además que $\tilde{\varphi}(f)=f$ ya que $f\in\K[t]$ y
     $\varphi_{1\mid_\K}$, $\varphi_{2\mid_\K}$
 
-    \completar
-
+    Tenemos que $\K(\alpha)$ y $\K(\beta)$ están contenidos en $\L$, que es 
+    cuerpo de descomposición de $f$ sobre $\K(\alpha)$ y sobre $\K(\beta)$. 
+    Aplicamos el teorema con $\K_1=\K(\alpha)$, $\K_2=\K(\beta)$, el
+    isomorfismo $\varphi:\K(\alpha)\to \K(\beta)$ y $\L_1=\L_2=\L$. Tenemos
+    entonces un isomorfismo $\overline{\varphi}:\L\to\L$ tal que
+    \[\begin{tikzcd}
+        \L\ar{r}{\overline{\varphi}}&\L\\
+        \K(\alpha)\ar[hook]{u}\ar{r}{\varphi}&\K(\beta)\ar[hook]{u}
+    \end{tikzcd}\] es un diagrama conmutativo. En particular
+    $\overline{\varphi}(\alpha)=\varphi(\alpha)=\beta$ y si $a\in\K$ entonces
+    $\overline{\varphi}(a)=\varphi(a)=a$.  
 \end{proof}
 
-\begin{ej}
+\begin{ej}\hspace{0pt}
     \begin{itemize}
         \item Sea $f=t^2-2\in\Q[t]$ irreducible y con raíces $\pm\sqrt{2}$.
             $\L=\Q(\sqrt{2})$ es un cuerpo de descomposición de $f$ sobre $\Q$.
