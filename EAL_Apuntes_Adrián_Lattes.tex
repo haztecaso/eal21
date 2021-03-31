@@ -1922,135 +1922,136 @@ Se dan los siguientes dos casos:
     Hallar los subcuerpos de $\F_{16}$ y $\F_{2^{15}}$.
 \end{ejer}
 
-\fecha{23/03} % Ver grabación y completar el inicio
-\begin{ej}
-    Consideramos $\F_{2^{15}}$, \completar
-\end{ej}
+% \fecha{23/03} % Ver grabación y completar el inicio
 
-\fecha{24/03} % Ver grabación
+% \begin{ej}
+%     Consideramos $\F_{2^{15}}$, \completar
+% \end{ej}
 
-\begin{defin}
-    Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
-    Decimos que $\alpha$ es \textit{separable} sobre $\K$ si $m_{\alpha,\K}$ no
-    tiene raíces múltiples en su cuerpo de descomposición.
-\end{defin}
+% \fecha{24/03} % Ver grabación
 
-\begin{obs}
-    Si $h\in\K[t]$ tiene grado $\geq1$, son equivalentes:
-    \begin{enumerate}
-        \item $h$ no tiene raíces múltiples en su cuerpo de descomposición.
-        \item $\mcd{h,h'}=1$, es decir h y h' no tienen factores irreducibles
-            comunes.
-    \end{enumerate}
-\end{obs}
+% \begin{defin}
+%     Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
+%     Decimos que $\alpha$ es \textit{separable} sobre $\K$ si $m_{\alpha,\K}$ no
+%     tiene raíces múltiples en su cuerpo de descomposición.
+% \end{defin}
 
-\begin{defin}
-    Una extensión $\K\subseteq\L$ es \textit{separable} si todo $\alpha$
-    algebraico sobre $\K$ es separable sobre $\K$.
-\end{defin}
+% \begin{obs}
+%     Si $h\in\K[t]$ tiene grado $\geq1$, son equivalentes:
+%     \begin{enumerate}
+%         \item $h$ no tiene raíces múltiples en su cuerpo de descomposición.
+%         \item $\mcd{h,h'}=1$, es decir h y h' no tienen factores irreducibles
+%             comunes.
+%     \end{enumerate}
+% \end{obs}
 
-\begin{prop}
-    Sea $\K\subseteq\L$ una extensión,$\alpha\in\L$.
-    \begin{enumerate}
-        \item Si $\car\K=0$ entonces $\alpha$ es separable.
-        \item si $\L$ es un cuerpo finito $\alpha$ es separable.
-    \end{enumerate}
-\end{prop}
+% \begin{defin}
+%     Una extensión $\K\subseteq\L$ es \textit{separable} si todo $\alpha$
+%     algebraico sobre $\K$ es separable sobre $\K$.
+% \end{defin}
 
-\begin{proof}\hspace{0pt}
-    \begin{enumerate}
-        \item Sea $f=m_{\alpha,\K}\in\K[t]$ de grado $n=[\K(\alpha):\K]\geq1$.
-            Por un lado $f=t^n+a_1t^{n-1}+\ldots+a_n$ es irreducible y además
-            $f'=nt^{n-1}+a(n-1)t^{n-2}+\ldots+a_{n-1}$ donde $n\neq0$ ya que
-            $\car\K=0$. Por tanto, como $\deg{f'}=n-1$ y $f$ es irreducible,
-            $\mcd{f,f'}=1$.
-        \item Sabemos que existen $q=p^n$ con $p$ primo tales que $\K\cong\F_q$,
-            $\L\cong\F_{q^n}=\F_{p^{nm}}$ y $n=[\L:\K]$. Entonces, si
-            $\alpha\in\L$, $m_{\alpha,\K}$ divide a $t^{p^{nm}}-t=\prod_{\beta
-            \in\L}(t-\beta)$ y por tanto $m_{\alpha,\K}$ tiene solo raíces
-            simples. \revisar
-    \end{enumerate}
-\end{proof}
+% \begin{prop}
+%     Sea $\K\subseteq\L$ una extensión,$\alpha\in\L$.
+%     \begin{enumerate}
+%         \item Si $\car\K=0$ entonces $\alpha$ es separable.
+%         \item si $\L$ es un cuerpo finito $\alpha$ es separable.
+%     \end{enumerate}
+% \end{prop}
 
-\begin{ej}[Extensión no separable]
-    Sea $\K=\F_p(x)$ el cuerpo de fracciones de $\F_p[x]$. Sabemos que $\K$ es
-    infinito y $\car{\K}=p$.
+% \begin{proof}\hspace{0pt}
+%     \begin{enumerate}
+%         \item Sea $f=m_{\alpha,\K}\in\K[t]$ de grado $n=[\K(\alpha):\K]\geq1$.
+%             Por un lado $f=t^n+a_1t^{n-1}+\ldots+a_n$ es irreducible y además
+%             $f'=nt^{n-1}+a(n-1)t^{n-2}+\ldots+a_{n-1}$ donde $n\neq0$ ya que
+%             $\car\K=0$. Por tanto, como $\deg{f'}=n-1$ y $f$ es irreducible,
+%             $\mcd{f,f'}=1$.
+%         \item Sabemos que existen $q=p^n$ con $p$ primo tales que $\K\cong\F_q$,
+%             $\L\cong\F_{q^n}=\F_{p^{nm}}$ y $n=[\L:\K]$. Entonces, si
+%             $\alpha\in\L$, $m_{\alpha,\K}$ divide a $t^{p^{nm}}-t=\prod_{\beta
+%             \in\L}(t-\beta)$ y por tanto $m_{\alpha,\K}$ tiene solo raíces
+%             simples. \revisar
+%     \end{enumerate}
+% \end{proof}
 
-    Sea $f=t^p+x\in\F_p[x][t]$. Aplicando el \textit{criterio de irreducibilidad
-    de Eisenstein} para el elemento primo $x\in\F_p[x]$ ($x$ es primo ya que
-    $\F_p[x]$ es DFU, por lo que todo irreducible es primo) deducimos que $f$ es
-    irreducible.
-    Por el \textit{lema de Gauss} sabemos que $f$ es irreducible en
-    $\F_p(x)[t]=\K[t]$.
+% \begin{ej}[Extensión no separable]
+%     Sea $\K=\F_p(x)$ el cuerpo de fracciones de $\F_p[x]$. Sabemos que $\K$ es
+%     infinito y $\car{\K}=p$.
 
-    Sea $\L$ el cuerpo de descomposición de $f$ sobre $\K$. Tomo $\alpha\in\L$
-    una raíz de $f$: $f(\alpha)=\alpha^p+x=0\implies x=\alpha^p$.
-    En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.
+%     Sea $f=t^p+x\in\F_p[x][t]$. Aplicando el \textit{criterio de irreducibilidad
+%     de Eisenstein} para el elemento primo $x\in\F_p[x]$ ($x$ es primo ya que
+%     $\F_p[x]$ es DFU, por lo que todo irreducible es primo) deducimos que $f$ es
+%     irreducible.
+%     Por el \textit{lema de Gauss} sabemos que $f$ es irreducible en
+%     $\F_p(x)[t]=\K[t]$.
 
-    Por tanto $\L=\K(\alpha)$ y $m_{\alpha,\K}$ tiene una raíz de multiplicidad
-    $p>1$, por lo que $\alpha$ no es separable sobre $\K$.
-\end{ej}
+%     Sea $\L$ el cuerpo de descomposición de $f$ sobre $\K$. Tomo $\alpha\in\L$
+%     una raíz de $f$: $f(\alpha)=\alpha^p+x=0\implies x=\alpha^p$.
+%     En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.
 
-\begin{tma}[del elemento primitivo]
-    Sea $\K\subseteq\L$ una extensión finita y separable. Entonces existe
-    $\alpha\in\L$ tal que $\L=\K(\alpha)$. Además, si $\K$ es infinito y
-    $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que
-    \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\]
-\end{tma}
+%     Por tanto $\L=\K(\alpha)$ y $m_{\alpha,\K}$ tiene una raíz de multiplicidad
+%     $p>1$, por lo que $\alpha$ no es separable sobre $\K$.
+% \end{ej}
 
-\begin{proof}
-    Si $\K\subseteq\L$ es una extensión finita, existen
-    $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
+% \begin{tma}[del elemento primitivo]
+%     Sea $\K\subseteq\L$ una extensión finita y separable. Entonces existe
+%     $\alpha\in\L$ tal que $\L=\K(\alpha)$. Además, si $\K$ es infinito y
+%     $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que
+%     \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\]
+% \end{tma}
 
-    Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
-    $n$.
-    \begin{itemize}
-        \item Empezamos con $n=2$: $\L=\K(\beta,\gamma)$. Sean
-            $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
-            $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
-            distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
-            distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
-            descomposición $\mathbb{M}$ de $f*g$.
-    \end{itemize}
-    \completar
+% \begin{proof}
+%     Si $\K\subseteq\L$ es una extensión finita, existen
+%     $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
 
-\fecha{25/03}
-    \completar
-\end{proof}
+%     Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
+%     $n$.
+%     \begin{itemize}
+%         \item Empezamos con $n=2$: $\L=\K(\beta,\gamma)$. Sean
+%             $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
+%             $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
+%             distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
+%             distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
+%             descomposición $\mathbb{M}$ de $f*g$.
+%     \end{itemize}
+%     \completar
 
-\begin{ej}
-    Sea $\Q(\sqrt{2},\sqrt{3})$, $\beta=\beta_1=\sqrt{2}$, $\beta_2=-\sqrt{2}$ y
-    $\gamma=\gamma_1=\sqrt{3}$, $\gamma_2=-\sqrt{3}$. Tenemos
-    \[\frac{\beta_i-\beta_j}{\gamma_l-\gamma_s}\in\left\{ 0,\pm\frac{\sqrt{2}
-    }{\sqrt{3} }/ \right\}.\]
+% \fecha{25/03}
+%     \completar
+% \end{proof}
 
-    La demostración del teorema nos dice que si $\lambda\in\Q\setminus\left\{0
-    \right\}$, $\Q(\sqrt{2}+\lambda\sqrt{3})=\Q(\sqrt{2},\sqrt{3})$.
-\end{ej}
+% \begin{ej}
+%     Sea $\Q(\sqrt{2},\sqrt{3})$, $\beta=\beta_1=\sqrt{2}$, $\beta_2=-\sqrt{2}$ y
+%     $\gamma=\gamma_1=\sqrt{3}$, $\gamma_2=-\sqrt{3}$. Tenemos
+%     \[\frac{\beta_i-\beta_j}{\gamma_l-\gamma_s}\in\left\{ 0,\pm\frac{\sqrt{2}
+%     }{\sqrt{3} }/ \right\}.\]
 
-\begin{ejer}
-    Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$.
-\end{ejer}
+%     La demostración del teorema nos dice que si $\lambda\in\Q\setminus\left\{0
+%     \right\}$, $\Q(\sqrt{2}+\lambda\sqrt{3})=\Q(\sqrt{2},\sqrt{3})$.
+% \end{ej}
+
+% \begin{ejer}
+%     Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$.
+% \end{ejer}
 
 
-\begin{ej}[extensión no separable]
-    \completar% ¿es el mismo ejemplo de ayer?
-\end{ej}
+% \begin{ej}[extensión no separable]
+%     \completar% ¿es el mismo ejemplo de ayer?
+% \end{ej}
 
-\begin{ej}[Extensión infinita que no es simple]
-    Sea una extensión $\K\subseteq\K(\beta,\gamma)=\L$ tal que para toda $\alpha
-    \in\L$ $\K(\alpha)\neq \L$. Por ejemplo tomamos $\K = $ cuerpo de fracciones
-    de $\F_p[x,y]$ (con $x$ e $y$ variables). Sea $\alpha$ una raíz de $t^p-x$ y
-    $\beta$ una raíz de $t^p-y$. Como $\F_p[x,y]$ es DFU, $x$ e $y$ son
-    irreducibles y $t^p-x$ y $t^p-y$ son irreducibles en $\K[t]$.
+% \begin{ej}[Extensión infinita que no es simple]
+%     Sea una extensión $\K\subseteq\K(\beta,\gamma)=\L$ tal que para toda $\alpha
+%     \in\L$ $\K(\alpha)\neq \L$. Por ejemplo tomamos $\K = $ cuerpo de fracciones
+%     de $\F_p[x,y]$ (con $x$ e $y$ variables). Sea $\alpha$ una raíz de $t^p-x$ y
+%     $\beta$ una raíz de $t^p-y$. Como $\F_p[x,y]$ es DFU, $x$ e $y$ son
+%     irreducibles y $t^p-x$ y $t^p-y$ son irreducibles en $\K[t]$.
 
-    Queda como ejercicio probar que
-    \begin{enumerate}
-        \item $\left[ \K(\alpha,\beta):\K \right] =p^2$ y
-        \item si $\gamma\in\K(\alpha,\beta)$ entonces $\gamma^p \in\K$ y por
-            tanto $m_{\gamma,\K}$ divide a $t^p-\gamma^p$, lo que implica que
-            $[\K(\gamma):\K]\leq p$.  \end{enumerate}
-\end{ej}
+%     Queda como ejercicio probar que
+%     \begin{enumerate}
+%         \item $\left[ \K(\alpha,\beta):\K \right] =p^2$ y
+%         \item si $\gamma\in\K(\alpha,\beta)$ entonces $\gamma^p \in\K$ y por
+%             tanto $m_{\gamma,\K}$ divide a $t^p-\gamma^p$, lo que implica que
+%             $[\K(\gamma):\K]\leq p$.  \end{enumerate}
+% \end{ej}
 
 
 \end{document}
