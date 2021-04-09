@@ -92,8 +92,11 @@
 \usepackage{tikz}
 \usetikzlibrary{cd}
 
-\newcommand{\fecha}[1]{\marginpar{\underline{#1}}}
+\newcommand{\fecha}[1]{\marginpar{\underline{\footnotesize{#1}}}}
+
 % \newcommand{\fecha}[1]{{\hfill\large{#1/2021}}\\[-0.8em]\noindent\rule{17cm}{0.1mm}}
+\usepackage{fixme}
+
 \newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
 \newcommand{\revisar}{\fbox{¡Revisar!}}
 
@@ -1823,7 +1826,7 @@ Se dan los siguientes dos casos:
     Y por tanto $\ord{\beta}=15$.
 \end{ej}
 
-\begin{cor}
+\begin{cor}\label{cor:carfp}
     Sea $p \in\N$ un número primo:
     \begin{enumerate}
         \item  Para todo $n\in\N$ existe un polinomio irreducible de grado $n$
@@ -1890,7 +1893,7 @@ Se dan los siguientes dos casos:
         \cong\F_p[\gamma]\subseteq\F_{p^n}.\]
 \end{obs}
 
-\begin{prop}
+\begin{prop}\label{prop:subcuerposdiv}
     Sea $p$ primo y $n_1,n_2\in\N$. Son equivalentes:
     \begin{enumerate}
         \item $n_1\mid n_2$
@@ -1926,15 +1929,103 @@ Se dan los siguientes dos casos:
     \end{itemize}\vspace{-2.75em}
 \end{proof}
 
-\begin{ejer}
-    Hallar los subcuerpos de $\F_{16}$ y $\F_{2^{15}}$.
-\end{ejer}
+\fecha{23/03} % Ver grabación y completar el inicio
 
-% \fecha{23/03} % Ver grabación y completar el inicio
+\begin{ej}
+    Usando la proposición \ref{prop:subcuerposdiv} se tiene que los subcuerpos
+    de $\F_{16}$ están determinados por los divisores de $4$, ya que $16=2^4$.
+    Como $\text{div}(4)=\left\{ 1,2,4 \right\}$ tenemos los subcuerpos
+    \[\F_2\subseteq\F_{2^2}\subseteq\F_{2^4}.\]
 
-% \begin{ej}
-%     Consideramos $\F_{2^{15}}$, \completar
-% \end{ej}
+    Los subcuerpos de $\F_{2^{15}}$ están determinados por los divisores de
+    $15$:\[\begin{tikzcd}
+              & 15               & \\
+        3 \ar[ur] &                  & 5 \ar[ul] \\
+                  & 15\ar[ul]\ar[ur] &
+    \end{tikzcd}\hspace{6em}
+    \begin{tikzcd}
+              & \F_{2^{15}}              & \\
+        \F_{2^3} \ar[ur] &                  & \F_{2^5} \ar[ul] \\
+                         & \F_{2^{15}}\ar[ul]\ar[ur] &
+    \end{tikzcd}\]
+\end{ej}
+
+\begin{cor}
+    Sea $f\in\F_p[t]$ mónico e irreducible de grado $k$. Son equivalentes
+    \begin{enumerate}
+        \item $k\mid n$.
+        \item $f$ divide a $f_n = t^{p^n}-t$.
+    \end{enumerate}
+\end{cor}
+
+\begin{proof}
+    \hspace{0pt}
+    \begin{itemize}[itemindent=36pt]
+        \item[(1)$\implies$(2)] Las raíces de $f_n$ son los elementos de
+            $F_{p^n}$. Como $g\mid f_n$ existe $\alpha\in\F_{p^n}$ raíz de $f$.
+            Entonces \[\F_p[t]\ /\left<f\right>=\F_p[\alpha]\subseteq\F_{p^n}.\]
+            Como $f$ es irreducible de grado $k$,
+            $\F_p[\alpha]=\F_{p^k}\subseteq \F_{p^n}$ y aplicando la
+            proposición \ref{prop:subcuerposdiv} se tiene que $k\mid n$.
+        \item[(2)$\implies$(1)] Si $k\mid n$ entonces, por la
+            proposición \ref{prop:subcuerposdiv}, $\F_{p^k}\subseteq\F_{p^n}$.
+            Ahora, por el corolario \ref{cor:carfp}(2b), $f$ tiene todas sus
+            raíces en $\F_{p^k}$. Como $f_n=\prod_{\gamma\in\F_{p^n}}(t-\gamma)$
+            y $\F_{p^k}\subseteq\F_{p^n}$ se tiene  que $f$ divide a $f_n$.
+    \end{itemize}
+\end{proof}
+
+\begin{ej}
+    Descomposición en irreducibles en $\F_2[t]$ :
+    \begin{align*}
+        t^{2^3}-t&=t(t-1)(t^3+t+1)(t^5+t^2+1)\\
+        t^{2^4}-t&=t(t-1)(t^2+t+1)(t^4+t^3+t^2+t+1)(t^4+t+1)(t^4+t^3+1)
+    \end{align*}
+\end{ej}
+
+\begin{cor}
+    Sea $p$ primo y $n\geq1$. Entonces \[f_n=t^{p^n}-t=\prod_{k\mid n}\
+        \prod_{\substack{f  \text{mónico e irreducible}\\\text{de grado } k
+                \text{ en }\F_p[t]}}f\]
+\end{cor}
+
+\begin{obs}
+    Si $f\in\F_p[t]$ es mónico e irreducible de grado $k$, $k\mid n$ y $\gamma
+    \in\F_{p^n}$ una raíz de $f$, $\F_p[\gamma]\cong \F_{p^k}\subseteq\F_{p^n}$
+    y si $k=n$ se tiene $\F_p[\gamma]\cong\F_{p^n}$.
+
+    Sea \[d_n=\#\left\{\gamma\in\F_{p^n}\mid\F_p[\gamma]=\F_p\right\}=p^n-
+    \#\left\{ \gamma\in\F_{p^n}\mid \F_p[\gamma]\subsetneq \F_{p^n}\right\}.\]
+    Como cada polinomio mónico irreducible $g\in\F_p[t]$ de grado $n$ tiene $n$
+    raíces distintas en $\F_{p^n}$ se tiene
+    \[ \left\{ \gamma\in\F_{p^n} \mid \F_{p^n} = \F_p[\gamma] \right\}
+        = \bigcup_{\substack{g\in\F_p[t]\\g\text{
+    irreducible},\,\deg{g}=n}}\left\{ \text{raíces de }g \right\}
+    \]
+
+    El número de polinomios mónicos irreducibles de grado $n$ en $\F_p[t]$ es $d_n /n$.
+
+    Además podemos calcular $d_n$ mediante $d_n=\#(
+    \F_{p^n}\setminus\cup_{k\mid n}^{k\neq n} \F_{p^k})$.
+\end{obs}
+
+\begin{ej}
+    Sea $p=2$,
+    \begin{itemize}
+        \item
+            $d_3=\#\F_{2^3} -\#\F_2=8-2$ y hay $d_3 /3 = 2$ polinomios mónicos
+            irreducibles de grado $3$ en $\F_2[t]$.
+        \item
+            $d_4=\#\F_{2^4} -\#\left( \F_2\cup \F_{2^2} \right) = 2^4 -2^2 = 12$
+            por lo que hay ${d_4}/{4} = 3$ polinomios mónicos irreducibles de grado
+            $4$ en $\F_2[t]$.
+        \item
+            $d_{15}=\# \F_{2^15} - \# \left( \F_{2^3}\cup \F_{2^{5}} \right)
+            =2^{15}-(\#\F_{2^3}+\#\F_{2^{15}}-\#\F_{2^3}\cap\F_{\F_{p^5}} )
+            =2^{15}-(2^3+2^5-2)=32730$ por lo que hay $d_5 / 15 = 2182$
+            polinomios mónicos irreducibles de grado $15$ en $\F_2[t]$.
+    \end{itemize}
+\end{ej}
 
 % \fecha{24/03} % Ver grabación
 
