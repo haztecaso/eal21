@@ -1944,9 +1944,11 @@ Se dan los siguientes dos casos:
     \end{tikzcd}\hspace{6em}
     \begin{tikzcd}
               & \F_{2^{15}}              & \\
-        \F_{2^3} \ar[ur] &                  & \F_{2^5} \ar[ul] \\
-                         & \F_{2^{15}}\ar[ul]\ar[ur] &
+        \F_{2^3} \ar[hook,ur] &                  & \F_{2^5} \ar[hook,ul] \\
+                         & \F_{2^{15}}\ar[hook,ul]\ar[hook, ur] &
     \end{tikzcd}\]
+    donde $a\to b$ indica $a\mid b$ y $\K\hookrightarrow\L$ indica
+    $\K\subseteq\L$.  
 \end{ej}
 
 \begin{cor}
