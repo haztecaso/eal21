@@ -29,7 +29,7 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "*.eps,*.pdf,*.md, *.tex"
+          artifacts: "EAL_Apuntes_Adrián_Lattes.pdf"
           prerelease: true
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
