@@ -32,3 +32,11 @@ jobs:
           files: EAL_Apuntes_Adrián_Lattes.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "*.eps,*.pdf,*.md, *.tex"
+          prerelease: true
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
