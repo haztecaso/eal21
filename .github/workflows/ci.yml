@@ -25,13 +25,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: EAL_Apuntes_Adrián_Lattes.tex
-      
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: EAL_Apuntes_Adrián_Lattes.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Release
         uses: ncipollo/release-action@v1
