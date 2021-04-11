@@ -2028,96 +2028,96 @@ Se dan los siguientes dos casos:
     \end{itemize}
 \end{ej}
 
-% \fecha{24/03} % Ver grabación
+\fecha{24/03} % Ver grabación
 
-% \begin{defin}
-%     Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
-%     Decimos que $\alpha$ es \textit{separable} sobre $\K$ si $m_{\alpha,\K}$ no
-%     tiene raíces múltiples en su cuerpo de descomposición.
-% \end{defin}
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
+    Decimos que $\alpha$ es \textit{separable} sobre $\K$ si $m_{\alpha,\K}$ no
+    tiene raíces múltiples en su cuerpo de descomposición.
+\end{defin}
 
-% \begin{obs}
-%     Si $h\in\K[t]$ tiene grado $\geq1$, son equivalentes:
-%     \begin{enumerate}
-%         \item $h$ no tiene raíces múltiples en su cuerpo de descomposición.
-%         \item $\mcd{h,h'}=1$, es decir h y h' no tienen factores irreducibles
-%             comunes.
-%     \end{enumerate}
-% \end{obs}
+\begin{obs}
+    Si $h\in\K[t]$ tiene grado $\geq1$, son equivalentes:
+    \begin{enumerate}
+        \item $h$ no tiene raíces múltiples en su cuerpo de descomposición.
+        \item $\mcd{h,h'}=1$, es decir h y h' no tienen factores irreducibles
+            comunes.
+    \end{enumerate}
+\end{obs}
 
-% \begin{defin}
-%     Una extensión $\K\subseteq\L$ es \textit{separable} si todo $\alpha$
-%     algebraico sobre $\K$ es separable sobre $\K$.
-% \end{defin}
+\begin{defin}
+    Una extensión $\K\subseteq\L$ es \textit{separable} si todo $\alpha$
+    algebraico sobre $\K$ es separable sobre $\K$.
+\end{defin}
 
-% \begin{prop}
-%     Sea $\K\subseteq\L$ una extensión,$\alpha\in\L$.
-%     \begin{enumerate}
-%         \item Si $\car\K=0$ entonces $\alpha$ es separable.
-%         \item si $\L$ es un cuerpo finito $\alpha$ es separable.
-%     \end{enumerate}
-% \end{prop}
+\begin{prop}
+    Sea $\K\subseteq\L$ una extensión,$\alpha\in\L$.
+    \begin{enumerate}
+        \item Si $\car\K=0$ entonces $\alpha$ es separable.
+        \item si $\L$ es un cuerpo finito $\alpha$ es separable.
+    \end{enumerate}
+\end{prop}
 
-% \begin{proof}\hspace{0pt}
-%     \begin{enumerate}
-%         \item Sea $f=m_{\alpha,\K}\in\K[t]$ de grado $n=[\K(\alpha):\K]\geq1$.
-%             Por un lado $f=t^n+a_1t^{n-1}+\ldots+a_n$ es irreducible y además
-%             $f'=nt^{n-1}+a(n-1)t^{n-2}+\ldots+a_{n-1}$ donde $n\neq0$ ya que
-%             $\car\K=0$. Por tanto, como $\deg{f'}=n-1$ y $f$ es irreducible,
-%             $\mcd{f,f'}=1$.
-%         \item Sabemos que existen $q=p^n$ con $p$ primo tales que $\K\cong\F_q$,
-%             $\L\cong\F_{q^n}=\F_{p^{nm}}$ y $n=[\L:\K]$. Entonces, si
-%             $\alpha\in\L$, $m_{\alpha,\K}$ divide a $t^{p^{nm}}-t=\prod_{\beta
-%             \in\L}(t-\beta)$ y por tanto $m_{\alpha,\K}$ tiene solo raíces
-%             simples. \revisar
-%     \end{enumerate}
-% \end{proof}
+\begin{proof}\hspace{0pt}
+    \begin{enumerate}
+        \item Sea $f=m_{\alpha,\K}\in\K[t]$ de grado $n=[\K(\alpha):\K]\geq1$.
+            Por un lado $f=t^n+a_1t^{n-1}+\ldots+a_n$ es irreducible y además
+            $f'=nt^{n-1}+a(n-1)t^{n-2}+\ldots+a_{n-1}$ donde $n\neq0$ ya que
+            $\car\K=0$. Por tanto, como $\deg{f'}=n-1$ y $f$ es irreducible,
+            $\mcd{f,f'}=1$.
+        \item Sabemos que existen $q=p^n$ con $p$ primo tales que $\K\cong\F_q$,
+            $\L\cong\F_{q^n}=\F_{p^{nm}}$ y $n=[\L:\K]$. Entonces, si
+            $\alpha\in\L$, $m_{\alpha,\K}$ divide a $t^{p^{nm}}-t=\prod_{\beta
+            \in\L}(t-\beta)$ y por tanto $m_{\alpha,\K}$ tiene solo raíces
+            simples. \revisar
+    \end{enumerate}
+\end{proof}
 
-% \begin{ej}[Extensión no separable]
-%     Sea $\K=\F_p(x)$ el cuerpo de fracciones de $\F_p[x]$. Sabemos que $\K$ es
-%     infinito y $\car{\K}=p$.
+\begin{ej}[Extensión no separable]
+    Sea $\K=\F_p(x)$ el cuerpo de fracciones de $\F_p[x]$. Sabemos que $\K$ es
+    infinito y $\car{\K}=p$.
 
-%     Sea $f=t^p+x\in\F_p[x][t]$. Aplicando el \textit{criterio de irreducibilidad
-%     de Eisenstein} para el elemento primo $x\in\F_p[x]$ ($x$ es primo ya que
-%     $\F_p[x]$ es DFU, por lo que todo irreducible es primo) deducimos que $f$ es
-%     irreducible.
-%     Por el \textit{lema de Gauss} sabemos que $f$ es irreducible en
-%     $\F_p(x)[t]=\K[t]$.
+    Sea $f=t^p+x\in\F_p[x][t]$. Aplicando el \textit{criterio de irreducibilidad
+    de Eisenstein} para el elemento primo $x\in\F_p[x]$ ($x$ es primo ya que
+    $\F_p[x]$ es DFU, por lo que todo irreducible es primo) deducimos que $f$ es
+    irreducible.
+    Por el \textit{lema de Gauss} sabemos que $f$ es irreducible en
+    $\F_p(x)[t]=\K[t]$.
 
-%     Sea $\L$ el cuerpo de descomposición de $f$ sobre $\K$. Tomo $\alpha\in\L$
-%     una raíz de $f$: $f(\alpha)=\alpha^p+x=0\implies x=\alpha^p$.
-%     En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.
+    Sea $\L$ el cuerpo de descomposición de $f$ sobre $\K$. Tomo $\alpha\in\L$
+    una raíz de $f$: $f(\alpha)=\alpha^p+x=0\implies x=\alpha^p$.
+    En $\L[t]$, $f=t^p+\alpha^p=(t+\alpha)^p$ ya que $\car{\K}=p$.
 
-%     Por tanto $\L=\K(\alpha)$ y $m_{\alpha,\K}$ tiene una raíz de multiplicidad
-%     $p>1$, por lo que $\alpha$ no es separable sobre $\K$.
-% \end{ej}
+    Por tanto $\L=\K(\alpha)$ y $m_{\alpha,\K}$ tiene una raíz de multiplicidad
+    $p>1$, por lo que $\alpha$ no es separable sobre $\K$.
+\end{ej}
 
-% \begin{tma}[del elemento primitivo]
-%     Sea $\K\subseteq\L$ una extensión finita y separable. Entonces existe
-%     $\alpha\in\L$ tal que $\L=\K(\alpha)$. Además, si $\K$ es infinito y
-%     $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que
-%     \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\]
-% \end{tma}
+\begin{tma}[del elemento primitivo]
+    Sea $\K\subseteq\L$ una extensión finita y separable. Entonces existe
+    $\alpha\in\L$ tal que $\L=\K(\alpha)$. Además, si $\K$ es infinito y
+    $\L=\K(\alpha_1,\ldots,\alpha_n)$, podemos tomar $\lambda_i\in\K$ tales que
+    \[\alpha=\lambda_1\alpha_1+\ldots+\lambda_n\alpha_n.\]
+\end{tma}
 
-% \begin{proof}
-%     Si $\K\subseteq\L$ es una extensión finita, existen
-%     $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
+\begin{proof}
+    % Si $\K\subseteq\L$ es una extensión finita, existen
+    % $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
 
-%     Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
-%     $n$.
-%     \begin{itemize}
-%         \item Empezamos con $n=2$: $\L=\K(\beta,\gamma)$. Sean
-%             $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
-%             $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
-%             distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
-%             distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
-%             descomposición $\mathbb{M}$ de $f*g$.
-%     \end{itemize}
-%     \completar
+    % Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
+    % $n$.
+    % \begin{itemize}
+    %     \item Empezamos con $n=2$: $\L=\K(\beta,\gamma)$. Sean
+    %         $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
+    %         $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
+    %         distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
+    %         distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
+    %         descomposición $\mathbb{M}$ de $f*g$.
+    % \end{itemize}
+    \completar
 
 % \fecha{25/03}
 %     \completar
-% \end{proof}
+\end{proof}
 
 % \begin{ej}
 %     Sea $\Q(\sqrt{2},\sqrt{3})$, $\beta=\beta_1=\sqrt{2}$, $\beta_2=-\sqrt{2}$ y
@@ -2152,6 +2152,187 @@ Se dan los siguientes dos casos:
 %             tanto $m_{\gamma,\K}$ divide a $t^p-\gamma^p$, lo que implica que
 %             $[\K(\gamma):\K]\leq p$.  \end{enumerate}
 % \end{ej}
+
+\fecha{6/04}
+\section{Polinomios ciclotómicos}
+
+Sea $\omega=e^{2\pi i / n}=\cos(2\pi /n)+ i \sin(2\pi /n)$ consideramos $\eta_n=
+\left< \omega,\omega^2,\dots,\omega^n=1 \right> $, el grupo cíclico de orden $n$
+tal que $\eta_n < (\C^\star, *)$.
+
+\begin{prop}
+    Son equivalentes
+    \begin{enumerate}
+        \item $\left< \omega^k \right> = \eta_n$ 
+        \item $\mcd{k,n}=1$.
+    \end{enumerate}
+    Cuando esto pasa decimos que $\omega^k$ es una raíz $n$-ésima primitiva de
+    $1$. Recordemos que el número de raíces $n$-ésimas primitivas es
+    $\varphi(n)=\#\left\{ 1\leq k<n\mid \mcd{k,n}=1 \right\}$.  
+\end{prop}
+
+\begin{defin}
+    Definimos el $n$-ésimo polinomio ciclotómico como
+    \[\Phi_n=\prod_{\substack{1\leq k<n\\ \mcd{k,n}=1}}(t-\omega^k)\in\C[t].\]   
+\end{defin}
+
+\begin{obs}
+    Las raíces de $\Phi_n$ son las raíces $n$-ésimas primitivas de $1$. El grado
+    de $\Phi_n$ es $\deg{\Phi_n}=\varphi(n)$.
+\end{obs}
+
+\begin{ej}\hspace{0pt}
+    \begin{itemize}
+        \item $\Phi_1(t)=t-1$,
+        \item $\Phi_2(t)=t+1$,
+        \item $\Phi_3(t)=t^2+t+1$ ya que $t^3-1=(t-1)(t^2+t+1)$. 
+    \end{itemize}
+\end{ej}
+
+\begin{obs}
+    Tenemos que
+    $\Phi_n(t)=\prod_{\substack{\ord{\alpha}=n\\\alpha\in\eta_n}}(t-\alpha)$.
+
+    Recordemos que, como $\eta_n$ es grupo cíclico de orden $n$, para cada
+    divisor $d$ de $n$ se tiene que $\eta_d < \eta_n$ y este es el único
+    subgrupo de orden $d$. Observamos en particular que las raíces $d$-ésimas
+    de $1$ en $\eta_n$ son exactamente las raíces $d$-ésimas de $1$ en $\eta_d$,
+    es decir los elementos $\beta\in\eta_n$ tales que $\ord{\beta}=d$.  
+\end{obs}
+
+\begin{prop}\label{prop:formulafn}
+    $t^n-1=\prod_{d\mid n}\Phi_d(t)$ 
+\end{prop}
+
+\begin{proof}
+    $\displaystyle t^n-1 =\prod_{\alpha\in\eta_n}(t-\alpha) =\prod_{d\mid
+    n}\prod_{\ord{\alpha}=d}(t-\alpha) =\prod_{d\mid n}\Phi_d(t)$.
+\end{proof}
+
+\begin{prop}
+    El polinomio $\Phi_n(t)\in\Z[t]$.  
+\end{prop}
+
+\begin{proof}
+    Por inducción sobre $n$:
+    \begin{itemize}[itemindent=30pt]
+        \item[Si $n=1$:] $\Phi_1(t)=t-1$. 
+        \item[Si $n>1$:] Usamos la fórmula de la proposición
+            \ref{prop:formulafn}:
+            \[ t^n-1 = \Phi_n(t)*\underbrace{\prod_{\substack{d\mid n\\ d<n}}
+            \Phi_d(t)}_{g(t)}.\] 
+            Por hipótesis de inducción de inducción los factores
+            $\Phi_d(t)\in\Z[t]$ si $d\mid n$ y $d<n$. $\Phi(t)$ es el cociente
+            de dividir el polinomio $t^n-1$ entre $g(t)$.       
+
+            Ahora, como $g(t)$ es mónico y que $\Phi_d(t)$ es mónico para
+            cualquier $d$, $t^n-1\in\Z[t]$ y $g(t)\in\Z[t]$ por lo que el
+            cociente de dividir $t^n-1$ entre el polinomio mónico $g(t)$ también
+            pertenece a $\Z[t]$. 
+    \end{itemize}
+\end{proof}
+
+\begin{tma}\label{tma:pcicloirred}
+    El polinomio ciclotómico $\Phi_n(t)$ es irreducible en $\Z[t]$ (y por tanto
+    en $\Q[t]$). 
+\end{tma}
+
+Para demostrar el teorema nos serán útiles los siguientes lemas.
+
+\begin{lema}[consecuencia del Lema de Gauss]\label{lema:gausszt}
+    Sea $f\in\Z[t]$, supongamos que existen $g,h\in\Q[t]$ tales que $f=g*h$.
+    Entonces existe $\lambda\in\Q$ tal que \[\lambda g, \lambda^{-1} h\in\Z[t].\]    
+    En particular, si $f$ y $g$ son mónicos se tiene que $f,h\in\Z[t]$.   
+\end{lema}
+
+\begin{proof}
+    Ejercicio de estructuras algebraicas.
+\end{proof}
+
+Tenemos entonces la factorización $f=(\lambda g)(\lambda^{-1} h)$ en $\Z[t]$. En
+particular, si $f,g$ son mónicos, $h$ también es mónico y $\lambda=1$, de donde
+$f=g*h$ en $\Z[t]$.  
+
+\begin{lema}\label{lema:raicesprimitivas}
+    Sea $\omega$ una raíz $n$-ésima primitiva de la unidad. Si $p$ es primo y
+    $p\not\,\mid n$ entonces $\omega^p$ es raíz de $m_{\omega,\Q}$.
+\end{lema}
+
+Dejamos la demostración de este lema para más tarde.
+
+\begin{proof}[Demostración del teorema~\ref{tma:pcicloirred}]
+    Sabemos que $\Phi_n\in\Z[t]$. Sea $\omega$ una raíz $n$-ésima primitiva de
+    la unidad. Como $\Phi_n(\omega)=0$, $m_{\omega,\Q}$ divide a $\Phi_n$.
+    \[\Phi_n=m_{\omega,\Q}*g\] con $g\in\Q[t]$.
+    Como $\Phi_n$ y $m_{\omega,\Q}$ son mónicos el lema~\ref{lema:gausszt}
+    implica que $m_{\omega,\Q}$ y $g$ pertenecen a $\Z[t]$.   
+
+    Queremos probar que $g=1$. Sea $\theta$ una raíz de $\Phi_n(t)$,
+    $\theta=\omega^k$ con $1\leq k<n$ tal que $\mcd{k,n}=1$. Sea
+    $k=p_1*p_2*\ldots*p_r$ una descomposición de $k$ en factores primos,
+    aplicando el lema~\ref{lema:raicesprimitivas} tenemos que como $w^{p^1}$ es raíz
+    de $m_{\omega,\Q}$ entonces $m_{\omega,\Q}=m_{\omega^{p_1},\Q}$ y
+    $\omega^{p_1}$ es una raíz $n$-ésima primitiva de $1$ ya que
+    $\mcd{p_1,n}=1$. Podemos repetir esto con $\omega^{p_1}$ y obtenemos que
+    ${(\omega^{p_1})}^{p_2}=\omega^{p_1*p_2}$ es una raíz $n$-ésima
+    primitiva de $1$ ya que $\mcd{p_1 p_2,n}=1$. Iterando este argumento,
+    $\theta=\omega^{p_1*p_2*\ldots*p_r}$ es raíz de $m_{\omega, \Q}$ y al ser
+    $\theta$ una raíz $n$-ésima primitiva arbitraria
+    \[\Phi_n\mid m_{\omega,\Q}.\]
+
+    Ahora, como ya sabíamos que $m_{\omega,\Q}\mid \Phi_n$, tenemos que
+    $\Phi_n=m_{\omega,\Q}$ ya que ambos polinomios son mónicos.
+\end{proof}
+
+\textbf{Recordatorio: }Homomorfismo de reducción de coeficientes módulo un
+primo.
+
+Sea $p$ un primo, se tiene un homomorfismo de anillos sobreyectivo $\Z[t]\to
+\Z_p[t]$ tal que \[f=\sum_{i=0}^na_it^i\mapsto
+\tilde{f}=\sum_{j=0}^n\overline{a_j}t^j\]     
+donde $\overline{a_j}=a_j\mod p \in\Z_p$. 
+
+\begin{proof}[Demostración del lema~\ref{lema:raicesprimitivas}]
+    Tenemos que $\Phi_n(\omega)=0$ por definición. Si $p$ es primo y $p\not\,\mid
+    n$ entonces $\omega^p$ también es raíz $n$-ésima primitiva de $1$ y por
+    tanto $\Phi_n(\omega^p)=0$.
+
+    Pongamos que $\Phi_n(t)=m_{\omega,\Q}(\omega)*g(t)$ en $\Q[t]$. Entonces
+    $\Phi_n(\omega^p)=0=m_{\omega,\Q}(\omega^p)*g(\omega^p)$. Supongamos por
+    reducción al absurdo que $g(\omega^p)=0$.
+
+    Consideramos $h(t)=g(t^p)\in\Z[t]$. Como $\omega$ es raíz de $h$ el
+    polinomio mínimo $m_{\omega,\Q}$ divide a $h$ y se puede factorizar
+    $h(t)=q(t)*m_{\omega,\Q}(t)$. Como $h\in\Z[t]$ y $m_{\omega,\Q}(t)$ son
+    mónicos , por el \textit{Lema de Gauss} se tiene que $q$ y $m_{\omega,\Q}$
+    también pertenecen a $\Z[t]$.
+
+    Ahora aplicamos la reducción de coeficientes $\mod p$:
+    \begin{equation}\tag{1}\label{eq:prooftmaraicesprimitivas1}
+        \tilde{h}(t)=\tilde{q}(t)*\tilde{m_{\omega,\Q}}(t)
+    \end{equation}
+    y por otro lado 
+    \begin{equation}\tag{2}\label{eq:prooftmaraicesprimitivas2}
+        \tilde{h}(t)=\tilde{g}(t^p)=(g(t))^p 
+    \end{equation}
+    en $\Z_p[t]$.
+
+    Como $\Phi_n(t)=m_{\omega,\Q}(t)*g(t)$ obtenemos que
+    \begin{equation}\tag{3}\label{eq:prooftmaraicesprimitivas3}
+        \tilde{\Phi_n}(t)=\tilde{m_{\omega,\Q}}(t)*\tilde{g}(t).
+    \end{equation}
+    Sea $\tilde{r}(t)\in\Z[t]$ un factor irreducible de
+    $\tilde{m_{\omega,\Q}}(t)$ en $\Z[t]$. Por
+    (\ref{eq:prooftmaraicesprimitivas1}) y (\ref{eq:prooftmaraicesprimitivas2})
+    tenemos que $\tilde{r}(t)$ es un factor de $\tilde{g}(t)$ al ser un factor
+    de $(\tilde{g}(t))^p$. Por (\ref{eq:prooftmaraicesprimitivas3})
+    $\tilde{r}(t)$ es factor de $\tilde{m_{\omega,\Q}}$ y $\tilde{g}$ por lo que
+    $(\tilde{r}(t))^2$ es factor de $\tilde{Phi_n}$. Es decir, el polinomio
+    $\varphi{\Phi_n}$ tendría raíces múltiples en su cuerpo de descomposición,
+    lo que nos da una contradicción ya que $t^n-1$ no tiene raíces múltiples en
+    el cuerpo de descomposición sobre $\Z_p$ ya que su derivada $nt^{n-1}\neq 0$
+    en $\Z[t]$ y $\mcd{t^n-1, nt^{n-1}}=1$.    
+\end{proof}
 
 
 \end{document}
