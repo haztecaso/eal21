@@ -45,9 +45,11 @@
 \usepackage{amsthm}
 \usepackage{thmtools}
 \newtheorem{tma}{Teorema}[chapter]
+\newtheorem*{tma*}{Teorema}
 \renewcommand{\thetma}{\arabic{tma}}
 \newtheorem{lema}[tma]{Lema}
 \newtheorem{prop}[tma]{Proposición}
+\newtheorem*{prop*}{Proposición}
 \newtheorem{cor}{Corolario}[tma]
 \theoremstyle{definition}
 \newtheorem*{defin}{Definición}
@@ -2334,5 +2336,124 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
     en $\Z[t]$ y $\mcd{t^n-1, nt^{n-1}}=1$.    
 \end{proof}
 
+\fecha{7/04} 
+\begin{prop*}[Propiedades de la función de Euler]\hspace{0pt}
+    \begin{enumerate}
+        \item $\varphi(p^r)=p^r-p^{r-1}$ para todo $p$ primo y $r\geq1$.
+        \item $\varphi(q*m)=\varphi(q)*\varphi(m)$ si $\mcd{q,m}=1$.
+        \item Si $n=p_1^{r_1}*\ldots*p_s^{r_s}$ entonces \[\varphi(n)=\left(
+                p_1^{r_1}-p_1^{r_1-1} \right) *\ldots*\left(
+            p_s^{r_s}-p_s^{r_s-1}\right)=
+        p^{r_1-1}*\ldots*p_s^{r_s-1}*\underbrace{(p_1-1)*\ldots*(p_s-1)}_{\varphi(p_1,\ldots,p_s)}\] 
+    \end{enumerate}
+\end{prop*}
 
+\begin{cor}
+    Sea $\omega$ una raíz $n$-ésima primitiva de la unidad. Entonces
+    \begin{enumerate}
+        \item $\left[ \Q(\omega):\Q \right] =\varphi(n)$
+        \item $1,\omega,\ldots,\omega^{\varphi(n)-1}$ son base de $\Q(\omega)$
+            sobre $\Q$.  
+        \item El polinomio $t^n-1$ tiene todas sus raíces en $\Q(\omega)$  
+    \end{enumerate}
+\end{cor}
+
+\begin{prop}[Propiedades de $\Phi_p$]  
+    \hspace{0pt}
+    Sea $p$ un número primo. Entonces 
+    \begin{enumerate}
+        \item $\Phi_p(t)=t^{p-1}=t^{p-1}+t^{p-2}+\cdots+t+1$.
+
+            \begin{proof}
+                \completar
+            \end{proof}
+
+            \begin{ej}
+                $\Phi_3(t)=t^2+t+1$ y $\Phi_5(t)=t^4+t^3+t^2+t+1$.
+            \end{ej}
+
+        \item Si $r\geq1$, $\Phi_{p^r}(t)=\Phi_p(t^{p^{r-1}})$ 
+            
+            \begin{proof}
+                \completar
+
+            \end{proof}
+
+            \begin{ej}
+                $\Phi_2(t)=t+1$, $\Phi_{2^2}(t) =\Phi_2(t^2)=t^2+1$,
+                $\Phi_{2^3}(t)=\Phi_2(t^{2^2})=t^4+1$,
+                $\Phi_{2^4}(t)=\Phi_2(t^{2^3})=t^8+1$.
+            \end{ej}
+
+        \item Si $n$ es impar $\Phi_{2n}=\Phi_n(-t)$.  
+
+            \begin{proof}
+                \completar
+                
+            \end{proof}
+
+            \begin{ej}\hspace{0pt}
+                \begin{itemize}
+                    \item $\Phi_3=t^2+t+1 \implies \Phi_6=\Phi_3(-t)=t^2-t+1$
+                    \item $\Phi_5=t^4+t^3t^2+t+1 \implies \Phi_10=\Phi_5(-t)=t^4-t^3+t^2-t+1$ 
+                \end{itemize}
+            \end{ej}
+            
+        \item Sea $n$ tal que $p\not\,\mid n$ entonces
+            $\Phi_{np}(t)*\Phi_n(t)=\Phi_n(t^p)$. En particular, si conocemos
+            $\Phi_n(t)$ entonces \[\Phi_{np}(t)=\frac{\Phi_n(t^p)}{\Phi_n(t)}.\]      
+
+            \begin{proof}
+                \completar
+                
+            \end{proof}
+
+        \item Si $n=p_1^{r_1}*\ldots*p_s^{r_s}$ con $p_i$ primos distintos y
+            $r_1,\ldots,r_s\geq1$
+            \[\Phi_n(t)=\Phi_{p_1*\ldots*p_s}(t^q)\] donde
+            $q=p_1^{r_1-1}*\ldots*p_s^{r_s-1}$
+
+            \begin{proof}
+                \completar
+                
+            \end{proof}
+
+    \end{enumerate}
+\end{prop}
+
+\subsection*{Método general para calcular los polinomios ciclotómicos}
+
+Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
+
+\begin{enumerate}
+    \item Calcular recursivamente $\Phi_{p_1*\ldots*p_r}$ usando la propiedad
+        (4):
+        \[
+            \underbrace{\Phi_{p_1*\ldots*p_k}(t)}_{
+                \substack{\text{obtenemos este}\\\text{polinomio dividiendo}}
+            }
+            *\underbrace{\Phi_{p_1*\ldots*p_{k-1}}(t)}_{
+                \substack{\text{calculado por}\\\text{ recurrencia}}
+            }
+            = \underbrace{\Phi_{p_1*\ldots*p_{k-1}}(t^{p_k})}_{
+                \substack{\text{calculado por}\\\text{ recurrencia}}
+            }
+        .\]
+    \item Usamos la propiedad (5):
+        \[
+            \Phi_{p_1^{r_1}*\ldots*p_s^{r_s}}(t)
+            =\Phi_{p_1*\ldots*p_s}\left( t^{p_1^{r_1-1}*\ldots*p_s^{r_s-1}}\right) 
+        .\] 
+\end{enumerate}
+
+\begin{ejer}
+    Calcular $\Phi_{3^2*5^2}$ siguiendo los pasos
+    \begin{enumerate}
+        \item Hallar $\Phi_3$, $\Phi_5$ y $\Phi_{15}$.
+        \item Aplicar la propiedad (5).  
+    \end{enumerate}
+    
+\end{ejer}
+
+% \fecha{8/04} COPIAR DE VIDEO
 \end{document}
