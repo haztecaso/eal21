@@ -5,14 +5,10 @@
 \usepackage[spanish]{babel}
 
 \usepackage{geometry}
-\def \margin {20mm}
-\geometry{
-    a4paper,
-    left=\margin,
-    right=\margin,
-    top=\margin,
-    bottom=\margin
-}
+\def\margin{20mm}
+\geometry{a4paper, left=\margin, right=\margin, top=\margin, bottom=\margin}
+
+\usepackage{multicol}
 
 \usepackage{lmodern}
 \usepackage{xfrac}
@@ -21,8 +17,6 @@
 \renewcommand{\labelenumi}{(\theenumi)}
 \renewcommand{\labelenumii}{(\theenumii)}
 
-\usepackage{multicol}
-
 % \setitemize{label=---,leftmargin=0.6cm}
 
 \usepackage{amssymb}
@@ -30,8 +24,7 @@
 
 \usepackage{marginnote}
 
-%For left superscripts
-\usepackage{leftidx}
+%For left superscripts: \usepackage{leftidx}
 
 \makeatletter
 \renewcommand{\@makechapterhead}[1]{%
@@ -46,20 +39,23 @@
 \usepackage{thmtools}
 \newtheorem{tma}{Teorema}[chapter]
 \newtheorem*{tma*}{Teorema}
-\renewcommand{\thetma}{\arabic{tma}}
+\renewcommand{\thetma}{\thechapter.\arabic{tma}}
 \newtheorem{lema}[tma]{Lema}
 \newtheorem{prop}[tma]{Proposición}
 \newtheorem*{prop*}{Proposición}
 \newtheorem{cor}{Corolario}[tma]
+
 \theoremstyle{definition}
 \newtheorem*{defin}{Definición}
 \newtheorem*{notacion}{Notación}
-% \newtheoremstyle{custom}{\topsep}{\topsep}{}{}{}{.}{ }{}
-% \theoremstyle{custom}
 \newtheorem*{ej}{Ejemplo}
+
+\newtheoremstyle{custom}{\topsep}{\topsep}{}{}{}{.}{ }{}
+\theoremstyle{custom}
 \newtheorem*{ejer}{Ejercicio}
 \newenvironment{sol}{\textit{Solución.}}{\hfill$\square$}
-% \theoremstyle{remark}
+
+\theoremstyle{remark}
 \newtheorem*{obs}{Observación}
 \newtheorem*{nota}{Nota}
 
@@ -97,10 +93,22 @@
 \newcommand{\fecha}[1]{\marginpar{\underline{\footnotesize{#1}}}}
 
 % \newcommand{\fecha}[1]{{\hfill\large{#1/2021}}\\[-0.8em]\noindent\rule{17cm}{0.1mm}}
-\usepackage{fixme}
+\usepackage[draft]{fixme}
+\renewcommand\fixmelogo{}
+\renewcommand\fxenglishnotename{}
+\fxusetheme{color}
 
-\newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
-\newcommand{\revisar}{\fbox{¡Revisar!}}
+\newcommand{\completar}{\fxfatal{Completar}}
+\newcommand{\revisar}{\fxnote{Revisar}}
+
+% \newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
+% \newcommand{\revisar}{\fbox{¡Revisar!}}
+
+% Para ocultar las demostraciones descomentar las siguientes líneas.
+% \usepackage{environ}
+% \NewEnviron{killcontents}{}
+% \let\proof\killcontents
+% \let\endproof\endkillcontents
 
 \title{Ecuaciones algebraicas}
 \author{Apuntes de Adrián Lattes}
@@ -855,8 +863,8 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
             Veamos que son linealmente independientes. Sean $d_{ij}\in\F$ tales
             que
             \[0=\sum_{i=1}^m(\underbrace{\sum_{j=1}^sd_{ij}\beta_j}_{=e_i\in\K})
-            \alpha_i=\sum_{i=1}^me_i\alpha_i\implies\forall i: 0=e_i=\sum_{j=1}^sd_{ij}
-            \beta_j\implies\forall i,j: d_{ij}\]
+            \alpha_i=\sum_{i=1}^me_i\alpha_i\implies\forall i: e_i=0\Leftrightarrow
+        \forall i,j:\sum_{j=1}^sd_{ij} \beta_j=0\]
             ya que $\alpha_1,\ldots,\alpha_m$ son L.I. sobre $\K$ y
             $\beta_1,\ldots,\beta_s$ son L.I. sobre $\F$.
     \end{enumerate}
@@ -921,9 +929,9 @@ Recordemos que $\K\subseteq\L$ es una extensión finita si $[L:K]\in\N$.
             $m_{\sqrt{2}+\sqrt{3},\Q}=t^4-10t^2+1$ tiene grado 4, por lo que la
             extensión también. Usando la transitividad del grado:
             \[\underbrace{[\Q(\sqrt{2},\sqrt{3}):\Q]}_{4}=
-                \underbrace{[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2}+\sqrt{3})]}_{1}*
+                [\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2}+\sqrt{3})]*
                 \underbrace{[\Q(\sqrt{2}+\sqrt{3}):\Q]}_{4}\]
-                Y como hemos visto, esto
+                Y como hemos visto,
                 $[\Q(\sqrt{2},\sqrt{3}):\Q(\sqrt{2}+\sqrt{3})]=1\Leftrightarrow
                 \Q(\sqrt{2},\sqrt{3})=\Q(\sqrt{2}+\sqrt{3})$.
         \item
@@ -1874,7 +1882,7 @@ Se dan los siguientes dos casos:
     \vspace{-1.75em}
 \end{proof}
 
-\fecha{18/03} % Ver grabación: ejercicios 16 y 19
+\fecha{18/03}
 \begin{obs}
     Sea $\alpha\in\F_{p^n}$ primitivo y $g=m_{\alpha,\F_p}$, $n=\deg{g}=\left[
     \F_{p^n}:\F_p\right]$. Por el lema, $g(\alpha)=0)=g(\alpha^p)=0$. Obtenemos
@@ -1888,7 +1896,7 @@ Se dan los siguientes dos casos:
 \end{obs}
 
 
-\fecha{22/03} % Ver grabación: ejercicio 16 y 20
+\fecha{22/03}
 \begin{obs}
     Sea $p$ donde imo, $n\geq1$, $\gamma\in\F_{p^n}$ y $g=m_{\gamma,\F_{p^n}}$
     donde $k=\deg{g}$. Entonces \[\F_{p^k}\cong\frac{\F_p[t]}{\left< g \right>}
@@ -2071,7 +2079,7 @@ Se dan los siguientes dos casos:
             $\L\cong\F_{q^n}=\F_{p^{nm}}$ y $n=[\L:\K]$. Entonces, si
             $\alpha\in\L$, $m_{\alpha,\K}$ divide a $t^{p^{nm}}-t=\prod_{\beta
             \in\L}(t-\beta)$ y por tanto $m_{\alpha,\K}$ tiene solo raíces
-            simples. \revisar
+            simples.
     \end{enumerate}
 \end{proof}
 
@@ -2102,58 +2110,110 @@ Se dan los siguientes dos casos:
 \end{tma}
 
 \begin{proof}
-    % Si $\K\subseteq\L$ es una extensión finita, existen
-    % $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
+    Si $\K\subseteq\L$ es una extensión finita, existen
+    $\alpha_1,\ldots,\alpha_n\in\L$ tales que $\L=\K(\alpha_1,\ldots,\alpha_n)$.
 
-    % Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
-    % $n$.
-    % \begin{itemize}
-    %     \item Empezamos con $n=2$: $\L=\K(\beta,\gamma)$. Sean
-    %         $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
-    %         $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
-    %         distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
-    %         distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
-    %         descomposición $\mathbb{M}$ de $f*g$.
-    % \end{itemize}
-    \completar
+    Supongamos que $\K$ es infinito y probemos el resultado por inducción sobre
+    $n$.
+    \begin{itemize}
+        \item Empezamos con $n=2$. $\L=\K(\beta,\gamma)$. Sean
+            $f=m_{\beta,\K}$ y $g=m_{\gamma,\K}$ con $\deg{f}=l$ y
+            $\deg{g}=m$. La separabilidad implica que $f$ tiene $l$ raíces
+            distintas $\beta=\beta_1,\ldots,\beta_n$ y $g$ tiene $m$ raíces
+            distintas $\gamma=\gamma_1,\ldots,\gamma_n$ en el cuerpo de
+            descomposición $\mathbb{M}$ de $f*g$.
 
-% \fecha{25/03}
-%     \completar
+            \textbf{Idea:} Como $\K$ es infinito existe $\lambda \in\K$ tal que
+            para todos $i, r\in\left\{ 1,\ldots,l \right\} $ y $s,j\in\left\{
+            1,\ldots,m \right\}$ y $s\neq j$: $\lambda \neq
+            \dfrac{\beta_i-\beta_r}{\gamma_s-\gamma_j}$.  Esto equivale a que
+            $\lambda(\gamma_s-\gamma_j)\neq \beta_i-\beta_r \Leftrightarrow
+            \beta_r+\lambda\gamma_s\neq \beta_i+\lambda\gamma_j$.  Si $r=1,s=1$:
+            \begin{equation}\tag{$\star$}\label{eq:lambdaprim}
+                \beta_\lambda\gamma=\beta_1+\lambda\gamma_1\neq \beta_i+\lambda\gamma_j.
+            \end{equation}
+
+            Ahora probamos que $\K(\beta,\gamma)=\K(\beta+\lambda\gamma)$ para
+            esta elección de $\lambda\in\K$. La inclusión $\supseteq$ es obvia
+            ya que $\lambda\in\K$ y $\beta+\lambda\gamma\in\K(\beta,\gamma)$.
+            Si probamos que $\gamma\in\K(\beta,\gamma)$ ya tendremos la otra
+            inclusión, puesto que
+            $\beta=(\beta+\lambda\gamma)-\lambda\gamma\in\K(\beta+\lambda\gamma)$.     
+
+            \fecha{25/03}
+            Observamos que los siguientes polinomios de
+            $\K(\beta+\lambda\gamma)[t]$ se anulan en $\gamma$:
+            \begin{itemize}
+                \item $g=m_{\gamma,\K}$ 
+                \item $n(t)=f(\beta+\lambda\gamma+\lambda
+                    t)\in\K(\beta+\lambda\gamma)[t]$,
+                    $n(\gamma)=f(\beta+\lambda\gamma-\lambda\gamma)=f(\beta)=m_{\beta,\K}(\beta)=0$ 
+            \end{itemize}
+            Como $g, n\in\K(\beta+\lambda\gamma)[t]$ y $g(\gamma)=n(\gamma)=0$
+            tenemos que $m_{\gamma, \K(\beta+\lambda\gamma)}$ divide a $g$ y a
+            $n$. Por tanto si $h=\mcd{g,n}$, $\deg{h}\geq1$ ya que
+            $m_{\gamma,\K(\beta+\lambda\gamma)}\mid h$. Si $\deg{h}>1$ entonces
+            existe $j\in\left\{ 2,\ldots,m \right\}$ tal que $\gamma_j$
+            ($\gamma_j\neq \gamma_1$ por la hipótesis de separabilidad) es raíz
+            de $n$: 
+            $n(\gamma_j)=f(\beta+\lambda\gamma-\lambda\gamma_j)=0 \implies
+            \exists i\in\left\{ 1,\ldots,l \right\}
+            \beta+\lambda\gamma-\lambda\gamma_j=\beta_i \Leftrightarrow
+            \beta+\lambda\gamma=\beta_i+\lambda\gamma_j$, lo que no puede ser
+            por (\ref{eq:lambdaprim}). Por tanto $\deg{h}=1$ y
+            $h=t-\gamma\in\K(\beta+\lambda\gamma)[t]\implies
+            \gamma\in\K(\beta+\lambda\gamma)$.    
+        \item Si $n>2$. La extensión $\K\subseteq\K(\alpha_1,\ldots,
+            \alpha_{n-1})$ es finita y separable. Por la hipótesis de inducción
+            sabemos que existen $\lambda_1,\ldots,\lambda_{m-1}\in\K$ tales que
+            $\K(\alpha_1,\ldots,\alpha_{n-1})=\K(\gamma_1)$ con
+            $\gamma_1=\sum_{i=1}^{n-1}\lambda_i\alpha_i$.
+
+            Ahora $\L=\K(\gamma_1)(\alpha_n)=\K(\gamma_1,\alpha_n)$ y podemos
+            aplicar el caso $n=2$: $\exists \lambda\in\K$ tal que
+            $\alpha=\gamma_1+\lambda\alpha_n$ y
+            $\K(\gamma_1,\alpha_n)=\K(\alpha)$.   
+    \end{itemize}
+
+    Si ahora $\K$ es un cuerpo finito tenemos que $\L\supseteq\K$ es una
+    extensión finita, por lo que $\left[ \L:\K \right] =r\in\N$ y $\L=\F_{q^r}$.   
+    Como $\F_{q^r}^\star$ es un grupo cíclico, $\F_{q^r}^\star= \left<
+    \alpha\right>$, y por tanto $\F_{q^r}=\F_p[\alpha]=\K[\alpha]$. 
 \end{proof}
 
-% \begin{ej}
-%     Sea $\Q(\sqrt{2},\sqrt{3})$, $\beta=\beta_1=\sqrt{2}$, $\beta_2=-\sqrt{2}$ y
-%     $\gamma=\gamma_1=\sqrt{3}$, $\gamma_2=-\sqrt{3}$. Tenemos
-%     \[\frac{\beta_i-\beta_j}{\gamma_l-\gamma_s}\in\left\{ 0,\pm\frac{\sqrt{2}
-%     }{\sqrt{3} }/ \right\}.\]
+\begin{ej}
+    Sea $\Q(\sqrt{2},\sqrt{3})$, $\beta=\beta_1=\sqrt{2}$, $\beta_2=-\sqrt{2}$ y
+    $\gamma=\gamma_1=\sqrt{3}$, $\gamma_2=-\sqrt{3}$. Tenemos
+    \[\frac{\beta_i-\beta_j}{\gamma_l-\gamma_s}\in\left\{ 0,\pm\frac{\sqrt{2}
+    }{\sqrt{3} }/ \right\}.\]
 
-%     La demostración del teorema nos dice que si $\lambda\in\Q\setminus\left\{0
-%     \right\}$, $\Q(\sqrt{2}+\lambda\sqrt{3})=\Q(\sqrt{2},\sqrt{3})$.
-% \end{ej}
+    La demostración del teorema nos dice que si $\lambda\in\Q\setminus\left\{0
+    \right\}$, $\Q(\sqrt{2}+\lambda\sqrt{3})=\Q(\sqrt{2},\sqrt{3})$.
+\end{ej}
 
-% \begin{ejer}
-%     Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$.
-% \end{ejer}
+\begin{ejer}
+    Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$.
+\end{ejer}
 
 
-% \begin{ej}[extensión no separable]
-%     \completar% ¿es el mismo ejemplo de ayer?
-% \end{ej}
+\begin{ej}[extensión no separable]
+    \completar% ¿es el mismo ejemplo de ayer?
+\end{ej}
 
-% \begin{ej}[Extensión infinita que no es simple]
-%     Sea una extensión $\K\subseteq\K(\beta,\gamma)=\L$ tal que para toda $\alpha
-%     \in\L$ $\K(\alpha)\neq \L$. Por ejemplo tomamos $\K = $ cuerpo de fracciones
-%     de $\F_p[x,y]$ (con $x$ e $y$ variables). Sea $\alpha$ una raíz de $t^p-x$ y
-%     $\beta$ una raíz de $t^p-y$. Como $\F_p[x,y]$ es DFU, $x$ e $y$ son
-%     irreducibles y $t^p-x$ y $t^p-y$ son irreducibles en $\K[t]$.
+\begin{ej}[Extensión infinita que no es simple]
+    Sea una extensión $\K\subseteq\K(\beta,\gamma)=\L$ tal que para toda $\alpha
+    \in\L$ $\K(\alpha)\neq \L$. Por ejemplo tomamos $\K = $ cuerpo de fracciones
+    de $\F_p[x,y]$ (con $x$ e $y$ variables). Sea $\alpha$ una raíz de $t^p-x$ y
+    $\beta$ una raíz de $t^p-y$. Como $\F_p[x,y]$ es DFU, $x$ e $y$ son
+    irreducibles y $t^p-x$ y $t^p-y$ son irreducibles en $\K[t]$.
 
-%     Queda como ejercicio probar que
-%     \begin{enumerate}
-%         \item $\left[ \K(\alpha,\beta):\K \right] =p^2$ y
-%         \item si $\gamma\in\K(\alpha,\beta)$ entonces $\gamma^p \in\K$ y por
-%             tanto $m_{\gamma,\K}$ divide a $t^p-\gamma^p$, lo que implica que
-%             $[\K(\gamma):\K]\leq p$.  \end{enumerate}
-% \end{ej}
+    Queda como ejercicio probar que
+    \begin{enumerate}
+        \item $\left[ \K(\alpha,\beta):\K \right] =p^2$ y
+        \item si $\gamma\in\K(\alpha,\beta)$ entonces $\gamma^p \in\K$ y por
+            tanto $m_{\gamma,\K}$ divide a $t^p-\gamma^p$, lo que implica que
+            $[\K(\gamma):\K]\leq p$.  \end{enumerate}
+\end{ej}
 
 \fecha{6/04}
 \section{Polinomios ciclotómicos}
@@ -2456,4 +2516,14 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
 \end{ejer}
 
 % \fecha{8/04} COPIAR DE VIDEO
+% \fecha{12/04}
+% \fecha{13/04}
+\fecha{14/04}
+\begin{ej}
+    Consideramos $h(x,y,z) = (x+y)(z+x)$ polinomio simétrico en $x,y,z$.
+
+    $h(x,y,z)=x^2y+xy^2+x^2z+xz^2+y^2z+z^2y+ 2xyz$ 
+    \completar
+\end{ej}
+
 \end{document}
