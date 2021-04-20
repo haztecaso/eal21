@@ -2195,12 +2195,7 @@ Se dan los siguientes dos casos:
     Hacer lo mismo con $\Q(\sqrt{2},\sqrt[3]{3})$.
 \end{ejer}
 
-
-\begin{ej}[extensión no separable]
-    \completar% ¿es el mismo ejemplo de ayer?
-\end{ej}
-
-\begin{ej}[Extensión infinita que no es simple]
+\begin{ej}[Extensión finita no separable que no es simple]
     Sea una extensión $\K\subseteq\K(\beta,\gamma)=\L$ tal que para toda $\alpha
     \in\L$ $\K(\alpha)\neq \L$. Por ejemplo tomamos $\K = $ cuerpo de fracciones
     de $\F_p[x,y]$ (con $x$ e $y$ variables). Sea $\alpha$ una raíz de $t^p-x$ y
@@ -2515,8 +2510,102 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
     
 \end{ejer}
 
-% \fecha{8/04} COPIAR DE VIDEO
-% \fecha{12/04}
+% \fecha{8/04} Ejercicios polinomios ciclotomicos (copiado en papel)
+\fecha{12/04}
+\section{Paréntesis: polinomios simétricos}
+\begin{defin}
+    Decimos que un polinomio $g\in\K[x_1,\ldots,x_n]$ es \textit{simétrico} si
+    para todo $\sigma\in S_n$ ($S_n$ es el grupo simétrico): 
+    \[g(x_1,\ldots,x_n)=g(x_{\sigma(1)},\ldots,x_{\sigma(n)}).\] 
+\end{defin}
+
+\begin{ej}
+    $g=x_1^2+x_2^2+\ldots+x_n^2$ es simétrico en $\K[x_1,\ldots,x_n]$ pero no lo
+    es en $\K[x_1,\ldots,x_n,x_{n+1}]$. 
+\end{ej}
+
+\begin{defin}
+    Los \textit{polinomios simétricos elementales} en $\K[x_1,\ldots,x_n]$ están
+    dados por \[\sigma_r=\sum_{{1\leq i_1 <\ldots<i_r\leq n}}
+    x_{i_1}*x_{i_2}*\ldots*x_{i_r}\] donde $r\in\left\{ 1,\ldots,n \right\}$.
+\end{defin}
+
+\begin{defin}
+    El \textit{polinomio universal} de $\K[x_1,\ldots,x_n]$ es
+    $G\in\K[x_1,\ldots,x_n][t]$:
+    \[G=\prod_{i=1}^n(t-x_i)\] 
+\end{defin}
+
+\begin{obs}
+    $G=t^n+(-1)^1\sigma_1t^{n-1}+(-1)^2\sigma_2t^{n-2}+\ldots+(-1)^n\sigma_n$ 
+\end{obs}
+
+\begin{prop}\label{prop:coefsigma}
+    Sea $f=t^n+a_1t^{n-1}+\ldots+a_n\in\K[t]$ tal que todas sus raíces
+    $\alpha_1,\ldots,\alpha_n$ están en $\L\supset \K$. Si $r\in\left\{
+    1,\ldots,n \right\}$ entonces
+    \[a_r=(-1)^r*\sigma_r(\alpha_1,\ldots,\alpha_n).\]  
+\end{prop}
+\begin{proof}
+    Consideramos el homomorfismo de evaluación $\psi:\K[x_1,\ldots,x_n][t]\to
+    \L[t]$ tal que $\psi(h(x_1,\ldots,x_n,t))=h(\alpha_1,\ldots,\alpha_n,t)$.
+    Entonces $\psi(G)=\psi\left(\prod_{i=1}^n(t-x_i)\right)=
+    \prod_{i=1}^n\psi(t-x_i)=\prod_{i=1}^n(t-\alpha_i)=f$.
+
+    En particular $(-1)^r\sigma_r(\alpha_1,\ldots,\alpha_n)=
+    \psi\left( (-1)^r\sigma_r \right) = a_r$. 
+\end{proof}
+
+\begin{tma}[fundamental de los polinomios simétricos]
+    Sea $p \in\K[x_1,\ldots,x_n]$ un polinomio simétrico entonces existe un
+    polinomio $g\in\K[x_1,\ldots,x_n]$ tal que \[p=g(\sigma_1,\ldots,\sigma_n).\]   
+\end{tma}
+
+\begin{ej}
+    Sea $f=x_1^2+x_2^2+x_3^2\in\K[x_1,x_2,x_3]$:
+    \begin{align*}
+        f-\sigma_1^2&=f-(x_1+x_2+x_3)^2\\
+                    &=-2(x_1x_2+x_2x_3+x_1x_3)\\
+                    &=-2\sigma_2
+    \end{align*}
+    De donde $f=\sigma_1^2-2\sigma_2=g(\sigma_1,\sigma_2,\sigma_3)$ donde
+    $g(x_1,x_2,x_3)=x_1^2-2x_2$. 
+\end{ej}
+
+\begin{obs}
+    La imagen del homomorfismo de evaluación $\varphi:\K[x_1,\ldots,x_n]\to
+    \K[x_1,\ldots,x_n]$ tal que\\
+    $\varphi(h(x_1,\ldots,x_n))=h(\sigma_1,\ldots,\sigma_n)$ es el conjunto de
+    polinomios simétricos.
+\end{obs}
+
+\begin{cor}
+    Sea $f=t^n+a_1t^{n-1}+\ldots+a_n\in\K[t]$ tal que sus raíces
+    $\alpha_1,\ldots,\alpha_n\in\L\supset\K$. Si $p \in\K[x_1,\ldots,x_n]$ es un
+    polinomio simétrico entonces $p(\alpha_1,\ldots,\alpha_n)\in\K$.
+\end{cor}
+\begin{proof}
+    Consideramos el homomorfismo de evaluación $\psi:\K[x_1,\ldots,x_n][t]\to
+    \L[t]$ tal que $\psi(h(x_1,\ldots,x_n,t))=h(\alpha_1,\ldots,\alpha_n,t)$.
+    Como $p$ es simétrico existe $g\in\K[x_1,\ldots,x_n]$ tal que
+    $p=g(\sigma_1,\ldots,\sigma_n)$. Ahora
+    \begin{align*}
+        \psi(p)&=\psi(g(\sigma_1,\ldots,\sigma_n))\\
+        &=g(\sigma_1(\alpha_1,\ldots,\alpha_n),\ldots,\sigma_n(\alpha_1,\ldots,\alpha_n))\\
+        &=g(-a_1,a_2,\ldots,(-1)^na_n)\in\K
+    \end{align*}
+    donde hemos usado la proposición~\ref{prop:coefsigma}.
+\end{proof}
+
+\subsection*{Órdenes en $\N$} 
+\paragraph{Lexicográfico} $(a_1,\ldots,a_n)<_{\text{lex}}(b_1,\ldots,b_n)$ si
+existe $j\in\left\{ 1,\ldots,n \right\} $ tal que
+$a_1=b_1,\ldots,a_{j-1}=b_{j-1}$ y $a_j<b_j$.  
+
+\paragraph{Lexicográfico graduado} $(a_1,\ldots,a_n)<_{\text{glex}}(b_1,\ldots,b_n)$ si
+$a_1+\ldots+a_n<b_1+\ldots+b_n$ o
+$(a_1,\ldots,a_n)<_{\text{lex}}(b_1,\ldots,b_n)$
+
 % \fecha{13/04}
 \fecha{14/04}
 \begin{ej}
