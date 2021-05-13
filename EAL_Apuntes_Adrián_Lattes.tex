@@ -2579,7 +2579,7 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
     polinomios simétricos.
 \end{obs}
 
-\begin{cor}
+\begin{cor} \label{cor:polsimetricos}
     Sea $f=t^n+a_1t^{n-1}+\ldots+a_n\in\K[t]$ tal que sus raíces
     $\alpha_1,\ldots,\alpha_n\in\L\supset\K$. Si $p \in\K[x_1,\ldots,x_n]$ es un
     polinomio simétrico entonces $p(\alpha_1,\ldots,\alpha_n)\in\K$.
@@ -2587,8 +2587,7 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
 \begin{proof}
     Consideramos el homomorfismo de evaluación $\psi:\K[x_1,\ldots,x_n][t]\to
     \L[t]$ tal que $\psi(h(x_1,\ldots,x_n,t))=h(\alpha_1,\ldots,\alpha_n,t)$.
-    Como $p$ es simétrico existe $g\in\K[x_1,\ldots,x_n]$ tal que
-    $p=g(\sigma_1,\ldots,\sigma_n)$. Ahora
+    Como $p$ es simétrico existe $g\in\K[x_1,\ldots,x_n]$ tal que $p=g(\sigma_1,\ldots,\sigma_n)$. Ahora
     \begin{align*}
         \psi(p)&=\psi(g(\sigma_1,\ldots,\sigma_n))\\
         &=g(\sigma_1(\alpha_1,\ldots,\alpha_n),\ldots,\sigma_n(\alpha_1,\ldots,\alpha_n))\\
@@ -2597,22 +2596,158 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
     donde hemos usado la proposición~\ref{prop:coefsigma}.
 \end{proof}
 
-\subsection*{Órdenes en $\N$} 
-\paragraph{Lexicográfico} $(a_1,\ldots,a_n)<_{\text{lex}}(b_1,\ldots,b_n)$ si
-existe $j\in\left\{ 1,\ldots,n \right\} $ tal que
-$a_1=b_1,\ldots,a_{j-1}=b_{j-1}$ y $a_j<b_j$.  
+\begin{defin}[Órdenes en $\N^n$] 
+    Sean $(a_1,\ldots,a_n), (b_1,\ldots,b_n)\in\N^n$ definimos los siguientes
+    órdenes:
+    \begin{itemize}
+        \item 
+            \textit{Lexicográfico:} $(a_1,\ldots,a_n)<_{\text{lex}}(b_1,\ldots,b_n)$ si
+            existe $j\in\left\{ 1,\ldots,n \right\} $ tal que
+            $a_1=b_1,\ldots,a_{j-1}=b_{j-1}$ y $a_j<b_j$.  
+        \item
+            \textit{Lexicográfico graduado:} $(a_1,\ldots,a_n)<_{\text{glex}}(b_1,\ldots,b_n)$ si
+            $a_1+\ldots+a_n<b_1+\ldots+b_n$ o
+            $(a_1,\ldots,a_n)<_{\text{lex}}(b_1,\ldots,b_n)$
+    \end{itemize}
 
-\paragraph{Lexicográfico graduado} $(a_1,\ldots,a_n)<_{\text{glex}}(b_1,\ldots,b_n)$ si
-$a_1+\ldots+a_n<b_1+\ldots+b_n$ o
-$(a_1,\ldots,a_n)<_{\text{lex}}(b_1,\ldots,b_n)$
+\end{defin}
 
-% \fecha{13/04}
+\fecha{13/04}
+\begin{obs}
+    Sea $(a_1,\ldots,a_n)\in\N^n$. Entonces el conjunto
+    \[A=\left\{(b_1,\ldots,b_n)\in\N\mid(b_1,\ldots,b_n)
+    <_{\text{glex}}(a_1,\ldots,a_n)\right\}\]   
+    es finito, ya que si $m=a_1+\ldots+a_n$, $A\subseteq\left\{
+    (b_1,\ldots,b_n)\in\N^n \mid b_i \leq m \right\}$ que es finito.
+\end{obs}
+
+\begin{defin}
+    Sea $0\neq f\in\K[x_1,\ldots, x_n]$,
+    $f=\sum_{I=(i_1,\ldots,i_n)}c_Ix_1{i_1}*\ldots*x_n^{i_n}$ con $c_I\in\K$.
+    Si definimos $I_0=\max_{<_{\text{glex}}}\left\{I=(i_1,\ldots,i_n)\mid
+    c_I\neq 0\right\}$ podemos escribir
+    $f=c_{I_0}*x_1^{i_0^{(0)}}*\ldots*x_n^{i_n^{(0)}}
+    +\sum_{I<_{\text{glex}}I_0}c_Ix_1^{i_1}*\ldots*x_n^{i_n}$. A este término
+    que hemos evidenciado se le llama \textit{término líder}:
+    \[LT(f)=c_{I_0}*x_1^{i_0^{(0)}}*\ldots*x_n^{i_n^{(0)}}.\]
+\end{defin}
+
+\begin{ej}
+    Sea $f=x_1^4+2x_1^2x_2^3+3x_2^6-x_1^5x_2$, $LT(f)=-x_1^5x_2$. 
+\end{ej}
+
+\begin{obs}
+    \hspace{0pt}
+    \begin{itemize}
+        \item El término líder del polinomio simétrico elemental en $n$ variables,
+            $\sigma_r=\sum_{1\leq i_1\leq \ldots\leq i_r \leq n}
+            x_{i_1}*\ldots*x_{i_r}$, es $LT(\sigma_r)=x_1*\ldots*x_r$.
+        \item Sea $f\in\K[x_1,\ldots,x_n]$ un polinomio simétrico con término líder
+            $LT(f)=c_{I_0}x_1^{j_1}*\ldots*x_n^{j_n}$. Entonces $j_1\geq j_2 \geq
+            \ldots\geq j_n$. Si no fuera así podríamos encontrar una
+            transposición
+            $(j_1,\ldots,j_{i+1},j_i,\ldots,j_n)>_{\text{glex}}(j_1,\ldots,j_n)$
+            pero como $f$ es simétrico,
+            $x_1^{j_1}*\ldots*x_j^{j_{i+1}}*x_{j+1}^{j_i}*\ldots*x_n^{j_n}$
+            aparece en $f$ con coeficiente $c_{I_0}$. Esto contradice que
+            $LT(f)=c_0x_1^{j_1}*\ldots*x_{n}^{j_n}$.  
+    \end{itemize}
+\end{obs}
+
+\begin{proof}[Demostración del Teorema fundamental de los polinomios simétricos]
+    Sea $f=\sum c_I x_1^{i_1}*\ldots*x_n^{i_n}$ un polinomio simétrico no nulo.
+    Sabemos que si $LT(f)=c_{I_0}x_1^{j_1}*\ldots*x_n^{j_n}$ con $j_1\geq j_2
+    \geq \ldots \geq j_n$. La idea de la demostración es hallar un
+    \textit{monomio} en los polinomios simétricos elementales con igual término
+    líder.
+    
+\end{proof}
+
 \fecha{14/04}
 \begin{ej}
     Consideramos $h(x,y,z) = (x+y)(z+x)$ polinomio simétrico en $x,y,z$.
 
-    $h(x,y,z)=x^2y+xy^2+x^2z+xz^2+y^2z+z^2y+ 2xyz$ 
-    \completar
+    $h(x,y,z)=x^2y+xy^2+x^2z+xz^2+y^2z+z^2y+ 2xyz$.
+    El término líder de $h$ es $LT(h)=x^2y=x^2y^1z^0$.
+
+    Sea $g_1=\sigma_1^{2-1}\sigma_2^{1-0}\sigma_3^{0}=\sigma_1\sigma_2=
+    (x+y+z)(xy+yz+zx)=x^2y+xy^2+x^2z+xz^2+y^2z+yz^2+3xyz$.
+
+    Como $h_2=h-g_1=-xyz=-\sigma_3 \implies h= \sigma_1\sigma_2-\sigma_3$.
+\end{ej}
+
+\begin{ej}
+    Sea $m=(x+y)(y+z)+(y+z)(z+x)+(z+x)(x+y)=x^2+y^2+z^2+3xy+3yz+3xz$, su término
+    líder es $LT(m)=x^2=x^2y^0z^0$ y $g_1=\sigma_1^2$. Por tanto
+    $m-\sigma_1^2=m-(x+y+z)^2=xy+yz+zx=\sigma_2$ y $m=\sigma_2+\sigma_1^2$.    
+\end{ej}
+
+\begin{ejer}
+    Sea $f=t^3+bt^2+ct+h\in\Q[t]$ con raíces $\alpha_1, \alpha_2, \alpha_3$ y
+    sea $g=(t-\alpha_1-\alpha_2)(t-\alpha_2-\alpha_3)(t-\alpha_3-\alpha_1)$.
+    Probar que $g=t^3+2bt^2+(b^2+c)t+bc-d$.  
+\end{ejer}
+\begin{sol}
+    Tenemos
+    \begin{align*}
+        g=\ &t^3-2(\alpha_1+\alpha_2+\alpha_3)t^2\\
+          &+(\alpha_1^2+\alpha_2^2+\alpha_3^2+3\alpha_1\alpha_2+3\alpha_1\alpha_3+3\alpha_2\alpha_3)t\\
+          &-(\alpha_1+\alpha_2)(\alpha_2+\alpha_3)(\alpha_3+\alpha_2)\\ 
+         =\
+          &t^3-2\sigma_1(\alpha_1,\alpha_2,\alpha_3)t^2+m(\alpha_1,\alpha_2,\alpha_3)t-h(\alpha_1,\alpha_2,\alpha_3),
+    \end{align*}
+    $m=\sigma_2+\sigma_1^2$ y  $f=t^3+bt^2+ct+d=(t-\alpha_1)(t-\alpha_2)(t-\alpha_3)$. Por tanto tenemos
+    \begin{align*}
+        b =& -(\alpha_1+\alpha_2+\alpha_3)=-\sigma_1(\alpha_1,\alpha_2,\alpha_3)\\
+        c =& \sigma_2(\alpha_1,\alpha_2,\alpha_3)\\
+        d =& -\sigma_3(\alpha_1,\alpha_2,\alpha_3)
+    \end{align*}
+    y sustituyendo en lo anterior
+    $g=t^3+2bt^2+(b²+c)t-h(\alpha_1,\alpha_2,\alpha_3)=bc-d$.
+\end{sol}
+
+\begin{obs}
+    Podemos usar los resultados sobre polinomios simétricos para probar que si
+    $\L=\K[\alpha_1,\ldots,\alpha_n]$ con $\alpha_i$ algebraicos y separable
+    sobre $\K$ entonces $\L=\K[\alpha]$ con $\alpha\in\L$ \textit{separable} sobre $\K$.     
+\end{obs}
+
+\section{Extensiones normales}
+
+\begin{tma}
+    Sea $\L$ el cuerpo de descomposición de $f\in\K[t]$ con $\deg{f}=n\geq1$.
+    Sea $g\in\K[t]$ irreducible. Si $g$ tiene una raíz en $\L$ entonces $g$
+    tiene todas sus raíces en $\L$.        
+\end{tma}
+\begin{proof}
+    Podemos suponer que $f$ y $g$ son mónicos. Como $\L$ es el cuerpo de
+    descomposición de $f$:  
+    \[f=(t-\alpha_1)*\ldots*(t-\alpha_n)\in\L[t]\text{ y } \L=\K[\alpha_1,\ldots,\alpha_n]\] 
+
+    Sea $\beta\in\L$ una raíz de $g$, como $g$ es mónico e irreducible en
+    $\K[t]$, $g=m_{\beta,\K}$. Por otro lado $\beta\in\L=
+    \K[\alpha_1,\ldots,\alpha_n]$ y por tanto existe un polinomio
+    $h\in\K[x_1,\ldots,x_n]$ tal que $\beta=h(\alpha_1,\ldots,\alpha_n)$.   
+    Sea
+    \begin{align*}
+        \K[x_1,\ldots,x_n][t]\ni S(x_1,\ldots,x_n,t)=&\prod_{\gamma\in S_n}
+    \left(t-h(x_{\gamma(1)},\ldots,x_{\gamma(n)})\right)\\
+        =& t^{n!}+p_1(x_1,\ldots,x_n)t^{n!-1}+\ldots+p_{n!}(x_1,\ldots,x_n).
+    \end{align*}
+    Los coeficientes $p_i$ de $S$ son polinomios simétricos en
+    $\K[x_1,\ldots,x_n]$. Como $\alpha_1,\ldots,\alpha_n$ son las raíces de
+    $f\in\K[t]$ entonces para toda $j$, $p_j(\alpha_1,\ldots,\alpha_n)\in\K$
+    (por el corolario~\ref{cor:polsimetricos}). Por tanto
+    $m(t)=S(\alpha_1,\ldots,\alpha_n,t)\in\K[t]$ y como
+    $t-h(\alpha_1,\ldots,\alpha_n)\mid m$, $m(\beta)=0$ de donde
+    $m_{\beta,\K}\mid m$ y $m$ tiene todas las raíces en $\L$.   
+\end{proof}
+\begin{ej}
+    $\Q(\sqrt[3]{2})$ no es el cuerpo de descomposición de ningún polinomio
+    $f\in\Q[t]$:
+
+    $t^3-2$ es irreducible y tiene una raíz en $\Q(\sqrt[3]{2})$ pero sus otras
+    dos raíces no están en $\Q(\sqrt[3]{2})$. 
 \end{ej}
 
 \end{document}
