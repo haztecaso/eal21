@@ -100,7 +100,7 @@
 
 \newcommand{\completar}{\fxfatal{Completar}}
 \newcommand{\revisar}{\fxnote{Revisar}}
-\newcommand{\grabacion}{Ver grabación\vspace{-2em}}
+\newcommand{\grabacion}{Ver grabación\completar}
 
 % \newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
 % \newcommand{\revisar}{\fbox{¡Revisar!}}
@@ -1832,7 +1832,7 @@ Se dan los siguientes dos casos:
         \beta^2 &\text{ es raíz de } g,\\
         \beta^4=(\beta^2)^2 &\text{ es raíz de } g,\\
         \beta^8 &\text{ es raíz de } g \text{ y}\\
-        \beta^16=\beta.
+        \beta^{16}=\beta.
     \end{align*}
     Y por tanto $\ord{\beta}=15$.
 \end{ej}
@@ -2040,6 +2040,8 @@ Se dan los siguientes dos casos:
 \end{ej}
 
 \fecha{24/03} % Ver grabación
+
+\section{Extensiones separables}
 
 \begin{defin}
     Sea $\K\subseteq\L$ una extensión y $\alpha\in\L$ algebraico sobre $\K$.
@@ -2421,7 +2423,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
         \item $\Phi_p(t)=t^{p-1}=t^{p-1}+t^{p-2}+\cdots+t+1$.
 
             \begin{proof}
-                \grabacion
+                \completar
             \end{proof}
 
             \begin{ej}
@@ -2431,8 +2433,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
         \item Si $r\geq1$, $\Phi_{p^r}(t)=\Phi_p(t^{p^{r-1}})$ 
             
             \begin{proof}
-                \grabacion
-
+                \completar
             \end{proof}
 
             \begin{ej}
@@ -2444,8 +2445,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
         \item Si $n$ es impar $\Phi_{2n}=\Phi_n(-t)$.  
 
             \begin{proof}
-                \grabacion
-                
+                \completar
             \end{proof}
 
             \begin{ej}\hspace{0pt}
@@ -2460,8 +2460,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
             $\Phi_n(t)$ entonces \[\Phi_{np}(t)=\frac{\Phi_n(t^p)}{\Phi_n(t)}.\]      
 
             \begin{proof}
-                \grabacion
-                
+                \completar
             \end{proof}
 
         \item Si $n=p_1^{r_1}*\ldots*p_s^{r_s}$ con $p_i$ primos distintos y
@@ -2470,8 +2469,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
             $q=p_1^{r_1-1}*\ldots*p_s^{r_s-1}$
 
             \begin{proof}
-                \grabacion
-                
+                \completar
             \end{proof}
 
     \end{enumerate}
@@ -2754,6 +2752,7 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
 \vfill
 \rule{17cm}{.5pt}\\[.15em] 
 \texttt{\footnotesize Apuntes digitalizados inacabados: continúan en papel y bolígrafo.}\\
+
 
 
 \end{document}
