@@ -80,6 +80,7 @@
 \newcommand{\car}[1]{\text{car}(#1)}
 \newcommand{\ord}[1]{\text{ord}(#1)}
 \newcommand{\mcd}[1]{\text{mcd}(#1)}
+\newcommand{\gal}[1]{\text{Gal}(#1)}
 
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
@@ -2749,10 +2750,215 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
     dos raíces no están en $\Q(\sqrt[3]{2})$. 
 \end{ej}
 
+\fecha{15/04}
+
+\begin{defin}
+    Decimos que una extensión algebraica $\K\subseteq\L$ es \textit{normal} si
+    todo polinomio irreducible $g\in\K[t]$ tal que $g$ tiene una raíz en $\L$ se
+    descompone completamente sobre $\L$:
+    \[g=c(t-\beta_1)*\ldots*(t-\beta_n)\in\L[t]\] 
+\end{defin}
+
+\begin{tma}
+    Sea $\K\subseteq\L$ una extensión algebraica. Son equivalentes:
+    \begin{enumerate}
+        \item $\L$ es el cuerpo de descomposición de un polinomio $f\in\K[t]$  
+        \item $\K\subseteq\L$ es una extensión finita y normal.
+    \end{enumerate}
+\end{tma}
+
+
+\chapter{Grupo de Galois de una extensión}
+De aquí en adelante están incluidas solo las definiciones y los teoremas más
+importantes.
+
+\section{El grupo de galois}
+
+Sea $\K\subseteq\L$ una extensión. Recordemos que $\sigma:\L\to\L$ es un
+\textit{automorfismo} si $\sigma$ es \textit{isomorfismo de anillos}.
+
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión, definimos su \textit{grupo de Galois} como
+    \[\gal{\L /\K} = \left\{ \sigma:\L\to\L\mid\sigma\text{ automorfismo},
+    \sigma(a)=a\ \forall a \in\K  \right\}\]
+\end{defin}
+
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión finita y $H$ un subgrupo de
+    $\gal{\L /\K}$, definimos el \textit{cuerpo fijo} de $H$ en $\L$ como
+    \[\L_{H}=\left\{ a\in\L\mid\sigma(a)=a\ \forall\sigma\in H \right\} \] 
+\end{defin}
+
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión. Si es finita, separable y normal se dice
+    que es una \textit{extensión de Galois}.
+\end{defin} 
+
+\section{Elementos y cuerpos conjugados}
+
+\begin{defin}
+    Sea $\K\subseteq\L$ una extensión finita. Decimos que $a,b\in\L$ son
+    \textit{conjugados} si $b=\sigma(a)$ para algún $\sigma\in\gal{\L /\K}$.
+\end{defin}
+
+\begin{lema}
+    Sea $\K\subseteq\L$ una extensión finita, $\K\subseteq\F\subseteq\L$ y
+    $\sigma\in\gal{\L /\K}$. Entonces $\K\subseteq\sigma(F)\subseteq\L$,
+    $\sigma(\F)$ es un cuerpo y $\left[ \sigma(\F):\K \right] =\left[ \F:\K \right] $    
+\end{lema}
+
+\begin{defin}
+    Sean $\K,\L,\F$ y $\sigma$ como en el lema anterior. A $\sigma(\F)$ lo
+    llamamos \textit{cuerpo conjugado} de $\F$.    
+\end{defin}
+
+\begin{tma}
+    Sean $\K\subseteq\F\subseteq\L$ extensiones de cuerpos con $\K\subseteq\F$
+    y $\K\subseteq\L$ extensiones de Galois. Entonces se tiene que $\gal{\L /\F}
+    \triangleleft\gal{\L /\K}$ y hay un isomorfismo entre $\gal{\L /\K}/\gal{\L
+    /\F}$ y $\gal{\F /\K}$.   
+\end{tma}
+
+\begin{tma}[fundamental de la Teoria de Galois I]
+    Sea $\K\subseteq\L$ una extensión de Galois.
+    \begin{enumerate}
+        \item Para cada cuerpo intermedio $\K\subseteq\F\subseteq\L$ su grupo de
+            galois $\gal{\L /\F}\subseteq\gal{\L /\K}$ tiene cuerpo fijo
+            \[\L_{\gal{\L /\F}}=\F.\]
+            Además $\left| \gal{\L /\F} \right|=[\L:\F]$ y
+            $\left[  \gal{\L /\K}: \gal{\L /\F}\right]=[\F:\K]$.
+
+        \item Para cada subgrupo $H \subseteq\gal{\L /\K}$ el cuerpo
+            fijo $\K\subseteq\L_H\subseteq\L$ tiene grupo de Galois
+            $\gal{\L /\L_H}=H$.  
+            Además $\left[ \L:\L_H \right]=|H|$ y $\left[ \L_H:\K \right]
+            =\left[ \gal{\L /\K}:H\right]$.
+    \end{enumerate}
+\end{tma}
+
+\begin{tma}[fundamental de la Teoría de Galois II]
+    Sea $\K\subseteq\L$ una extensión de Galois. Entonces se tiene que las
+    aplicaciones entre el conjunto de subcuerpos intermedios
+    $\left\{ \F \mid \K\subseteq\F\subseteq\L\right\} $   y el de los subgrupos
+    $\left\{ H | H < \gal{\L /\F} \right\}$ definidas por
+    \begin{align*}
+        \F&\mapsto\gal{\L /\F}\\
+        H&\mapsto\L_H
+    \end{align*}
+    son biyecciones que invierten el sentido de la inclusión. Además son
+    inversas una de la otra.
+\end{tma}
+
+\chapter{Resolubilidad por radicales}
+\section{Presentación panorámica del tema}
+
+\begin{defin}
+    Decimos que $\K\subseteq\L$ es una \textit{extensión radical} si existen
+    cuerpos
+    $\K=\K_0\subseteq\K_1\subseteq\ldots\subseteq\K_{n-1}\subseteq\K_n=\L$ de
+    forma que existan $\delta_i\in\K_i$ tales que $\K_i=\K_{i-1}[\delta_i]$ y
+    $\delta_i^{m_i}\in\K_{i-1}$ para algunos $m_i>0$.      
+\end{defin}
+
+\begin{obs}
+    En esta definición, si $b_i=\delta_i^{m_i}$, podemos decir que $\delta_i$ es
+    una raíz $m_i$-ésima de $b_i$ y escribimos $\delta_i=\sqrt[m_i]{b_i}$
+    simbólicamente, de forma que $\K_i=\K_{i-1}\left(\sqrt[m_i]{b_i}\right)$.
+\end{obs}
+
+\begin{defin}
+    Sea $f\in\K[t]$ con $\L$ su cuerpo de descomposición sobre $\K$. Decimos que
+    $f$ es \textit{resoluble por radicales} si existe una extensión radical
+    $\K\subseteq \mathbb{M}$ tal que $\L\subseteq\mathbb{M}$.   
+
+    Si $f$ es resoluble por radicales entonces podemos expresar las raíces de
+    $f$ mediante una fórmula con $+$, $*$ y $\sqrt{\ }$.
+\end{defin}
+
+\paragraph{Problema:}
+Determinar cuándo es posible resolver un polinomio por radicales. Antes de
+Galois se sabía que es posible para todos los polinomios de grados 2, 3 y 4,
+pero no se conocía el caso de grado 5.
+
+La idea clave es transformar el problema en uno de teoría de grupos. El concepto
+fundamental es el de \textit{grupo resoluble}:
+
+\begin{defin}
+    Un grupo $G$ es resoluble si existe una cadena de subgrupos
+    \[\left\{ 1 \right\} = H_0 < H_1 < \ldots < H_{r-1} < H_r = G\] 
+    tal que $H_{i-1}\triangleleft H_i$ y $H_i / H_{i-1}$ es abeliano para todo
+    $i\in\left\{ 1,\ldots,r \right\}$.   
+\end{defin}
+
+\begin{lema}
+    Sea $G$ un grupo finito. Entonces $G$ es resoluble si y solo si existe una
+    cadena de subgrupos 
+    \[\left\{ 1 \right\} = H_0 < H_1 < \ldots < H_{r-1} < H_r = G\] 
+    tal que $H_{i-1}\triangleleft H_i$ y $H_i / H_{i-1}$ tiene orden primo para
+    todo $i\in\left\{ 1,\ldots,r \right\}$.   
+\end{lema}
+
+\begin{lema}
+    Sea $G$ un grupo finito y $H<G$.
+    \begin{enumerate}
+        \item Si $G$ es resoluble entonces $H$ es resoluble
+        \item Si $H\triangleleft G$ entonces $G$ es resoluble si y sólo si $H$ y
+            $G/H$ son resolubles. 
+    \end{enumerate}
+\end{lema}
+
+\begin{tma}[de Abel]
+    Si $n\geq5$ el grupo $A_n$ es simple, es decir no tiene subgrupos propios
+    normales.
+\end{tma}
+
+\begin{tma}
+    Si $n\geq5$ entonces los grupos $A_n$ y $S_n$ no son resolubles.   
+\end{tma}
+
+\begin{tma}[de Galois]
+    Sea $\L$ el cuerpo de descomposición de $f\in\K[t]$ con $\car{\K}=0$. Son
+    equivalentes:
+    \begin{enumerate}
+        \item $f$ es resoluble por radicales
+        \item $\gal{\L /\K}$ es un grupo resoluble. 
+    \end{enumerate}
+\end{tma}
+
+\section{Clausura de Galois y extensiones resolubles}
+
+\begin{lema}
+    Sea $\L$ un cuerpo y $\K_1\subseteq\L$, $\K_2\subseteq\L$ subcuerpos.
+    Entonces existe un subcuerpo $\mathbb{M}\subseteq\L$ tal que $\K_1,
+    \K_2\subseteq\mathbb{M}$ y si $\K_1, \K_2\subseteq\mathbb{M}'\subseteq\L$
+    entonces $\mathbb{M}\subseteq\mathbb{M}'$    
+\end{lema}
+
+\begin{defin}
+    El subcuerpo $\mathbb{M}$ del lema anterior se denomina \textit{compositum}
+    de $\K_1$ y $\K_2$ y se denota $\K_1\K_2$.
+\end{defin}
+
+\begin{prop}\hspace{1pt}
+    \begin{enumerate}
+        \item Sea $\K\subseteq\F$ una extensión finita con $\car{\K}=0$.
+            entonces existe una extensión $\F\subseteq\L$ tal que
+            $\K\subseteq\L$ es de galois.    
+        \item Si tenemos una extensión $\F\subseteq\mathbb{M}$ tal que
+            $\K\subseteq\mathbb{M}$ es de Galois entonces existe $\F\subseteq
+            \L'\subseteq\mathbb{M}$ tal que las extensiones $\F\subseteq\L$ y
+            $\F\subseteq\L'$ son isomorfas.
+    \end{enumerate}
+\end{prop}
+
+\begin{defin}
+    La extensión $\F\subseteq\L$ dada por la proposición anterior se denomina
+    \textit{clausura de Galois} de $\K\subseteq\F$. 
+\end{defin}
+
+
+
 \vfill
 \rule{17cm}{.5pt}\\[.15em] 
 \texttt{\footnotesize Apuntes digitalizados inacabados: continúan en papel y bolígrafo.}\\
-
-
-
 \end{document}
