@@ -100,6 +100,7 @@
 
 \newcommand{\completar}{\fxfatal{Completar}}
 \newcommand{\revisar}{\fxnote{Revisar}}
+\newcommand{\grabacion}{Ver grabación\vspace{-2em}}
 
 % \newcommand{\completar}{\fbox{\textbf{¡Completar!}}}
 % \newcommand{\revisar}{\fbox{¡Revisar!}}
@@ -612,7 +613,7 @@ Si $\L=\K(\alpha_1,\ldots,\alpha_n)$ y $1\leq r\leq n-1$,
 Sean $\K\subseteq\L$ una extensión de cuerpos y $\beta\in\L$ trascendente,
 consideramos la extensión $\K\subseteq\K(\beta)$
 
-\begin{prop}\label{prop:propiedadesevaluacion}
+\begin{prop}\label{prop:propiedadesevaluaciontrasc}
     Si $\beta\in\L$ es trascendente sobre $\K$ el homomorfismo de evaluación en
     $\beta$
     \begin{align*}
@@ -644,7 +645,7 @@ consideramos la extensión $\K\subseteq\K(\beta)$
 
 Veamos ahora el caso en el que $\beta$ es algebraico.
 
-\begin{lema}
+\begin{prop}\label{prop:propiedadesevaluacionalg}
     Si $\beta\in\L$ es algebraico sobre $\K$, sea $\phi:\K[t]\to L$ el
     homomorfismo de evaluación en $\beta$. Entonces
     \begin{enumerate}
@@ -657,7 +658,7 @@ Veamos ahora el caso en el que $\beta$ es algebraico.
             \end{matrix*}\]
             es un isomorfismo. En particular $\K[\beta]$ es un cuerpo.
     \end{enumerate}
-\end{lema}
+\end{prop}
 
 \begin{proof}\hspace{0pt}
     \begin{enumerate}
@@ -1355,7 +1356,7 @@ donde $\omega = e^{2\pi i /n}$. Y por tanto forman un grupo cíclico.
                     Como $\alpha_1$ es algebraico tenemos además que
                     $\K_1(\alpha_1)=\K_1[\alpha_1]\cong
                     \frac{\K_1[t]}{\left<h_1\right>}$ mediante el isomorfismo
-                    dado por la proposición~\ref{prop:propiedadesevaluacion}:
+                    dado por la proposición~\ref{prop:propiedadesevaluacionalg}:
                     \begin{align*}
                         \psi_1: \K_1[\alpha_1]&\to \frac{\K_1[t]}{\left< h_1
                         \right>}\\
@@ -2420,7 +2421,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
         \item $\Phi_p(t)=t^{p-1}=t^{p-1}+t^{p-2}+\cdots+t+1$.
 
             \begin{proof}
-                \completar
+                \grabacion
             \end{proof}
 
             \begin{ej}
@@ -2430,7 +2431,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
         \item Si $r\geq1$, $\Phi_{p^r}(t)=\Phi_p(t^{p^{r-1}})$ 
             
             \begin{proof}
-                \completar
+                \grabacion
 
             \end{proof}
 
@@ -2443,7 +2444,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
         \item Si $n$ es impar $\Phi_{2n}=\Phi_n(-t)$.  
 
             \begin{proof}
-                \completar
+                \grabacion
                 
             \end{proof}
 
@@ -2459,7 +2460,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
             $\Phi_n(t)$ entonces \[\Phi_{np}(t)=\frac{\Phi_n(t^p)}{\Phi_n(t)}.\]      
 
             \begin{proof}
-                \completar
+                \grabacion
                 
             \end{proof}
 
@@ -2469,7 +2470,7 @@ donde $\overline{a_j}=a_j\mod p \in\Z_p$.
             $q=p_1^{r_1-1}*\ldots*p_s^{r_s-1}$
 
             \begin{proof}
-                \completar
+                \grabacion
                 
             \end{proof}
 
@@ -2749,5 +2750,10 @@ Sea $n=p_1^{r_1}*\ldots*p_r^{r_s}$ con $p_i$ primos distintos y $r_i\geq1$.
     $t^3-2$ es irreducible y tiene una raíz en $\Q(\sqrt[3]{2})$ pero sus otras
     dos raíces no están en $\Q(\sqrt[3]{2})$. 
 \end{ej}
+
+\vfill
+\rule{17cm}{.5pt}\\[.15em] 
+\texttt{\footnotesize Apuntes digitalizados inacabados: continúan en papel y bolígrafo.}\\
+
 
 \end{document}
